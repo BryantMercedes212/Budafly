@@ -17,31 +17,35 @@ https://www.figma.com/file/YPCgLj9TMwHOr6WSyWsyl2/Budafly?node-id=0%3A1
 
 
 Which industry does this app belong to? 
-Marketplace / Consumer Goods
+- Marketplace / Consumer Goods
 
 Who is this product for (customer persona)
-Sellers / Consumers (Over 21)
-Distributor/Company 
+- Sellers / Consumers (Over 21)
+- Distributor/Company 
 
 What problem does it solve?
-Safety
-Save Travel Time / Skip the Commute
-Privacy
-Accessibility
+- Safety
+- Save Travel Time / Skip the Commute
+- Privacy
+- Accessibility
 
 Why is this problem important?
-Reassurance that the product is safe. 
-Privacy for discreet purchases.
-Traditionally, sellers need to get in contact with buyers via sketchy methods and test the product out yourself after the product has been bought, but this app guarantees the safety of the user as you are aware of the seller and the authenticity of the product.
+- Reassurance that the product is safe. 
+- Privacy for discreet purchases.
+- Traditionally, sellers need to get in contact with buyers via sketchy methods and test the product out yourself after the product has been bought, but this app guarantees the safety of the user as you are aware of the seller and the authenticity of the product.
 
 How does it(app) compare to the alternatives?
-Our e-commerce site will allow our buyers to get connected to a variety of sellers that have a variety of products and eliminate minimum purchases. As for our seller they will reach more consumers. As a stretch, (compare prices across multiple sites).
+- Our e-commerce site will allow our buyers to get connected to a variety of sellers that have a variety of products and eliminate minimum purchases. 
+- As for our seller they will reach more consumers.
+- As a stretch, (compare prices across multiple sites).
 
 What tasks does the app perform in order to solve the problem?
-Our e-commerce site will allow our buyers to get connected to a variety of sellers that have a variety of products and eliminate minimum purchases. As for our seller they will reach more consumers. As a stretch, (compare prices across multiple sites).
+- Our e-commerce site will allow our buyers to get connected to a variety of sellers that have a variety of products and eliminate minimum purchases. 
+- As for our seller they will reach more consumers. 
+- As a stretch, (compare prices across multiple sites).
 
 What are the expected outcomes?
-The Amazon for cannabis! 
+- The Amazon for cannabis! 
 
 
 
