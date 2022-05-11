@@ -34,7 +34,7 @@ Why is this problem important?
 - Privacy for discreet purchases.
 - Traditionally, sellers need to get in contact with buyers via sketchy methods and test the product out yourself after the product has been bought, but this app guarantees the safety of the user as you are aware of the seller and the authenticity of the product.
 
-How does it(app) compare to the alternatives?
+How does it compare to the alternatives?
 - Our e-commerce site will allow our buyers to get connected to a variety of sellers that have a variety of products and eliminate minimum purchases. 
 - As for our seller they will reach more consumers.
 - As a stretch, (compare prices across multiple sites).
