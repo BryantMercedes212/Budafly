@@ -15,11 +15,12 @@ https://lucid.app/lucidchart/b11c9433-0936-4f71-8517-22f28f6bd65d/edit?invitatio
 
 https://www.figma.com/file/YPCgLj9TMwHOr6WSyWsyl2/Budafly?node-id=0%3A1
 
+### Ideation
 
 Which industry does this app belong to? 
 - Marketplace / Consumer Goods
 
-Who is this product for (customer persona)
+Who is this product for (customer / persona)?
 - Sellers / Consumers (Over 21)
 - Distributor/Company 
 
