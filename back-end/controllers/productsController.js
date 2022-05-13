@@ -13,4 +13,4 @@ products.get("/", (_, response) => {
 });
 
 //Export
-module.exports = events;
+module.exports = products;
