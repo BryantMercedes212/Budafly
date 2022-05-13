@@ -66,7 +66,4 @@ const getOne = async (id) => {
   };
 
 
-  module.exports = {
-    getAllProducts,
-    getOne,
-  };
+  
