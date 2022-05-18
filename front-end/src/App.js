@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
+import Product from "./Components/singleProduct";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
+          <Route path="/products/:id" element={<Product />} />
         </Routes>
       </div>
     );
