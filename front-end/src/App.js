@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
+import Product from "./Components/singleProduct";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
@@ -16,6 +17,7 @@ class App extends Component {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
+          <Route path="/products/:id" element={<Product />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
