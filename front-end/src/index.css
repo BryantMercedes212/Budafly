@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.nav li {
+  display: inline;
+  float: left;
+}
+
+.nav a {
+  display: block;
+  padding: 8px;
+}
+
+li {
+    list-style-type: none;
+}
