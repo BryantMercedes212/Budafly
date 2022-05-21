@@ -12,3 +12,12 @@ CREATE TABLE products (
     price INT,
     image TEXT
 );
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    firstname TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    product_id INTEGER REFERENCES products(id)
+);

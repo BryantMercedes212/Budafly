@@ -2,7 +2,7 @@ const db = require("../db/dbConfig.js");
 
 const getAllProducts = async () => {
   try {
-    const allProducts = await db.any("SELECT * FROM products]");
+    const allProducts = await db.any("SELECT * FROM products");
     console.log(allProducts);
     return allProducts;
   } catch (error) {
@@ -48,7 +48,7 @@ const getOne = async (id) => {
     try {
       let { name, description, price, image } = product;
       const updatedOne = await db.one(
-        "UPDATE baked SET name=$2, description=$3, price=$4, image=$5 WHERE id=$1 RETURNING *",
+        "UPDATE products SET name=$2, description=$3, price=$4, image=$5 WHERE id=$1 RETURNING *",
         [id, name, description, price, image]
       );
       return updatedOne;

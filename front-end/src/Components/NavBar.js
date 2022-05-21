@@ -11,6 +11,18 @@ const NavBar = () => {
           <li>
             <Link to="/About">🅰🅱🅾🆄🆃</Link>
           </li>
+          <li>
+            <Link to="/Login">User Login</Link>
+          </li>
+          <li>
+            <Link to="/Signup">Create an Account</Link>
+          </li>
+          <li>
+            <Link to="/Search">search</Link>
+          </li>
+          <li>
+            <Link to="/Cart">Cart</Link>
+          </li>
         </ul>
       </nav>
     </div>
