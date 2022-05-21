@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ addItem }) => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -26,6 +26,7 @@ const Home = () => {
         <h3>{product.name}</h3>
         <p>${product.price}</p>
         <Link to={`/products/${product.id}`}> More details</Link>
+        <button onClick={() => addItem(product)}>Add To Cart</button>
       </article>
     );
   });
