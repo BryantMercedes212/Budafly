@@ -3,7 +3,6 @@ import { useRef } from "react";
 const Cart = ({ cart }) => {
   const total = useRef(0);
   const products = cart.map((item, i) => {
-    console.log("price", item.price);
     total.current += item.price;
 
     return (
@@ -15,7 +14,6 @@ const Cart = ({ cart }) => {
     );
   });
 
-  console.log(total.current);
   return (
     <>
       {products}${total.current}
