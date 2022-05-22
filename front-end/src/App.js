@@ -8,7 +8,7 @@ import Product from "./Components/singleProduct";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
-import SearchBar from "./Components/searchBar";
+import SearchBar from "./Components/SearchBar";
 import Cart from "./Components/Cart";
 
 const App = () => {
