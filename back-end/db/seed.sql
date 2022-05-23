@@ -7,7 +7,7 @@ VALUES
 ('Dosidos', 'Dosidos, is an indica-dominant hybrid marijuana.', 52, 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.JsD7Cg9HgNTqSC2HQtTIVQHaEo%26pid%3DApi&f=1'),
 ('Ice','Ice is a hybrid marijuana strain made by combining multiple strains into one seed line: Skunk #1, Afghani, Northern Lights, and Shiva.', 42, 'https://www.mailorder-marijuana.com/wp-content/uploads/2020/07/ice-cream-weed-strain.jpg' );
 
-INSERT INTO users (firstname, lastname, products_id)
+INSERT INTO users (firstname, lastname, product_id)
 VALUES 
 ('John', 'Doe', 1),
 ('Richard', 'Smith', 1),
