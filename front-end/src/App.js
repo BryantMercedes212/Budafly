@@ -54,7 +54,8 @@ const App = () => {
         <Route
           path="/Cart"
           element={<Cart cart={cart} deleteItem={deleteItem} />}
-        />
+        />{" "}
+        <Route path="/Search" element={<SearchBar />} />
       </Routes>
     </div>
   );
