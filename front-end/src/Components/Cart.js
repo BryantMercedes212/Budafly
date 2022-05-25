@@ -6,7 +6,6 @@ const Cart = ({ cart, deleteItem }) => {
     total += item.price;
     console.log(total);
     return (
-
       <div className="cart">
         <div className="item" key={i}>
           {" "}
@@ -19,23 +18,19 @@ const Cart = ({ cart, deleteItem }) => {
             <button className="plus-btn">+</button>
             <p>1</p>
             <button className="minus-btn">-</button>
- 
           </div>
- <button onClick={() => deleteItem(i)}> yo</button>
+          <button onClick={() => deleteItem(i)}> yo</button>
         </div>
       </div>
-
     );
   });
 
   {
   }
   return (
-
     <div className="total-price">
-      {products} Total: ${total.current}
+      {products} Total: ${total}
     </div>
-
   );
 };
 
