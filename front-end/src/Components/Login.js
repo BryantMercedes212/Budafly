@@ -6,32 +6,32 @@ export default function LogIn() {
     <div className="text-center m-5-auto">
       <h2>Log In</h2>
       <form action="/">
-        <p>
-          <label>Username or Email address</label>
+        <div>
+          <label for="email">Email Address</label>
           <br />
-          <input type="text" name="user_name" required />
-        </p>
-        <p>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
           <label>Password</label>
           <br />
-          <input type="password" name="password" required />
-        </p>
-        <p>
-          <button id="submit_button" type="submit">
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div>
+          <button id="submitButton" type="submit">
             Login
           </button>
-        </p>
+        </div>
       </form>
       <footer>
-        <p>
+        <div>
           Need to Sign Up? <Link to="/signup">Sign Up</Link>.
-        </p>
-        <Link to="/forgotpassword">
+        </div>
+        <Link to="/forgotPassword">
           <label className="right-label">Forgot Your Password?</label>
         </Link>
-        <p>
+        <div>
           <Link to="/">Back to Home</Link>.
-        </p>
+        </div>
       </footer>
     </div>
   );

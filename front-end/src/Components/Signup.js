@@ -7,35 +7,30 @@ export default function SignUp() {
       <h2>Sign Up </h2>
       <h5>Create an Account</h5>
       <form action="/">
-        <p>
-          <label>Username</label>
+        <div>
+          <label for="email">Email Address</label>
           <br />
-          <input type="text" name="user_name" required />
-        </p>
-        <p>
-          <label>Email address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="password">Password</label>
           <br />
-          <input type="email" name="email" required />
-        </p>
-        <p>
-          <label>Password</label>
-          <br />
-          <input type="password" name="password" required />
-        </p>
-        <p>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div>
           <input type="checkbox" name="checkbox" id="checkbox" required />{" "}
           <span>I'm at least 21yrs old</span>.
-        </p>
-        <p>
-          <button id="submit_button" type="submit">
+        </div>
+        <div>
+          <button id="submitButton" type="submit">
             Sign Up
           </button>
-        </p>
+        </div>
       </form>
       <footer>
-        <p>
+        <div>
           <Link to="/">Lets Go Back Home</Link>.
-        </p>
+        </div>
       </footer>
     </div>
   );
