@@ -6,7 +6,7 @@ export default function SignUp() {
     <div className="text-center m-5-auto">
       <h2>Sign Up </h2>
       <h5>Create an Account</h5>
-      <form action="/">
+      <form action="/login">
         <div>
           <label for="email">Email Address</label>
           <br />
