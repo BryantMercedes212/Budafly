@@ -1,11 +1,12 @@
 import { useRef } from "react";
 
-const Cart = ({ cart }) => {
-  const total = useRef(0);
+const Cart = ({ cart, deleteItem }) => {
+  let total = 0;
   const products = cart.map((item, i) => {
-    total.current += item.price;
-
+    total += item.price;
+    console.log(total);
     return (
+
       <div className="cart">
         <div className="item" key={i}>
           {" "}
@@ -18,18 +19,23 @@ const Cart = ({ cart }) => {
             <button className="plus-btn">+</button>
             <p>1</p>
             <button className="minus-btn">-</button>
+ 
           </div>
+ <button onClick={() => deleteItem(i)}> yo</button>
         </div>
       </div>
+
     );
   });
 
   {
   }
   return (
+
     <div className="total-price">
       {products} Total: ${total.current}
     </div>
+
   );
 };
 
