@@ -21,13 +21,19 @@ const Home = ({ addItem }) => {
 
   return products.map((product) => {
     return (
-      <article key={product.id}>
-        <img src={product.image} />
-        <h3>{product.name}</h3>
-        <p>${product.price}</p>
-        <Link to={`/products/${product.id}`}> More details</Link>
-        <button onClick={() => addItem(product)}>Add To Cart</button>
-      </article>
+      <div className="wrapper">
+        <article key={product.id}>
+          <img src={product.image} />
+          <h3>{product.name}</h3>
+          <p>${product.price}</p>
+          <Link className="item-link" to={`/products/${product.id}`}>
+            {" "}
+            More details
+          </Link>
+          <br></br>
+          <button onClick={() => addItem(product)}>Add To Cart</button>
+        </article>
+      </div>
     );
   });
 };

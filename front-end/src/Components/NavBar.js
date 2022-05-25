@@ -6,10 +6,10 @@ const NavBar = () => {
       <nav className="nav">
         <ul className="nav-links">
           <li>
-            <Link to="/">🅷🅾🅼🅴</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/About">🅰🅱🅾🆄🆃</Link>
+            <Link to="/About">ABOUT</Link>
           </li>
           <li>
             <Link to="/Login">User Login</Link>
@@ -21,7 +21,7 @@ const NavBar = () => {
             <Link to="/Search">search</Link>
           </li>
           <li>
-            <Link to="/Cart">Cart</Link>
+            <Link to="/Cart">🛒</Link>
           </li>
         </ul>
       </nav>
