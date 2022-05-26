@@ -11,9 +11,10 @@ const {
 } = require("../queries/products");
 
 // Configuration
-const products = express.Router();
+const products = express.Router({mergeParams: true });
 
-// GET
+// GET all products buyer's view
+//localhost:3333/products
 products.get("/", async (request, response) => {
 
     console.log("GET request to /products");
@@ -34,15 +35,15 @@ products.get("/:id", async (request, response) => {
     response.status(200).json(oneProduct);
 });
 
-//POST
-products.post("/", async (request, response) => {
+// //POST
+// products.post("/", async (request, response) => {
 
-    console.log("POST request to /products");
+//     console.log("POST request to /products");
 
-    const newProduct = await createOne(request.body);
-    console.log(newProduct);
-    response.status(200).json(newProduct);
-})
+//     const newProduct = await createOne(request.body);
+//     console.log(newProduct);
+//     response.status(200).json(newProduct);
+// })
 
 // DELETE
 products.delete("/:id", async (request, response) => {

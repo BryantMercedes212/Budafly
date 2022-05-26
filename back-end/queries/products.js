@@ -10,6 +10,16 @@ const getAllProducts = async () => {
   }
 };
 
+const getAllProducts = async (id) => {
+  try {
+    const allProducts = await db.any("SELECT * FROM products WHERE seller_id=$1', id");
+    console.log(allProducts);
+    return allProducts;
+  } catch (error) {
+    return error;
+  }
+};
+
 const getOne = async (id) => {
     try {
       const one = await db.one("SELECT * FROM products WHERE id=$1", id);
