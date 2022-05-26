@@ -14,8 +14,11 @@ app.get("/", (request, response) => {
 });
 
 // Products ROUTES
-const productsController = require("./controllers/productsController.js");
+const productsController = require("./controllers/productsController");
 app.use("/products", productsController);
+
+const userController = require("./controllers/userController");
+app.use("/users", userController);
 
 // 404 Page
 app.get("*", (request, response) => {

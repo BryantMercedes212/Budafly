@@ -16,21 +16,3 @@ VALUES
 ('Seller', 'Four', 'hmail4@ymail.com', '212-111-1114'),
 ('Seller', 'Five', 'imail5@ymail.com', '212-111-1115'),
 ('Seller', 'Six', 'jmail6@ymail.com', '212-111-1116');
-
-
--- INSERT INTO users (firstname, lastname, product_id)
--- VALUES 
--- ('John', 'Doe', 1),
--- ('Richard', 'Smith', 1),
--- ('Tiffany', 'Smith', 2),
--- ('Xavier', 'Atencio', 1);
-
-/*
-CREATE TABLE sellers (
-    seller_id SERIAL primary key,
-    firstname TEXT NOT NULL,
-    lastname TEXT NOT NULL,
-    email VARCHAR UNIQUE NOT NULL,
-    phone_number VARCHAR UNIQUE NOT NULL
-)
-*/

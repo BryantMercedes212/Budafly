@@ -1,9 +1,17 @@
 const express = require("express");
 const users = express.Router();
-const { getAllSellers, addNewSeller } = require("../queries/users");
+const {
+  getAllSellers,
+  getOneSeller,
+  getListedProducts,
+  getOneProduct,
+  createOneProduct,
+  updateOneProduct,
+  deleteOneProduct,
+} = require("../queries/users");
 
 const productsController = require("./productsController");
-users.use("/:seller_id/productsController", productsController);
+users.use("/:user_id/productsController", productsController);
 
 users.get("/", async (req, res) => {
   const users = await getAllSellers();
@@ -11,66 +19,77 @@ users.get("/", async (req, res) => {
   res.status(200).json(users);
 });
 
-users.post("/new", async (req, res) => {
-  const newUser = req.body;
-  const users = await addNewSeller(newUser);
-  res.status(200).json(users);
-});
+
+// users.post("/new", async (req, res) => {
+//   const newUser = req.body;
+//   const users = await addNewSeller(newUser);
+//   res.status(200).json(users);
+// });
+
+users.get("/:user_id", async (request, response) => {
+    console.log("GET request to /:user_id");
+    const { user_id } = request.params;
+    const oneSeller = await getOneSeller(user_id);
+    console.log(oneSeller);
+    response.status(200).json(oneSeller);
+  });
 
 // GET an individual seller's products only
 // localhost:3333/users/:user_id/products
-users.get("/:user_id/products", async (req, res) => {
+users.get("/:user_id/products", async (request, response) => {
   console.log("GET request to /products/:user_id");
-  const { user_id } = req.params;
-
-  const allProducts = await getAllSaleProducts(user_id);
+  const { user_id } = request.params;
+  const allProducts = await getListedProducts(user_id);
   console.log(allProducts);
-  res.status(200).json(allProducts);
+  response.status(200).json(allProducts);
 });
 
+// single product (seller view)
 users.get("/:user_id/products/:id", async (request, response) => {
   console.log("GET request to /products/:id");
-
   const { id } = request.params;
-  const oneProduct = await getOne(id);
+  const oneProduct = await getOneProduct(id);
   console.log(oneProduct);
   response.status(200).json(oneProduct);
 });
 
-// ** test with both '/:user_id/products/new' and just the '/:user_id/products/'
+// list a new product (seller)
 users.post("/:user_id/products", async (request, response) => {
   console.log("POST request to /products");
- 
-  const newProduct = await createOne(request.body);
+  const newProduct = await createOneProduct(request.body);
   console.log(newProduct);
   response.status(200).json(newProduct);
 });
 
-users.delete("/user_id/products/:id", async (request, response) => {
-  console.log("DELETE request to /products/:id");
 
-  const deletedProduct = await deleteOne(request.params.id);
-  console.log(deletedProduct);
-  response.status(200).json(deletedProduct);
-});
+// users.delete("/user_id/products/:id", async (request, response) => {
+//   console.log("DELETE request to /products/:id");
 
-// ** test with both '/:user_id/products/edit' and just the '/:user_id/products/'
+//   const deletedProduct = await deleteOneProduct(request.params.id);
+//   console.log(deletedProduct);
+//   response.status(200).json(deletedProduct);
+// });
+
+
+// update a product (seller)
 users.put("/:user_id/products/:id", async (request, response) => {
   console.log("PUT request to /products/:id");
-
-  const updatedProduct = await updateOne(request.params.id, request.body);
+  const updatedProduct = await updateOneProduct(
+    request.params.id,
+    request.body
+  );
   console.log(updatedProduct);
   response.status(200).json(updatedProduct);
 });
 
-
-users.delete("/:user_id/products/:id", async (req, res) => {
-  const { id } = req.params;
-  const product = await deleteProduct(id);
+// delete a product (seller)
+users.delete("/:user_id/products/:id", async (request, response) => {
+  const { id } = request.params;
+  const product = await deleteOneProduct(id);
   if (product) {
-    res.status(200).json(product);
+    response.status(200).json(product);
   } else {
-    res
+    response
       .status(404)
       .json({ error: `product with id of ${id} could not be deleted` });
   }
