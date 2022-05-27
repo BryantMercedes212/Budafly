@@ -15,8 +15,12 @@ app.get("/", (request, response) => {
 });
 
 // Products ROUTES
-const productsController = require("./controllers/productsController.js");
+const productsController = require("./controllers/productsController");
 app.use("/products", productsController);
+
+// Users ROUTES
+const userController = require("./controllers/userController");
+app.use("/users", userController);
 
 //  Login ROUTES
 const login = require("./controllers/login.js");
