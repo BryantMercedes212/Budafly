@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-const Product = () => {
+const Product = ({ addItem }) => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
 
@@ -21,13 +21,15 @@ const Product = () => {
   }, []);
 
   return (
-    <article key={product.id}>
-      <img src={product.image} />
-      <h3>{product.name}</h3>
-      <h2>{product.description}</h2>
-      <p>${product.price}</p>
-      <Link to={`/products/${product.id}`}> More details</Link>
-    </article>
+    <div className="wrapper">
+      <article key={product.id}>
+        <img className="product-img" src={product.image} />
+        <h3>{product.name}</h3>
+        <div className="product-des">{product.description}</div>
+        <p>${product.price}</p>
+        <button onClick={() => addItem(product)}>Add To Cart</button>
+      </article>
+    </div>
   );
 };
 
