@@ -46,7 +46,7 @@ users.get("/:user_id/products", async (request, response) => {
 
 // single product (seller view)
 users.get("/:user_id/products/:id", async (request, response) => {
-  console.log("GET request to /products/:id");
+  console.log("GET request to /users/1/products/4");
   const { id } = request.params;
   const oneProduct = await getOneProduct(id);
   console.log(oneProduct);
