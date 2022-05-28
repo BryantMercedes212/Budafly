@@ -58,10 +58,10 @@ const getOneProduct = async (id) => {
 
 const createOneProduct = async (product) => {
   try {
-    let { name, description, price, image } = product;
+    let { name, description, price, image, user_id } = product;
     const newOne = await db.one(
-      "INSERT INTO products (name, description, price, image) VALUES ($1, $2, $3, $4) RETURNING * ",
-      [name, description, price, image]
+      "INSERT INTO products (name, description, price, image, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING * ",
+      [name, description, price, image, user_id]
     );
     return newOne;
   } catch (error) {
