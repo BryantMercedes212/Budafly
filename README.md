@@ -5,16 +5,16 @@ Budafly, an e-commerce marketplace, that enables users to navigate through, and 
 
 ## User Stories 
 
-<a href="https://docs.google.com/document/d/1QvQDU1f0hAWIEF8oOh2_SovxtTWsUzkuj5XgCGjwiNQ/edit">User Stories<a>
+<a href="https://docs.google.com/document/d/1QvQDU1f0hAWIEF8oOh2_SovxtTWsUzkuj5XgCGjwiNQ/edit">User Stories Link<a>
 
 
 ## ERD
- <a href="https://lucid.app/lucidchart/b11c9433-0936-4f71-8517-22f28f6bd65d/edit?invitationId=inv_2033686f-e445-4914-b6b4-982be0e3916b&page=0_0#">ERD<a>
+ <a href="https://lucid.app/lucidchart/b11c9433-0936-4f71-8517-22f28f6bd65d/edit?invitationId=inv_2033686f-e445-4914-b6b4-982be0e3916b&page=0_0#">ERD Link<a>
 
 
 ## Wireframe
 
-<a href="https://www.figma.com/file/YPCgLj9TMwHOr6WSyWsyl2/Budafly?node-id=0%3A1">Wireframe<a>
+<a href="https://www.figma.com/file/YPCgLj9TMwHOr6WSyWsyl2/Budafly?node-id=0%3A1">Wireframe Link<a>
 
 ### Ideation
 
