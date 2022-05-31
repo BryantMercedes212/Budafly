@@ -9,7 +9,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
 
-import SearchBar from "./Components/SearchBar";
+import SearchBar from "./Components/Search";
 
 import Cart from "./Components/Cart";
 
