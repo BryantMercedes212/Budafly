@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function SignUp() {
   return (
+
     <div className="wrapper">
       <div className="text-center m-5-auto">
         <h2>Sign Up </h2>

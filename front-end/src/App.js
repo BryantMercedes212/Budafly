@@ -9,7 +9,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
 
-import SearchBar from "./Components/searchBar";
+import SearchBar from "./Components/Search";
 
 import Cart from "./Components/Cart";
 import LandingPage from "./Components/seller/landingPage";
@@ -57,7 +57,10 @@ const App = () => {
         <Route path="/seller/:id/products" element={<LandingPage />} />
         <Route path="/seller/:id/products/new" element={<AddProductForm />} />
         <Route path="/seller/:id/products/:pid" element={<SingleView />} />
-        <Route path="/seller/:id/products/:pid/edit" element={<EditProductForm />} />
+        <Route
+          path="/seller/:id/products/:pid/edit"
+          element={<EditProductForm />}
+        />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
@@ -66,7 +69,6 @@ const App = () => {
           element={<Cart cart={cart} deleteItem={deleteItem} />}
         />{" "}
         <Route path="/Search" element={<SearchBar />} />
-
       </Routes>
     </div>
   );
