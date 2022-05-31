@@ -7,6 +7,7 @@ const SearchBar = () => {
     setInput(e.target.value);
   };
 
+
   // return
   return (
     <div className="search">
