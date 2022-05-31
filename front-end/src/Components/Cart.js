@@ -6,23 +6,31 @@ const Cart = ({ cart, deleteItem }) => {
     total += item.price;
     console.log(total);
     return (
-      <article key={i}>
-        <div className="itemInformation">
+      <div className="cart">
+        <div className="item" key={i}>
           {" "}
-          <h1>{item.name}</h1>
-          <h3>${item.price}</h3>
-        </div>
-        <div className="cartButtons">
+          <div className="image">
+            <img src={item.image} />
+          </div>
+          <div className="name">{item.name}</div>
+          <div className="price">${item.price}</div>
+          <div className="quantity">
+            <button className="plus-btn">+</button>
+            <p>1</p>
+            <button className="minus-btn">-</button>
+          </div>
           <button onClick={() => deleteItem(i)}> yo</button>
         </div>
-      </article>
+      </div>
     );
   });
 
+  {
+  }
   return (
-    <>
-      {products}${total}
-    </>
+    <div className="total-price">
+      {products} Total: ${total}
+    </div>
   );
 };
 

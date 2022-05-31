@@ -8,8 +8,14 @@ import Product from "./Components/singleProduct";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
-import SearchBar from "./Components/SearchBar";
+
+import SearchBar from "./Components/searchBar";
+
 import Cart from "./Components/Cart";
+import LandingPage from "./Components/seller/landingPage";
+import SingleView from "./Components/seller/singleView";
+import EditProductForm from "./Components/seller/editProduct";
+import AddProductForm from "./Components/seller/addProductForm";
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -47,7 +53,11 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home addItem={addItem} />} />
         <Route path="/About" element={<About />} />
-        <Route path="/products/:id" element={<Product />} />
+        <Route path="/products/:id" element={<Product addItem={addItem} />} />
+        <Route path="/seller/:id/products" element={<LandingPage />} />
+        <Route path="/seller/:id/products/new" element={<AddProductForm />} />
+        <Route path="/seller/:id/products/:pid" element={<SingleView />} />
+        <Route path="/seller/:id/products/:pid/edit" element={<EditProductForm />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
@@ -56,6 +66,7 @@ const App = () => {
           element={<Cart cart={cart} deleteItem={deleteItem} />}
         />{" "}
         <Route path="/Search" element={<SearchBar />} />
+
       </Routes>
     </div>
   );
