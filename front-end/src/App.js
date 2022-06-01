@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
@@ -9,13 +9,14 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
 
-import SearchBar from "./Components/Search";
+//import Search from "./Components/Search";
 
 import Cart from "./Components/Cart";
 import LandingPage from "./Components/seller/landingPage";
 import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
+import FourOFour from "./Components/FourOFour";
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -68,7 +69,7 @@ const App = () => {
           path="/Cart"
           element={<Cart cart={cart} deleteItem={deleteItem} />}
         />{" "}
-        <Route path="/Search" element={<SearchBar />} />
+        <Route path="*" element={<FourOFour />} />
       </Routes>
     </div>
   );
