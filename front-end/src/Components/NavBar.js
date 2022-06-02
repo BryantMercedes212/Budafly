@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import Product from "./singleProduct";
 
 const NavBar = () => {
   return (
@@ -93,7 +94,7 @@ const NavBar = () => {
             <div class="buttons">
               <a class="button is-primary">
                 <strong>
-                  <Link to="/Login">User Login</Link>
+                  <Link to="/Login">Login</Link>
                 </strong>
               </a>
               <a class="button is-light">
@@ -103,6 +104,49 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+
+      {/*<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+        <ul class="container">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/Cart">Shopping Cart</a>
+          </li>
+          <li>
+            <a href="/About">About</a>
+          </li>
+          <li>
+            <a href="/Login">Login</a>
+          </li>
+          <li>
+            <a href="/Signup">Create an Account</a>
+          </li>
+          <li>
+            <a href="/ForgotPassword">Forgot Password</a>
+          </li>
+          <li>
+            <a href="/products/:id">Product</a>
+          </li>
+          <li>
+            <a href="/seller/:id/products/new">Sell New Product</a>
+          </li>
+          <li>
+            <a href="/seller/:id/products/:pid/edit">Edit Your Product</a>
+          </li>
+          <li>
+            <a href="/seller/:id/products/:pid">Products</a>
+          </li>
+          <li>
+            <a href="/seller/:id/products">All Your Products</a>
+          </li>
+          <li class="is-active">
+            <a href="#" aria-current="page">
+              Current Page
+            </a>
+          </li>
+        </ul>
+</nav>*/}
     </nav>
   );
 };
