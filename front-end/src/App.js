@@ -8,8 +8,11 @@ import Product from "./Components/singleProduct";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
-
+import Modal from "./Components/Modal";
 import SearchBar from "./Components/Search";
+import Faqs from "./Components/FAQs";
+import Laws from "./Components/Laws";
+import Demo from "./Components/seller/demoProfile";
 
 import Cart from "./Components/Cart";
 import LandingPage from "./Components/seller/landingPage";
@@ -18,6 +21,7 @@ import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
 
 const App = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [cart, setCart] = useState([]);
 
   const addItem = (item) => {
@@ -50,6 +54,16 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
+      <button
+        className="openModalBtn"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Shop Now
+      </button>
+
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
       <Routes>
         <Route exact path="/" element={<Home addItem={addItem} />} />
         <Route path="/About" element={<About />} />
@@ -69,6 +83,9 @@ const App = () => {
           element={<Cart cart={cart} deleteItem={deleteItem} />}
         />{" "}
         <Route path="/Search" element={<SearchBar />} />
+        <Route path="/FAQs" element={<Faqs />} />
+        <Route path="/Laws" element={<Laws />} />
+        <Route path="/userProfile" element={<Demo />} />
       </Routes>
     </div>
   );
