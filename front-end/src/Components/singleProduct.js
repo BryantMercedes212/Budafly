@@ -59,9 +59,9 @@ const Product = ({ addItem }) => {
     <div class="start">
       <div class="section">
         <div class="container">
-          <div class="columns">
+          <div class="columns is-multilined">
             <div class="column is-7">
-              <div class="tabs is-toggle is-boxed is-centered">
+              <div class="tabs is-boxed is-centered">
                 <ul>
                   <li class="is-active" id="tab-content">
                     <a>Product Details</a>

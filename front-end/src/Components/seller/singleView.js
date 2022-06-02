@@ -44,7 +44,7 @@ const SingleView = () => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-variable is-8">
+            <div class="columns is-multilined is-8">
               <div class="column is-6-desktop">
                 <h1 class="is-size-1-desktop title">{product.name}</h1>
                 <h3 class="is-size-2-desktop subtitle">Product Description</h3>

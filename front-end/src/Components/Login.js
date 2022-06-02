@@ -25,23 +25,32 @@ export default function LogIn() {
   };
 
   return (
-
     <div className="wrapper">
       <div className="text-center m-5-auto">
         <h2>Log In</h2>
+        {/*fix routing path/link for where a user goes after they log in */}
         <form action="/">
           <p>
             <label>Username or Email address</label>
             <br />
-            <input type="text" name="user_name" required   value={email}
-            onChange={handleEmail} />
+            <input
+              type="text"
+              name="user_name"
+              required
+              value={email}
+              onChange={handleEmail}
+            />
           </p>
           <p>
             <label>Password</label>
             <br />
-            <input type="password" name="password" value={password}
-            required
-            onChange={handlePassword} />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={handlePassword}
+            />
           </p>
           <p>
             <button id="submit_button" type="submit">
@@ -61,7 +70,6 @@ export default function LogIn() {
           </p>
         </footer>
       </div>
-
     </div>
   );
 }
