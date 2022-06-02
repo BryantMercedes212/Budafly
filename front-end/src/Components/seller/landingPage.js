@@ -24,7 +24,7 @@ const LandingPage = () => {
                 <h3>{product.name}</h3>
                 <p>${product.price}</p>
                 <p>{product.id}</p>
-                <Link to={"/seller/"+id+"/products/"+product.id}>Details page</Link>
+                <Link to={"/seller/"+id+"/products/"+product.id}>More Details</Link>
             </article>
         );
     });

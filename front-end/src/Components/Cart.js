@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 const Cart = ({ cart, deleteItem }) => {
+  
   let total = 0;
   const products = cart.map((item, i) => {
     total += item.price;
@@ -19,7 +20,7 @@ const Cart = ({ cart, deleteItem }) => {
             <p>1</p>
             <button className="minus-btn">-</button>
           </div>
-          <button onClick={() => deleteItem(i)}> yo</button>
+          <button onClick={() => deleteItem(i)}>REMOVE</button>
         </div>
       </div>
     );

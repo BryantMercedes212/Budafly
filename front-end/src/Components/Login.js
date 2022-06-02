@@ -29,7 +29,7 @@ export default function LogIn() {
     <div className="wrapper">
       <div className="text-center m-5-auto">
         <h2>Log In</h2>
-        <form action="/">
+        <form action="/userProfile">
           <p>
             <label>Username or Email address</label>
             <br />

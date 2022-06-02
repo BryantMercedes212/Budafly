@@ -25,6 +25,7 @@ const Home = ({ addItem }) => {
         <article>
           <img src={product.image} />
           <h3>{product.name}</h3>
+          <h5>{product.cannabinoid}</h5>
           <p>${product.price}</p>
           <Link className="item-link" to={`/products/${product.id}`}>
             {" "}

@@ -25,8 +25,9 @@ const Product = ({ addItem }) => {
       <article key={product.id}>
         <img className="product-img" src={product.image} />
         <h3>{product.name}</h3>
-        <h3>{product.user_id}</h3>
-        <div className="product-des">{product.description}</div>
+        <h3>{product.type}</h3>
+        <h3>{product.cannabinoid}</h3>
+        <div className="product-des">{product.description} {product.feelings}{product.negatives}</div>
         <p>${product.price}</p>
         <button onClick={() => addItem(product)}>Add To Cart</button>
       </article>
