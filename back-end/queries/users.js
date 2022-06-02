@@ -10,13 +10,13 @@ const getAllSellers = async () => {
 };
 
 const getOneSeller = async (id) => {
-    try {
-      const seller = await db.one("SELECT * FROM users WHERE user_id=$1", id);
-      return seller;
-    } catch (err) {
-      return err;
-    }
-  };
+  try {
+    const seller = await db.one("SELECT * FROM users WHERE user_id=$1", id);
+    return seller;
+  } catch (err) {
+    return err;
+  }
+};
 
 // const addNewSeller = async (newSeller) => {
 //   try {
@@ -38,7 +38,8 @@ const getOneSeller = async (id) => {
 const getListedProducts = async (id) => {
   try {
     const allProducts = await db.any(
-      "SELECT * FROM products WHERE user_id=$1", id
+      "SELECT * FROM products WHERE user_id=$1",
+      id
     );
     console.log(allProducts);
     return allProducts;
@@ -58,10 +59,30 @@ const getOneProduct = async (id) => {
 
 const createOneProduct = async (product) => {
   try {
-    let { name, description, price, image, user_id } = product;
+    let {
+      name,
+      cannabinoid,
+      type,
+      description,
+      feelings,
+      negatives,
+      price,
+      image,
+      user_id,
+    } = product;
     const newOne = await db.one(
-      "INSERT INTO products (name, description, price, image, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING * ",
-      [name, description, price, image, user_id]
+      "INSERT INTO products (name, cannabinoid, type, description, feelings, negatives, price, image, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
+      [
+        name,
+        cannabinoid,
+        type,
+        description,
+        feelings,
+        negatives,
+        price,
+        image,
+        user_id,
+      ]
     );
     return newOne;
   } catch (error) {
@@ -71,10 +92,29 @@ const createOneProduct = async (product) => {
 
 const updateOneProduct = async (id, product) => {
   try {
-    let { name, description, price, image } = product;
+    let {
+      name,
+      cannabinoid,
+      type,
+      description,
+      feelings,
+      negatives,
+      price,
+      image,
+    } = product;
     const updatedOne = await db.one(
-      "UPDATE products SET name=$2, description=$3, price=$4, image=$5 WHERE id=$1 RETURNING *",
-      [id, name, description, price, image]
+      "UPDATE products SET name=$2, cannabinoid=$3, type=$4, description=$5, feelings=$6, negatives=$7, price=$8, image=$9 WHERE id=$1 RETURNING *",
+      [
+        id,
+        name,
+        cannabinoid,
+        type,
+        description,
+        feelings,
+        negatives,
+        price,
+        image,
+      ]
     );
     return updatedOne;
   } catch (error) {

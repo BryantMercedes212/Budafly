@@ -17,8 +17,11 @@ DROP TABLE IF EXISTS products;
 
 CREATE TABLE products (
     name TEXT NOT NULL,
-    description TEXT,
+    cannabinoid VARCHAR,
     type TEXT,
+    description TEXT,
+    feelings VARCHAR,
+    negatives VARCHAR,
     price INT,
     image TEXT,
     id SERIAL PRIMARY KEY,
