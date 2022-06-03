@@ -40,18 +40,16 @@ const SingleView = () => {
   };
 
   return (
-    <div>
-      <p>Show single product</p>
-      <h1>Hi</h1>
+    <div className="listedItem">
+      <h2>{product.name}</h2>
       <article key={product.id}>
         <img src={product.image} alt={product.description} />
-        <h2>{product.name}</h2>
-        <h3>{product.type}</h3>
-        <h3>{product.cannabinoid}</h3>
-        <h3>{product.description}</h3>
-        <h3>{product.feelings}</h3>
-        <h3>{product.negatives}</h3>
-        <p>${product.price}</p>
+        <h4>Type: {product.type}</h4>
+        <h4>Cannabinoid: {product.cannabinoid}</h4>
+        <h5>{product.description}</h5>
+        <h5>Feelings: {product.feelings}</h5>
+        <h5>Disclosure: {product.negatives}</h5>
+        <h5>Price: ${product.price}.00</h5>
         <Link to={"/seller/" + id + "/products/" + pid + "/edit"}>
           <button>edit</button>
         </Link>

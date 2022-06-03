@@ -1,10 +1,18 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+
 
 const Cart = ({ cart, deleteItem }) => {
-  
   let total = 0;
+  // const [count, setCount] = useState(0);
+  const increment = (number) => {
+    number ++;
+  };
+  const decrement = (number) => {
+    number --;
+  };
   const products = cart.map((item, i) => {
     total += item.price;
+    let number = 1
     console.log(total);
     return (
       <div className="cart">
@@ -16,9 +24,13 @@ const Cart = ({ cart, deleteItem }) => {
           <div className="name">{item.name}</div>
           <div className="price">${item.price}</div>
           <div className="quantity">
-            <button className="plus-btn">+</button>
-            <p>1</p>
-            <button className="minus-btn">-</button>
+            <button onClick={increment(number)} className="plus-btn">
+              +
+            </button>
+            <p>{number}</p>
+            <button onClick={decrement(number)} className="minus-btn">
+              -
+            </button>
           </div>
           <button onClick={() => deleteItem(i)}>REMOVE</button>
         </div>

@@ -19,11 +19,10 @@ const LandingPage = () => {
     const viewAllProducts = products.map((product) => {
         console.log(products)
         return (
-            <article className="wrapper" key={product.id}>
+            <article className="grid-container" key={product.id}>
                 <img src={product.image} alt={product.description}/>
                 <h3>{product.name}</h3>
-                <p>${product.price}</p>
-                <p>{product.id}</p>
+                <p>Price: ${product.price}.00</p>
                 <Link to={"/seller/"+id+"/products/"+product.id}>More Details</Link>
             </article>
         );
@@ -31,9 +30,9 @@ const LandingPage = () => {
 
     return (
         <div>
-            <h1>Welcome, seller</h1>
+            <h1>Welcome, Antonio</h1>
             <h2>ATTENTION, PLEASE READ Below are the products you have listed for sale in Budafly, below the image is a link you can click to edit a product or delete a product or create a product using the button below</h2>
-            <Link to={"/seller/"+id+"/products/new"}><button>add a product</button></Link>
+            <Link to={"/seller/"+id+"/products/new"}><button>Add a Product</button></Link>
             {viewAllProducts}
         </div>
     );

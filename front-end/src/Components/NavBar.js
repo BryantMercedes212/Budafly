@@ -21,6 +21,9 @@ const NavBar = () => {
             <Link to="/Search">search</Link>
           </li>
           <li>
+            <Link to="/userProfile">👤</Link>
+          </li>
+          <li>
             <Link to="/Cart">🛒</Link>
           </li>
         </ul>
