@@ -1,11 +1,37 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
-const Cart = ({ cart, deleteItem }) => {
-  
+const Cart = ({ cart, deleteItem, setCart }) => {
   let total = 0;
+  let refresh = 0;
+
+  useEffect(() => {}, [refresh]);
+
+  const handleQuantity = (e) => {
+    setCart(
+      cart.map((item, i) => {
+        if (e.target.id === "plus") {
+          if (i === Number(e.target.name)) {
+            item.quantity = item.quantity + 1;
+          }
+          localStorage.setItem("cart", JSON.stringify(cart));
+        } else {
+          if (i === Number(e.target.name)) {
+            if (item.quantity > 1) {
+              item.quantity = item.quantity - 1;
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+          }
+        }
+
+        return item;
+      })
+    );
+  };
   const products = cart.map((item, i) => {
-    total += item.price;
-    console.log(total);
+    let number = 1;
+    const price = item.price * item.quantity;
+    total += price;
+
     return (
       <div className="cart">
         <div className="item" key={i}>
@@ -14,11 +40,25 @@ const Cart = ({ cart, deleteItem }) => {
             <img src={item.image} />
           </div>
           <div className="name">{item.name}</div>
-          <div className="price">${item.price}</div>
+          <div className="price">${price}</div>
           <div className="quantity">
-            <button className="plus-btn">+</button>
-            <p>1</p>
-            <button className="minus-btn">-</button>
+            <button
+              className="plus-btn"
+              name={i}
+              id="plus"
+              onClick={handleQuantity}
+            >
+              +
+            </button>
+            <p>{item.quantity}</p>
+            <button
+              className="minus-btn"
+              name={i}
+              id="minus"
+              onClick={handleQuantity}
+            >
+              -
+            </button>
           </div>
           <button onClick={() => deleteItem(i)}>REMOVE</button>
         </div>
