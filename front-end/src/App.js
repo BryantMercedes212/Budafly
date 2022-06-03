@@ -26,7 +26,10 @@ const App = () => {
   const [cart, setCart] = useState([]);
 
   const addItem = (item) => {
+    item.quantity = 1;
+
     setCart([...cart, item]);
+
     let tempArr = [...cart];
     if (!cart.length) {
       localStorage.setItem(
@@ -81,7 +84,9 @@ const App = () => {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route
           path="/Cart"
-          element={<Cart cart={cart} deleteItem={deleteItem} />}
+          element={
+            <Cart cart={cart} deleteItem={deleteItem} setCart={setCart} />
+          }
         />{" "}
         <Route path="/Search" element={<SearchBar />} />
         <Route path="/FAQs" element={<Faqs />} />
