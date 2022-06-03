@@ -22,6 +22,7 @@ import AddProductForm from "./Components/seller/addProductForm";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
   const [cart, setCart] = useState([]);
 
   const addItem = (item) => {
