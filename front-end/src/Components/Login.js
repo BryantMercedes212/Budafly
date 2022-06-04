@@ -1,21 +1,12 @@
-import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "axios";
 
-export default function LogIn() {
+export default function LogIn({ login, setLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [account, setAccount] = useState({});
-
-  const fetchProduct = async () => {
-    try {
-      const res = await axios.get(`http://localhost:3333/login/${email}`);
-      setAccount(res.data);
-    } catch (error) {
-      console.log(error);
-      setAccount({});
-    }
-  };
+  let navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -24,28 +15,43 @@ export default function LogIn() {
     setPassword(e.target.value);
   };
 
-  return (
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setLogin(true);
+    navigate("/userProfile");
+  };
+  console.log(login);
 
+  return (
     <div className="wrapper">
       <div className="text-center m-5-auto">
         <h2>Log In</h2>
-        <form action="/userProfile">
+        <form action="/userProfile" onSubmit={handleLogin}>
           <p>
             <label>Username or Email address</label>
             <br />
-            <input type="text" name="user_name" required   value={email}
-            onChange={handleEmail} />
+            <input
+              type="text"
+              name="user_name"
+              required
+              value={email}
+              onChange={handleEmail}
+            />
           </p>
           <p>
             <label>Password</label>
             <br />
-            <input type="password" name="password" value={password}
-            required
-            onChange={handlePassword} />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={handlePassword}
+            />
           </p>
           <p>
             <button id="submit_button" type="submit">
-              Login
+              login
             </button>
           </p>
         </form>
@@ -61,7 +67,6 @@ export default function LogIn() {
           </p>
         </footer>
       </div>
-
     </div>
   );
 }

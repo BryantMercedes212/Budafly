@@ -20,6 +20,8 @@ const Product = ({ addItem }) => {
     fetchProduct();
   }, []);
 
+  console.log(product);
+
   return (
     <div>
       <article key={product.id}>
@@ -29,17 +31,23 @@ const Product = ({ addItem }) => {
         <h5>Type:{product.type}</h5>
         <h5>Cannabinoid:{product.cannabinoid}</h5>
         <br></br>
-        <div className="product_des"><p>{product.description}</p> 
-        <br></br>
-        <p>Feelings:{product.feelings}</p>
-        <p>Disclosure:{product.negatives}</p></div>
+        <div className="product_des">
+          <p>{product.description}</p>
+          <br></br>
+          <p>Feelings:{product.feelings}</p>
+          <p>Disclosure:{product.negatives}</p>
+        </div>
         <br></br>
         <h5>Price ${product.price}.00</h5>
+        <button>
+          <Link to={`/seller/${product.user_id}/products`}>
+            View more products of this seller
+          </Link>
+        </button>
         <button onClick={() => addItem(product)}>Add To Cart</button>
       </article>
     </div>
   );
 };
-
 
 export default Product;

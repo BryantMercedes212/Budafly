@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const LandingPage = () => {
+const LandingPage = ({ login }) => {
   const URL = process.env.REACT_APP_API_URL;
   const { id } = useParams();
 
@@ -14,10 +14,8 @@ const LandingPage = () => {
       .get(`${URL}/users/${id}/products`)
       .then((response) => setProducts(response.data));
   }, [URL, id]);
-  console.log("helpp");
 
   const viewAllProducts = products.map((product) => {
-    console.log(products);
     return (
       <article className="grid-container" key={product.id}>
         <img src={product.image} alt={product.description} />
@@ -31,18 +29,29 @@ const LandingPage = () => {
   });
 
   return (
-    <div>
-      <h1>Welcome, Antonio</h1>
-      <h2>
-        ATTENTION, PLEASE READ Below are the products you have listed for sale
-        in Budafly, below the image is a link you can click to edit a product or
-        delete a product or create a product using the button below
-      </h2>
-      <Link to={"/seller/" + id + "/products/new"}>
-        <button>Add a Product</button>
-      </Link>
-      {viewAllProducts}
-    </div>
+    <>
+      {login ? (
+        <div>
+          <h1>Welcome, Antonio</h1>
+          <h2>
+            ATTENTION, PLEASE READ Below are the products you have listed for
+            sale in Budafly, below the image is a link you can click to edit a
+            product or delete a product or create a product using the button
+            below
+          </h2>
+          <Link to={"/seller/" + id + "/products/new"}>
+            <button>Add a Product</button>
+          </Link>
+          {viewAllProducts}
+        </div>
+      ) : (
+        <div>
+          <h1>Welcome, Customer</h1>
+
+          {viewAllProducts}
+        </div>
+      )}
+    </>
   );
 };
 

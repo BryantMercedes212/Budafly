@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 // const URL = "http://localhost:3333";
 // console.log(URL)
 
-const SingleView = () => {
+const SingleView = ({ login }) => {
   // const URL = process.env.REACT_APP_API_URL;
   const { id, pid } = useParams();
   const navigate = useNavigate();
@@ -50,11 +50,18 @@ const SingleView = () => {
         <h5>Feelings: {product.feelings}</h5>
         <h5>Disclosure: {product.negatives}</h5>
         <h5>Price: ${product.price}.00</h5>
-        <Link to={"/seller/" + id + "/products/" + pid + "/edit"}>
-          <button>edit</button>
-        </Link>
-        <button onClick={handleDelete}>delete a product</button>
-        {/* <button>delete a product</button> */}
+
+        {login ? (
+          <div className="sellerBur">
+            <br></br>
+            <Link to={"/seller/" + id + "/products/" + pid + "/edit"}>
+              <button>edit</button>
+            </Link>
+            <button onClick={handleDelete}>delete a product</button>
+          </div>
+        ) : (
+          ""
+        )}
       </article>
     </div>
   );
