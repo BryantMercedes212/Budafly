@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+//import LandingPage from "./seller/landingPage";
 
 // console.log("Hello world")
 // const URL = "http://localhost:3333";
@@ -44,13 +45,13 @@ const SingleView = () => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-multilined is-8">
-              <div class="column is-6-desktop">
-                <h1 class="is-size-1-desktop title">{product.name}</h1>
-                <h3 class="is-size-2-desktop subtitle">Product Description</h3>
+            <div class="columns is-multilined">
+              <div class="column is-6">
+                <h1 class="is-size-1 title">{product.name}</h1>
+                <h3 class="is-size-3 subtitle">Product Description</h3>
                 <p>{product.description}</p>
 
-                <div class="column is-6-desktop">
+                <div class="column is-6">
                   <h3 class="is-size-5">Product Image</h3>
                   <p>
                     <img
@@ -61,7 +62,7 @@ const SingleView = () => {
                   </p>
                 </div>
 
-                <div class="column is-4-desktop">
+                <div class="column is-4">
                   <div class="is-size-6">Price ${product.price}</div>
                 </div>
               </div>
@@ -73,18 +74,19 @@ const SingleView = () => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-variable is-8">
+            <div class="columns is-multilined">
               <div class="column is-7-tablet">
-                <h2>Listing Options</h2>
-
-                <h2 class="is-size-5 title">Remember to List Key Details</h2>
-                <h2 class="is-size-4 subtitle">
-                  {" "}
+                <h3 class="is-size-5 title">
                   Benefits, Negatives, THC Levels, etc
-                </h2>
+                </h3>
+                <div class="is-size-6 subtitle">
+                  {" "}
+                  **Reminder** Remember to List Key Details About Your Products
+                </div>
               </div>
               <div>
-                <h3 class="is-size-5 title">Edit & Remove Information</h3>
+                <h3 class="is-size-5 title">Listing Options</h3>
+                <h2>Edit Information & Remove Product</h2>
                 <p>
                   <Link to={"/seller/" + id + "/products/" + pid + "/edit"}>
                     <button>edit</button>

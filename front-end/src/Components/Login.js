@@ -25,42 +25,62 @@ export default function LogIn() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="text-center m-5-auto">
-        <h2>Log In</h2>
-        {/*fix routing path/link for where a user goes after they log in */}
+    <div>
+      <div className="text-center m-5">
+        <label class="label is-large">Log In To Your Account</label>
         <form action="/">
-          <p>
-            <label>Username or Email address</label>
-            <br />
-            <input
-              type="text"
-              name="user_name"
-              required
-              value={email}
-              onChange={handleEmail}
-            />
-          </p>
-          <p>
-            <label>Password</label>
-            <br />
-            <input
-              type="password"
-              name="password"
-              value={password}
-              required
-              onChange={handlePassword}
-            />
-          </p>
-          <p>
-            <button id="submit_button" type="submit">
-              Login
-            </button>
-          </p>
+          <label class="label is-medium">Email Address</label>
+          <div class="field-body">
+            <p class="control has-icons-left">
+              <input
+                class="input is-medium"
+                type="email"
+                placeholder="Email"
+                //style={{ "max-length": "30px" }}
+                required
+                value={email}
+                onChange={handleEmail}
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
+          <label class="label is-medium">Password</label>
+          <div class="field-body">
+            <p class="control has-icons-left">
+              <input
+                class="input is-medium"
+                type="password"
+                placeholder="Password"
+                value={password}
+                required
+                onChange={handlePassword}
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <button
+                class="button is-success"
+                button
+                id="submit_button"
+                type="submit"
+              >
+                Login
+              </button>
+            </p>
+          </div>
         </form>
         <footer>
           <p>
-            Need to Sign Up? <Link to="/signup">Sign Up</Link>.
+            <Link to="/signup"> Need to Sign Up</Link>.
           </p>
           <Link to="/forgotpassword">
             <label className="right-label">Forgot Your Password?</label>
