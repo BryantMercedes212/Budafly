@@ -24,6 +24,7 @@ const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [cart, setCart] = useState([]);
+  const [login, setLogin] = useState(false);
 
   const addItem = (item) => {
     item.quantity = 1;
@@ -72,14 +73,23 @@ const App = () => {
         <Route exact path="/" element={<Home addItem={addItem} />} />
         <Route path="/About" element={<About />} />
         <Route path="/products/:id" element={<Product addItem={addItem} />} />
-        <Route path="/seller/:id/products" element={<LandingPage />} />
+        <Route
+          path="/seller/:id/products"
+          element={<LandingPage login={login} />}
+        />
         <Route path="/seller/:id/products/new" element={<AddProductForm />} />
-        <Route path="/seller/:id/products/:pid" element={<SingleView />} />
+        <Route
+          path="/seller/:id/products/:pid"
+          element={<SingleView login={login} />}
+        />
         <Route
           path="/seller/:id/products/:pid/edit"
           element={<EditProductForm />}
         />
-        <Route path="/Login" element={<Login />} />
+        <Route
+          path="/Login"
+          element={<Login setLogin={setLogin} login={login} />}
+        />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route
