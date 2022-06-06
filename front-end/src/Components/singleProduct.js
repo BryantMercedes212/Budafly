@@ -16,6 +16,7 @@ const Product = ({ addItem }) => {
       setProduct([]);
     }
   };
+  const tryning = "trying";
 
   useEffect(() => {
     fetchProduct();
