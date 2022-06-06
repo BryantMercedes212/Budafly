@@ -9,7 +9,6 @@ const LandingPage = ({ login }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // hard coded user
     axios
       .get(`${URL}/users/${id}/products`)
       .then((response) => setProducts(response.data));
