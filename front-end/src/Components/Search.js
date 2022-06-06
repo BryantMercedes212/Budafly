@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 
-const SearchBar = () => {
+const Search = () => {
   const [input, setInput] = useState();
 
   const handleChange = (e) => {
     setInput(e.target.value);
   };
-
 
   // return
   return (
@@ -24,4 +23,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;

@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
@@ -14,11 +14,14 @@ import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
 import Demo from "./Components/seller/demoProfile";
 
+//import Search from "./Components/Search";
+
 import Cart from "./Components/Cart";
 import LandingPage from "./Components/seller/landingPage";
 import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
+import FourOFour from "./Components/FourOFour";
 
 const App = () => {
   // const [modalOpen, setModalOpen] = useState(false);
@@ -102,6 +105,7 @@ const App = () => {
         <Route path="/FAQs" element={<Faqs />} />
         <Route path="/Laws" element={<Laws />} />
         <Route path="/userProfile" element={<Demo />} />
+        <Route path="*" element={<FourOFour />} />
       </Routes>
     </div>
   );
