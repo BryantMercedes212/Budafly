@@ -43,16 +43,27 @@ const Product = ({ addItem }) => {
               <div class="is-centered">
                 <ul>
                   <div id="product-details px-2">
-                    <h1 class="is-size-5 title">{product.name}</h1>
+                    <h1 class="is-size-3 is-italic px-2 title">
+                      {product.name}
+                    </h1>
                     <p>{product.description}</p>
                   </div>
                 </ul>
               </div>
 
               <div id="product-information">
-                <h3 class="is-size-5 px-2 title">More Product Information</h3>
-                <div>Sativa or Indica, THC LEVELS, Benefits, Negatives</div>
-                <p>add content for products</p>
+                <div class="is-size-5 px-2 mt-5 title">
+                  More Product Information
+                </div>
+                <p class="is-subtitle px-2">
+                  Cannabinod: {product.cannabinoid}
+                </p>
+                <p class="is-subtitle px-2">
+                  Users Have Reported Feeling: {product.feelings}
+                </p>
+                <p class="is-subtitle px-2">
+                  Users Reported Some Negatives: {product.negatives}
+                </p>
               </div>
 
               <div class="column is-5-tablet">
@@ -61,14 +72,15 @@ const Product = ({ addItem }) => {
                     <p>Order This Product </p>
                   </div>
                   <div class="message-body">
-                    <p>Price of Product ${product.price} </p>
+                    <p>
+                      <strong>Price Per 14 Grams ${product.price}</strong>{" "}
+                    </p>
                     <div class="has-text-centered">
                       <button
-                        class="is-primary"
+                        class="button is-primary"
                         onClick={() => addItem(product)}
                       >
-                        {" "}
-                        Add To Cart{" "}
+                        <Link to="/Cart">Add to Cart</Link>
                       </button>
                     </div>
                   </div>
@@ -80,7 +92,7 @@ const Product = ({ addItem }) => {
                 <div class="card-image has-text-centered px-6">
                   <img src={product.image} alt=" " />
                   <h3>
-                    <strong>{product.name}</strong>
+                    <strong>{product.type}</strong>
                   </h3>
                 </div>
               </div>
@@ -89,25 +101,25 @@ const Product = ({ addItem }) => {
         </div>
       </div>
 
-      <div class="section">
+      <div class="section is-centered">
         <h3 class="title has-text-centered is-size-4">
           Sellers Other Products
         </h3>
         <div class="container">
           <div class="columns is-variable">
-            <div class="column is-3">
-              <div class="card">
+            <div class="column">
+              <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
                   <img src={product.image} alt=" " />
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <p class="title is-size-5">{product.name}</p>
+                    <p class="title is-size-5 is-primary">{product.name}</p>
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <p class="card-footer-item">
-                    <a href={`/products/${product.id}`} class="has-text-grey">
+                  <p class="card-footer-item is-light">
+                    <a href={`/products/${product.id}`} class="is-primary">
                       View
                     </a>
                   </p>
@@ -115,8 +127,8 @@ const Product = ({ addItem }) => {
               </div>
             </div>
 
-            <div class="column is-3">
-              <div class="card">
+            <div class="column">
+              <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
                   <img src={product.image} alt=" " />{" "}
                 </div>
@@ -135,8 +147,8 @@ const Product = ({ addItem }) => {
               </div>
             </div>
 
-            <div class="column is-3">
-              <div class="card">
+            <div class="column">
+              <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
                   <img src={product.image} alt="Placeholder image" />
                 </div>

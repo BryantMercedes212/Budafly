@@ -74,14 +74,18 @@ const NavBar = () => {
 
             <div class="navbar-dropdown">
               <a class="navbar-item is-bold is-size-6">
-                <Link to="/About">About</Link>
+                <Link to="/About">About Us</Link>
               </a>
               <a class="navbar-item is-bold is-size-6">
                 <Link to="/Signup">Create an Account</Link>
               </a>
-              <a class="navbar-item is-bold is-size-6">Contact</a>
+              <a class="navbar-item is-bold is-size-6">
+                <Link to="/FAQs">FAQ's</Link>
+              </a>
               <hr class="navbar-divider" />
-              <a class="navbar-item is-bold is-size-6">Report an issue</a>
+              <a class="navbar-item is-bold is-size-6">
+                <Link to="/Laws">Laws</Link>
+              </a>
             </div>
           </div>
 
