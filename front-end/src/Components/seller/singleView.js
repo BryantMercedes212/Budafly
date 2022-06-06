@@ -86,10 +86,15 @@ const SingleView = ({ login }) => {
                     <h3 class="is-size-5 title">Listing Options</h3>
                     <h2>Edit Information & Remove Product</h2>
                     <p>
-                      <Link to={"/seller/" + id + "/products/" + pid + "/edit"}>
-                        <button>edit</button>
-                      </Link>
-                      <button onClick={handleDelete}>delete a product</button>{" "}
+                      <div class="buttons">
+                        <Link
+                          to={"/seller/" + id + "/products/" + pid + "/edit"}
+                        >
+                          <button  class="button is-primary"><strong>Edit</strong></button>
+                          <br></br>
+                        </Link>
+                        <button  class="button is-primary" onClick={handleDelete}><strong>Delete a Product</strong></button>{" "}
+                      </div>
                     </p>
                   </>
                 ) : (
@@ -105,3 +110,4 @@ const SingleView = ({ login }) => {
 };
 
 export default SingleView;
+
