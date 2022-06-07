@@ -48,6 +48,21 @@ What tasks does the app perform in order to solve the problem?
 
 What are the expected outcomes?
 - The Amazon for cannabis! 
+ 
+ 
+#### Contributors
+ 
+ <a href="https://www.linkedin.com/in/vanessa-conti901/">Vanessa Conti<a>
+ <a href="https://www.linkedin.com/in/stephanie-lucano-b84764150/">Stephanie Lucano<a>
+ <a href="https://www.linkedin.com/in/bryant-mercedes/">Bryant Mercedes<a>
+ <a href="https://www.linkedin.com/in/fatema-kabir/">Fatema Kabir<a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
