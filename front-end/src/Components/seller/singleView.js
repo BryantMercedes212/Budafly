@@ -41,7 +41,7 @@ const SingleView = ({ login }) => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-multilined">
+            <div class="columns is-multiline">
               <div class="column is-6">
                 <h1 class="is-size-1 title">{product.name}</h1>
                 <h3 class="is-size-3 subtitle">Product Description</h3>
@@ -70,7 +70,7 @@ const SingleView = ({ login }) => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-multilined">
+            <div class="columns is-multiline">
               <div class="column is-7-tablet">
                 <h3 class="is-size-5 title">
                   Benefits, Negatives, THC Levels, etc
@@ -86,10 +86,15 @@ const SingleView = ({ login }) => {
                     <h3 class="is-size-5 title">Listing Options</h3>
                     <h2>Edit Information & Remove Product</h2>
                     <p>
-                      <Link to={"/seller/" + id + "/products/" + pid + "/edit"}>
-                        <button>edit</button>
-                      </Link>
-                      <button onClick={handleDelete}>delete a product</button>{" "}
+                      <div class="buttons">
+                        <Link
+                          to={"/seller/" + id + "/products/" + pid + "/edit"}
+                        >
+                          <button  class="button is-primary"><strong>Edit</strong></button>
+                          <br></br>
+                        </Link>
+                        <button  class="button is-primary" onClick={handleDelete}><strong>Delete a Product</strong></button>{" "}
+                      </div>
                     </p>
                   </>
                 ) : (
@@ -105,3 +110,4 @@ const SingleView = ({ login }) => {
 };
 
 export default SingleView;
+
