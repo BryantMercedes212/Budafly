@@ -7,7 +7,7 @@ const Home = ({ addItem }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/products/`);
+      const res = await axios.get(`${URL}/products/`);
       setProducts(res.data);
     } catch (error) {
       console.log(error);

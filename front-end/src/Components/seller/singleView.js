@@ -13,7 +13,7 @@ const SingleView = ({ login }) => {
   const fetchProduct = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3333/users/${id}/products/${pid}`
+        `${URL}/users/${id}/products/${pid}`
       );
       setProduct(res.data);
       console.log(res.data);
