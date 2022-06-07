@@ -46,7 +46,7 @@ const Product = ({ addItem }) => {
                   More Product Information
                 </div>
                 <p class="is-subtitle px-2">
-                  Cannabinod: {product.cannabinoid}
+                  Cannabinoid: {product.cannabinoid}
                 </p>
                 <p class="is-subtitle px-2">
                   Users Have Reported Feeling: {product.feelings}

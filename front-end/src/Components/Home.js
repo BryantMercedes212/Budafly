@@ -44,7 +44,14 @@ const Home = ({ addItem }) => {
                 </Link>
                 <br></br>
                 <footer class="card-footer">
-                  <button onClick={() => addItem(product)}>Add To Cart</button>
+                  <div class="buttons">
+                    <button
+                      class="button is-primary"
+                      onClick={() => addItem(product)}
+                    >
+                      <strong>Add To Cart</strong>
+                    </button>
+                  </div>
                 </footer>
               </div>
             </div>

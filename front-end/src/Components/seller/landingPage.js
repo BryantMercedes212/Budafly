@@ -39,7 +39,9 @@ const LandingPage = ({ login }) => {
             below
           </h2>
           <Link to={"/seller/" + id + "/products/new"}>
-            <button>Add a Product</button>
+            <div class="buttons">
+              <button class="button is-primary">Add a Product</button>
+            </div>
           </Link>
           {viewAllProducts}
         </div>
@@ -55,3 +57,9 @@ const LandingPage = ({ login }) => {
 };
 
 export default LandingPage;
+
+{
+  /* <div class="buttons"></div>
+      <button class="button is-primary" onClick={handleSubmit}><strong>Submit</strong></button>
+    </div> */
+}

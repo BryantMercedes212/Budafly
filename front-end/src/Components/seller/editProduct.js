@@ -113,10 +113,15 @@ const EditProductForm = () => {
           onChange={handleTextChange}
         ></input>
       </form>
-
-      <button onClick={handleSubmit}>Submit</button>
+      <div class="buttons">
+        <button class="button is-primary" onClick={handleSubmit}>
+          <strong>Submit</strong>
+        </button>
+      </div>
     </div>
   );
 };
 
 export default EditProductForm;
+
+
