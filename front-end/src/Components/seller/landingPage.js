@@ -58,8 +58,4 @@ const LandingPage = ({ login }) => {
 
 export default LandingPage;
 
-{
-  /* <div class="buttons"></div>
-      <button class="button is-primary" onClick={handleSubmit}><strong>Submit</strong></button>
-    </div> */
-}
+
