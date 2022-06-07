@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Home = ({ addItem }) => {
+  const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {

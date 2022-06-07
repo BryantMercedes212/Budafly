@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 const Product = ({ addItem }) => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
+  const URL = process.env.REACT_APP_API_URL;
 
   const fetchProduct = async () => {
     try {
