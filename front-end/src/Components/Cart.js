@@ -30,44 +30,54 @@ const Cart = ({ cart, deleteItem, setCart }) => {
     total += price;
 
     return (
-      <div className="cart">
-        <div className="item" key={i}>
-          {" "}
-          <div className="image">
-            <img src={item.image} />
+      <div className="cart" key={i}>
+        <div class="column is-half">
+          <div class="card has-background-primary my-3">
+            <div class="columns is-half">
+              <div class="column is-one-third">
+                <h3>
+                  <strong>{item.name}</strong>
+                </h3>
+                <img
+                  src={item.image}
+                  alt="{item.description}"
+                  style={{ "max-height": "110px" }}
+                />
+              </div>
+              <div class="column is-1">${item.price}</div>
+              <div class="column is-1">
+                <button
+                  className="plus-btn"
+                  name={i}
+                  id="plus"
+                  onClick={handleQuantity}
+                >
+                  +
+                </button>
+                <p>{item.quantity}</p>
+                <button
+                  className="minus-btn"
+                  name={i}
+                  id="minus"
+                  onClick={handleQuantity}
+                >
+                  -
+                </button>
+              </div>
+              <div class="column is-1">
+                <button onClick={() => deleteItem(i)}>REMOVE</button>
+              </div>
+            </div>
           </div>
-          <div className="name">{item.name}</div>
-          <div className="price">${price}</div>
-          <div className="quantity">
-            <button
-              className="plus-btn"
-              name={i}
-              id="plus"
-              onClick={handleQuantity}
-            >
-              +
-            </button>
-            <p>{item.quantity}</p>
-            <button
-              className="minus-btn"
-              name={i}
-              id="minus"
-              onClick={handleQuantity}
-            >
-              -
-            </button>
-          </div>
-          <button onClick={() => deleteItem(i)}>REMOVE</button>
         </div>
       </div>
     );
   });
 
-  {
-  }
   return (
     <div className="total-price">
-      {products} Total: ${total}
+        {products}
+        Total: ${total}
     </div>
   );
 };
