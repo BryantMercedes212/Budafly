@@ -52,9 +52,23 @@ const SingleView = ({ login }) => {
                 </div>
               </div>
 
+
               <div id="product-information">
                 <div class="is-size-5 px-2 mt-5 title">
                   More Product Information
+
+                <div class="column is-6">
+                  <h3 class="is-size-5">Product Image</h3>
+                  <p>
+                    <figure class="image is-240x240">
+                      <img
+                        src={product.image}
+                        alt={product.description}
+                        class="px-6"
+                      />
+                    </figure>
+                  </p>
+
                 </div>
                 <p class="is-subtitle px-2">
                   Cannabinoid: {product.cannabinoid}
@@ -122,10 +136,21 @@ const SingleView = ({ login }) => {
                         <Link
                           to={"/seller/" + id + "/products/" + pid + "/edit"}
                         >
+
                           <button class="button is-primary"><strong>Edit</strong></button>
+
+                          <button class="button is-primary">
+                            <strong>Edit</strong>
+                          </button>
+
                           <br></br>
                         </Link>
-                        <button  class="button is-primary" onClick={handleDelete}><strong>Delete a Product</strong></button>{" "}
+                        <button
+                          class="button is-primary"
+                          onClick={handleDelete}
+                        >
+                          <strong>Delete a Product</strong>
+                        </button>{" "}
                       </div>
                     </p>
                   </>
