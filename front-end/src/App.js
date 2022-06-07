@@ -61,7 +61,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar login={login} />
       {/* <button
         className="openModalBtn"
         onClick={() => {

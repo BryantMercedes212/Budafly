@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Search from "./Search";
 import Product from "./singleProduct";
 
-const NavBar = () => {
+const NavBar = ({ login }) => {
   return (
     /*<div>
       <nav className="nav">
@@ -97,18 +97,22 @@ const NavBar = () => {
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>
-                  <Link to="/Login">Login</Link>
-                </strong>
-              </a>
-              <a class="button is-light">
-                <Link to="/Signup">Create an Account</Link>
-              </a>
+          {login ? (
+            ""
+          ) : (
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>
+                    <Link to="/Login">Login</Link>
+                  </strong>
+                </a>
+                <a class="button is-light">
+                  <Link to="/Signup">Create an Account</Link>
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 
 const Cart = ({ cart, deleteItem, setCart }) => {
@@ -40,7 +39,6 @@ const Cart = ({ cart, deleteItem, setCart }) => {
           <div className="name">{item.name}</div>
           <div className="price">${price}</div>
           <div className="quantity">
-
             <button
               className="plus-btn"
               name={i}
@@ -56,7 +54,6 @@ const Cart = ({ cart, deleteItem, setCart }) => {
               id="minus"
               onClick={handleQuantity}
             >
-
               -
             </button>
           </div>

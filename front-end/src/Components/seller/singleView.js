@@ -41,7 +41,7 @@ const SingleView = ({ login }) => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-multilined">
+            <div class="columns is-multiline">
               <div class="column is-6">
                 <h1 class="is-size-1 title">{product.name}</h1>
                 <h3 class="is-size-3 subtitle">Product Description</h3>
@@ -70,7 +70,7 @@ const SingleView = ({ login }) => {
       <div>
         <section class="section">
           <div class="container">
-            <div class="columns is-multilined">
+            <div class="columns is-multiline">
               <div class="column is-7-tablet">
                 <h3 class="is-size-5 title">
                   Benefits, Negatives, THC Levels, etc
