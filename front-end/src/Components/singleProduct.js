@@ -92,24 +92,27 @@ const Product = ({ addItem }) => {
       </div>
 
       <div class="section is-centered">
-        <h3 class="title has-text-centered is-size-4">
-          Sellers Other Products
-        </h3>
+        <h3 class="title has-text-centered is-size-4">Featured Products</h3>
         <div class="container">
           <div class="columns is-variable">
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-                  <img src="https://www.ie420supply.com/wp-content/uploads/2019/05/SPACE-COOKIES-STRAIN-IE-420-SUPPLY-RIVERSIDE-DISPENSARY-NEARBY-WEED-CLINIC-CORONA-CALIFORNIA.jpg" alt=" " />
+
+                  <img
+                    src="https://i1.wp.com/www.gotweedonline.com/wp-content/uploads/2020/05/1589188622250.jpg?fit=1005%2C1005&ssl=1"
+                    alt=" "
+                  />
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <p class="title is-size-5 is-primary">Ice Cream Cake</p>
+                    <p class="title is-size-5 is-primary">Sour Tangie</p>
+
                   </div>
                 </div>
                 <footer class="card-footer">
                   <p class="card-footer-item is-light">
-                    <a href={`/products/${product.id}`} class="is-primary">
+                    <a href={`/products/19`} class="is-primary">
                       View
                     </a>
                   </p>
@@ -120,16 +123,23 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-                  <img src='https://i1.wp.com/www.gotweedonline.com/wp-content/uploads/2020/05/1589188622250.jpg?fit=1005%2C1005&ssl=1' alt=" " />{" "}
+
+                  <img
+                    src="https://420spot.org/wp-content/uploads/2020/01/slurricane_2020_01.jpg"
+                    alt=" "
+                  />{" "}
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <p class="title is-size-5">Sour Tangie</p>
+                    <p class="title is-size-5">Slurricane</p>
+
                   </div>
                 </div>
                 <footer class="card-footer">
                   <p class="card-footer-item">
-                    <a href={`/products/${product.id}`} class="is-primary">
+
+                    <a href={`/products/21`} class="has-text-grey">
+
                       View
                     </a>
                   </p>
@@ -140,7 +150,12 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-                  <img src='https://firstclassmedicinal.com/wp-content/uploads/2020/02/Amnesia-Haze3.jpg' alt="Placeholder image" />
+
+                  <img
+                    src="https://firstclassmedicinal.com/wp-content/uploads/2020/02/Amnesia-Haze3.jpg"
+                    alt="Placeholder image"
+                  />
+
                 </div>
                 <div class="card-content">
                   <div class="media">
@@ -149,7 +164,9 @@ const Product = ({ addItem }) => {
                 </div>
                 <footer class="card-footer">
                   <div class="card-footer-item">
-                    <a href={`/products/${product.id}`} class="is-primary">
+
+                    <a href={`/products/17`} class="has-text-grey">
+
                       View
                     </a>
                   </div>
