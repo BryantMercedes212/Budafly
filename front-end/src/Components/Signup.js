@@ -3,35 +3,58 @@ import { Link } from "react-router-dom";
 
 export default function SignUp() {
   return (
-    <div className="wrapper">
-      <div className="text-center m-5-auto">
-        <h2>Sign Up </h2>
-        <h5>Create an Account</h5>
+    <div>
+      <div className="text-center m-5">
+        <label class="label is-large">Create An Account</label>
         <form action="/">
-          <p>
-            <label>Username</label>
-            <br />
-            <input type="text" name="user_name" required />
-          </p>
-          <p>
-            <label>Email address</label>
-            <br />
-            <input type="email" name="email" required />
-          </p>
-          <p>
-            <label>Password</label>
-            <br />
-            <input type="password" name="password" required />
-          </p>
-          <p>
+          <label class="label is-medium">Email Address</label>
+          <div class="field-body">
+            <p class="control has-icons-left">
+              <input
+                class="input is-medium"
+                type="email"
+                placeholder="Email"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
+          <label class="label is-medium">Password</label>
+          <div class="field-body">
+            <p class="control has-icons-left">
+              <input
+                class="input is-medium"
+                type="password"
+                placeholder="Password"
+                required
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <label class="checkbox">
             <input type="checkbox" name="checkbox" id="checkbox" required />{" "}
             <span>I'm at least 21yrs old</span>.
-          </p>
-          <p>
-            <button id="submit_button" type="submit">
-              Sign Up
-            </button>
-          </p>
+          </label>
+
+          <div class="field">
+            <p class="control">
+              <button
+                class="button is-success"
+                button
+                id="submit_button"
+                type="submit"
+              >
+                Create Account
+              </button>
+            </p>
+          </div>
         </form>
         <footer>
           <p>

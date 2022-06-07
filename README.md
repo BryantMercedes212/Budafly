@@ -1,19 +1,20 @@
 # Budafly
 
-Budafly, an e-commerce marketplace, that enables users to navigate through, and find the desired product that they want to purchase.
+Budafly, an e-commerce marketplace, that enables users to navigate through, and find the desired product that they want to purchase. The app also provides a platform for users interested to sell cannabis products. 
 
 
 ## User Stories 
 
-https://docs.google.com/document/d/1QvQDU1f0hAWIEF8oOh2_SovxtTWsUzkuj5XgCGjwiNQ/edit
+<a href="https://docs.google.com/document/d/1QvQDU1f0hAWIEF8oOh2_SovxtTWsUzkuj5XgCGjwiNQ/edit">User Stories Link<a>
+
 
 ## ERD
+ <a href="https://lucid.app/lucidchart/b11c9433-0936-4f71-8517-22f28f6bd65d/edit?invitationId=inv_2033686f-e445-4914-b6b4-982be0e3916b&page=0_0#">ERD Link<a>
 
-https://lucid.app/lucidchart/b11c9433-0936-4f71-8517-22f28f6bd65d/edit?invitationId=inv_2033686f-e445-4914-b6b4-982be0e3916b&page=0_0#
 
 ## Wireframe
 
-https://www.figma.com/file/YPCgLj9TMwHOr6WSyWsyl2/Budafly?node-id=0%3A1
+<a href="https://www.figma.com/file/YPCgLj9TMwHOr6WSyWsyl2/Budafly?node-id=0%3A1">Wireframe Link<a>
 
 ### Ideation
 
@@ -47,6 +48,21 @@ What tasks does the app perform in order to solve the problem?
 
 What are the expected outcomes?
 - The Amazon for cannabis! 
+ 
+ 
+#### Contributors
+ 
+ <a href="https://www.linkedin.com/in/vanessa-conti901/">Vanessa Conti<a>
+ <a href="https://www.linkedin.com/in/stephanie-lucano-b84764150/">Stephanie Lucano<a>
+ <a href="https://www.linkedin.com/in/bryant-mercedes/">Bryant Mercedes<a>
+ <a href="https://www.linkedin.com/in/fatema-kabir/">Fatema Kabir<a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 

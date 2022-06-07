@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
@@ -8,16 +8,32 @@ import Product from "./Components/singleProduct";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
+// import Modal from "./Components/Modal";
+import SearchBar from "./Components/Search";
+import Faqs from "./Components/FAQs";
+import Laws from "./Components/Laws";
+import Demo from "./Components/seller/demoProfile";
 
-import SearchBar from "./Components/SearchBar";
+//import Search from "./Components/Search";
 
 import Cart from "./Components/Cart";
+import LandingPage from "./Components/seller/landingPage";
+import SingleView from "./Components/seller/singleView";
+import EditProductForm from "./Components/seller/editProduct";
+import AddProductForm from "./Components/seller/addProductForm";
+import FourOFour from "./Components/FourOFour";
 
 const App = () => {
+  // const [modalOpen, setModalOpen] = useState(false);
+
   const [cart, setCart] = useState([]);
+  const [login, setLogin] = useState(false);
 
   const addItem = (item) => {
+    item.quantity = 1;
+
     setCart([...cart, item]);
+
     let tempArr = [...cart];
     if (!cart.length) {
       localStorage.setItem(
@@ -45,19 +61,51 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar login={login} />
+      {/* <button
+        className="openModalBtn"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Shop Now
+      </button>
+
+      {modalOpen && <Modal setOpenModal={setModalOpen} />} */}
       <Routes>
         <Route exact path="/" element={<Home addItem={addItem} />} />
         <Route path="/About" element={<About />} />
         <Route path="/products/:id" element={<Product addItem={addItem} />} />
-        <Route path="/Login" element={<Login />} />
+        <Route
+          path="/seller/:id/products"
+          element={<LandingPage login={login} />}
+        />
+        <Route path="/seller/:id/products/new" element={<AddProductForm />} />
+        <Route
+          path="/seller/:id/products/:pid"
+          element={<SingleView login={login} />}
+        />
+        <Route
+          path="/seller/:id/products/:pid/edit"
+          element={<EditProductForm />}
+        />
+        <Route
+          path="/Login"
+          element={<Login setLogin={setLogin} login={login} />}
+        />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route
           path="/Cart"
-          element={<Cart cart={cart} deleteItem={deleteItem} />}
+          element={
+            <Cart cart={cart} deleteItem={deleteItem} setCart={setCart} />
+          }
         />{" "}
         <Route path="/Search" element={<SearchBar />} />
+        <Route path="/FAQs" element={<Faqs />} />
+        <Route path="/Laws" element={<Laws />} />
+        <Route path="/userProfile" element={<Demo />} />
+        <Route path="*" element={<FourOFour />} />
       </Routes>
     </div>
   );
