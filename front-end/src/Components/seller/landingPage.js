@@ -16,44 +16,107 @@ const LandingPage = ({ login }) => {
 
   const viewAllProducts = products.map((product) => {
     return (
-      <article className="grid-container" key={product.id}>
+      <div class="columns">
+        <div class="column mx-4">
+          <div class="card mt-4 py-3">
+            <div class="card-image pr-3 pl-4 has-background-primary ">
+              <figure class="image is-128x128 ">
+                <img src={product.image} alt={product.description} />
+              </figure>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">{product.name}</p>
+                    <p class="subtitle is-6">${product.price}.00</p>
+                  </div>
+                </div>
+
+                <div class="media-content">
+                  <Link to={"/seller/" + id + "/products/" + product.id}>
+                    {" "}
+                    More details
+                  </Link>
+                  <br></br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  });
+
+  {
+    /*<article className="grid-container" key={product.id}>
         <img src={product.image} alt={product.description} />
         <h3>{product.name}</h3>
         <p>Price: ${product.price}.00</p>
         <Link to={"/seller/" + id + "/products/" + product.id}>
           More Details
         </Link>
-      </article>
+    </article>
     );
-  });
+});
+*/
+  }
 
   return (
     <>
+      {/* <div class="section is-centered">
+        <div class="container">
+          <div class="columns">{viewAllProducts}</div>
+        </div>
+      </div> */}
       {login ? (
         <div>
-          <h1>Welcome, Antonio</h1>
-          <h2>
-            ATTENTION, PLEASE READ Below are the products you have listed for
-            sale in Budafly, below the image is a link you can click to edit a
-            product or delete a product or create a product using the button
-            below
-          </h2>
-          <Link to={"/seller/" + id + "/products/new"}>
-            <div class="buttons">
-              <button class="button is-primary">Add a Product</button>
+          <div class="section">
+            <div class="is-italic title">Welcome, Antonio</div>
+            <div class="is-bold subtitle">
+              <strong>ATTENTION, PLEASE READ...</strong>
+              <p class="is-2 is-spaced">
+                Below are the products you have listed for sale in Budafly,
+                below the image is a link you can click to edit a product or
+                delete a product or create a product using the button below
+              </p>
             </div>
-          </Link>
-          {viewAllProducts}
+            <Link to={"/seller/" + id + "/products/new"}>
+              {/* <div class="button"> */}
+              <button class="button is-primary">Add a Product</button>
+              {/* </div> */}
+            </Link>
+            <div class="section is-centered">
+              <div class="container">
+                <div class="columns is-multiline">{viewAllProducts}</div>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
-        <div>
+        // <div class="section is-centered">
+        //   <div class="container">
+        <>
           <h1>Welcome, Customer</h1>
+          <div class="columns is-multiline">{viewAllProducts}</div>
+        </>
+        //   </div>
+        // </div>
+        // <div>
+        //   <h1>Welcome, Customer</h1>
 
-          {viewAllProducts}
-        </div>
+        //   {viewAllProducts}
+        // </div>
       )}
     </>
   );
+  //   return (
+  //     <div class="section is-centered">
+  //       <div class="container">
+  //         <div class="columns">{viewAllProducts}</div>
+  //       </div>
+  //     </div>
+  //   );
 };
 
 export default LandingPage;
