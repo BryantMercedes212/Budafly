@@ -100,11 +100,11 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-                  <img src={product.image} alt=" " />
+                  <img src="https://www.ie420supply.com/wp-content/uploads/2019/05/SPACE-COOKIES-STRAIN-IE-420-SUPPLY-RIVERSIDE-DISPENSARY-NEARBY-WEED-CLINIC-CORONA-CALIFORNIA.jpg" alt=" " />
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <p class="title is-size-5 is-primary">{product.name}</p>
+                    <p class="title is-size-5 is-primary">Ice Cream Cake</p>
                   </div>
                 </div>
                 <footer class="card-footer">
@@ -120,16 +120,16 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-                  <img src={product.image} alt=" " />{" "}
+                  <img src='https://i1.wp.com/www.gotweedonline.com/wp-content/uploads/2020/05/1589188622250.jpg?fit=1005%2C1005&ssl=1' alt=" " />{" "}
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <p class="title is-size-5">{product.name}</p>
+                    <p class="title is-size-5">Sour Tangie</p>
                   </div>
                 </div>
                 <footer class="card-footer">
                   <p class="card-footer-item">
-                    <a href={`/products/${product.id}`} class="has-text-grey">
+                    <a href={`/products/${product.id}`} class="is-primary">
                       View
                     </a>
                   </p>
@@ -140,16 +140,16 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-                  <img src={product.image} alt="Placeholder image" />
+                  <img src='https://firstclassmedicinal.com/wp-content/uploads/2020/02/Amnesia-Haze3.jpg' alt="Placeholder image" />
                 </div>
                 <div class="card-content">
                   <div class="media">
-                    <p class="title is-size-5">{product.name}</p>
+                    <p class="title is-size-5">Amnesia Haze</p>
                   </div>
                 </div>
                 <footer class="card-footer">
                   <div class="card-footer-item">
-                    <a href={`/products/${product.id}`} class="has-text-grey">
+                    <a href={`/products/${product.id}`} class="is-primary">
                       View
                     </a>
                   </div>
