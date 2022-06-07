@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 //import LandingPage from "./seller/landingPage";
 
 const SingleView = ({ login }) => {
-  // const URL = process.env.REACT_APP_API_URL;
+  const URL = process.env.REACT_APP_API_URL;
   const { id, pid } = useParams();
   const navigate = useNavigate();
 
@@ -12,9 +12,7 @@ const SingleView = ({ login }) => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:3333/users/${id}/products/${pid}`
-      );
+      const res = await axios.get(`${URL}/users/${id}/products/${pid}`);
       setProduct(res.data);
       console.log(res.data);
     } catch (error) {
@@ -90,10 +88,17 @@ const SingleView = ({ login }) => {
                         <Link
                           to={"/seller/" + id + "/products/" + pid + "/edit"}
                         >
-                          <button  class="button is-primary"><strong>Edit</strong></button>
+                          <button class="button is-primary">
+                            <strong>Edit</strong>
+                          </button>
                           <br></br>
                         </Link>
-                        <button  class="button is-primary" onClick={handleDelete}><strong>Delete a Product</strong></button>{" "}
+                        <button
+                          class="button is-primary"
+                          onClick={handleDelete}
+                        >
+                          <strong>Delete a Product</strong>
+                        </button>{" "}
                       </div>
                     </p>
                   </>
@@ -110,4 +115,3 @@ const SingleView = ({ login }) => {
 };
 
 export default SingleView;
-
