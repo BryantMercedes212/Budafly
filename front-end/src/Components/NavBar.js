@@ -92,8 +92,9 @@ const NavBar = ({ login }) => {
             </div>
           </div>
 
-          <a class="navbar-item px-4"></a>
-          <Search />
+          <div class="navbar-item px-4">
+            <Search />
+          </div>
         </div>
 
         <div class="navbar-end">
