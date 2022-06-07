@@ -92,9 +92,7 @@ const Product = ({ addItem }) => {
       </div>
 
       <div class="section is-centered">
-        <h3 class="title has-text-centered is-size-4">
-          Sellers Other Products
-        </h3>
+        <h3 class="title has-text-centered is-size-4">Featured Products</h3>
         <div class="container">
           <div class="columns is-variable">
             <div class="column">
