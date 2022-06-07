@@ -6,10 +6,11 @@ import { Link, useParams } from "react-router-dom";
 const Product = ({ addItem }) => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
+  const URL = process.env.REACT_APP_API_URL;
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/products/${id}`);
+      const res = await axios.get(`${URL}/products/${id}`);
       setProduct(res.data);
     } catch (error) {
       console.log(error);
@@ -98,7 +99,6 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-
                   <img
                     src="https://i1.wp.com/www.gotweedonline.com/wp-content/uploads/2020/05/1589188622250.jpg?fit=1005%2C1005&ssl=1"
                     alt=" "
@@ -107,7 +107,6 @@ const Product = ({ addItem }) => {
                 <div class="card-content">
                   <div class="media">
                     <p class="title is-size-5 is-primary">Sour Tangie</p>
-
                   </div>
                 </div>
                 <footer class="card-footer">
@@ -123,7 +122,6 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-
                   <img
                     src="https://420spot.org/wp-content/uploads/2020/01/slurricane_2020_01.jpg"
                     alt=" "
@@ -132,14 +130,11 @@ const Product = ({ addItem }) => {
                 <div class="card-content">
                   <div class="media">
                     <p class="title is-size-5">Slurricane</p>
-
                   </div>
                 </div>
                 <footer class="card-footer">
                   <p class="card-footer-item">
-
                     <a href={`/products/21`} class="has-text-grey">
-
                       View
                     </a>
                   </p>
@@ -150,12 +145,10 @@ const Product = ({ addItem }) => {
             <div class="column">
               <div class="card has-background-primary">
                 <div class="card-image has-text-centered px-6">
-
                   <img
                     src="https://firstclassmedicinal.com/wp-content/uploads/2020/02/Amnesia-Haze3.jpg"
                     alt="Placeholder image"
                   />
-
                 </div>
                 <div class="card-content">
                   <div class="media">
@@ -164,9 +157,7 @@ const Product = ({ addItem }) => {
                 </div>
                 <footer class="card-footer">
                   <div class="card-footer-item">
-
                     <a href={`/products/17`} class="has-text-grey">
-
                       View
                     </a>
                   </div>

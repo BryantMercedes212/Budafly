@@ -3,11 +3,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Home = ({ addItem }) => {
+  const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/products/`);
+      const res = await axios.get(`${URL}/products/`);
       setProducts(res.data);
     } catch (error) {
       console.log(error);
