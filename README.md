@@ -1,6 +1,6 @@
 # Budafly
 
-Budafly, an e-commerce marketplace, that enables users to navigate through, and find the desired product that they want to purchase.
+Budafly, an e-commerce marketplace, that enables users to navigate through, and find the desired product that they want to purchase. The app also provides a platform for users interested to sell cannabis products. 
 
 
 ## User Stories 
@@ -48,6 +48,21 @@ What tasks does the app perform in order to solve the problem?
 
 What are the expected outcomes?
 - The Amazon for cannabis! 
+ 
+ 
+#### Contributors
+ 
+ <a href="https://www.linkedin.com/in/vanessa-conti901/">Vanessa Conti<a>
+ <a href="https://www.linkedin.com/in/stephanie-lucano-b84764150/">Stephanie Lucano<a>
+ <a href="https://www.linkedin.com/in/bryant-mercedes/">Bryant Mercedes<a>
+ <a href="https://www.linkedin.com/in/fatema-kabir/">Fatema Kabir<a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
