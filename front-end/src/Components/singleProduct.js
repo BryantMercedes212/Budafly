@@ -131,7 +131,7 @@ const Product = ({ addItem }) => {
                         class="button is-primary"
                         onClick={() => addItem(product)}
                       >
-                        <Link to="/Cart">Add to Cart</Link>
+                        Add to Cart
                       </button>
                     </div>
                   </div>
