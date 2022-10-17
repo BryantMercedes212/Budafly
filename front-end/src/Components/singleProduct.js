@@ -10,8 +10,7 @@ const Product = ({ addItem }) => {
   const [sellerProduct, setSellerProduct] = useState([]);
   const randomNumbers = [];
   let i = 0;
-
-  while (i < 4) {
+  while (i < 3) {
     randomNumbers.push(Math.floor(Math.random() * 40));
     i++;
   }
@@ -39,7 +38,7 @@ const Product = ({ addItem }) => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     fetchSellersProducts();

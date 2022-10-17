@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = ({ addItem }) => {
   const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   const fetchProducts = async () => {
     try {
@@ -19,7 +20,6 @@ const Home = ({ addItem }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
-
   const allProducts = products.map((product, i) => {
     return (
       <div class="column is-4">
@@ -37,21 +37,20 @@ const Home = ({ addItem }) => {
               </div>
             </div>
 
-            <div class="media-content">
-              <Link className="item-link" to={`/products/${product.id}`}>
-                {" "}
-                More details
-              </Link>
-              <br></br>
+            <div class="media-content" className="media-content">
               <footer class="card-footer">
-                <div class="buttons">
-                  <button
-                    class="button is-primary"
-                    onClick={() => addItem(product)}
-                  >
-                    <strong>Add To Cart</strong>
-                  </button>
-                </div>
+                <button
+                  class="button is-link"
+                  onClick={() => navigate(`/products/${product.id}`)}
+                >
+                  More details
+                </button>
+                <button
+                  class="button is-primary "
+                  onClick={() => addItem(product)}
+                >
+                  <strong>Add To Cart</strong>
+                </button>
               </footer>
             </div>
           </div>
@@ -59,11 +58,12 @@ const Home = ({ addItem }) => {
       </div>
     );
   });
+  const shuffledArray = allProducts.sort((a, b) => 0.5 - Math.random());
 
   return (
     <div class="section is-centered">
       <div class="container">
-        <div class="columns is-multiline">{allProducts}</div>
+        <div class="columns is-multiline">{shuffledArray}</div>
       </div>
     </div>
   );
