@@ -86,13 +86,17 @@ const SingleView = ({ login }) => {
                         <Link
                           to={"/seller/" + id + "/products/" + pid + "/edit"}
                         >
+
                           <button class="button is-primary has-text-centered">
                             <strong>Edit Product</strong>
+
                           </button>
                           <br></br>
                         </Link>
                         <button
+
                           class="button is-primary has-text-centered"
+
                           onClick={handleDelete}
                         >
                           <strong>Delete a Product</strong>
