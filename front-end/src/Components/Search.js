@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 
-const Search = () => {
-  const [input, setInput] = useState();
-
-  const handleChange = (e) => {
-    setInput(e.target.value);
+const Search = ({ setInput, input }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInput("");
   };
 
+  console.log(input);
   // return
   return (
     <div className="search">
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
-          onChange={handleChange}
+          onChange={(e) => setInput(e.target.value)}
           type="text"
           placeholder="search for a strain"
           value={input}
