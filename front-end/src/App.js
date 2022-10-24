@@ -4,15 +4,16 @@ import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
-import Product from "./Components/singleProduct";
+import Product from "./Components/ProductDetails";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
 // import Modal from "./Components/Modal";
-import SearchBar from "./Components/Search";
+import Search from "./Components/Search";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
 import Demo from "./Components/seller/demoProfile";
+import axios from "axios";
 
 //import Search from "./Components/Search";
 
@@ -22,12 +23,15 @@ import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
 import FourOFour from "./Components/FourOFour";
+import ProductCards from "./Components/productCards/ProductCards";
 
 const App = () => {
   // const [modalOpen, setModalOpen] = useState(false);
-
+  const [input, setInput] = useState("");
   const [cart, setCart] = useState([]);
   const [login, setLogin] = useState(false);
+  const URL = process.env.REACT_APP_API_URL;
+  const [products, setProducts] = useState([]);
 
   const addItem = (item) => {
     item.quantity = 1;
@@ -53,6 +57,28 @@ const App = () => {
     localStorage.setItem("cart", JSON.stringify(tempArr));
   };
 
+  const fetchProducts = async () => {
+    try {
+      const res = await axios.get(`${URL}/products/`);
+      setProducts(res.data);
+    } catch (error) {
+      console.log(error);
+      setProducts([]);
+    }
+  };
+  let filterProducts = [];
+
+  if (input) {
+    filterProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(input.toLocaleLowerCase())
+    );
+    console.log(filterProducts);
+  }
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   useEffect(() => {
     if (localStorage.getItem("cart")) {
       setCart(JSON.parse(localStorage.getItem("cart")));
@@ -61,19 +87,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar login={login} />
-      {/* <button
-        className="openModalBtn"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Shop Now
-      </button>
-
-      {modalOpen && <Modal setOpenModal={setModalOpen} />} */}
+      <NavBar
+        login={login}
+        cartLength={cart.length}
+        setInput={setInput}
+        input={input}
+      />
       <Routes>
-        <Route exact path="/" element={<Home addItem={addItem} />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <ProductCards
+              addItem={addItem}
+              products={products}
+              filterProducts={filterProducts}
+              input={input}
+            />
+          }
+        />
         <Route path="/About" element={<About />} />
         <Route path="/products/:id" element={<Product addItem={addItem} />} />
         <Route
@@ -101,7 +133,10 @@ const App = () => {
             <Cart cart={cart} deleteItem={deleteItem} setCart={setCart} />
           }
         />{" "}
-        <Route path="/Search" element={<SearchBar />} />
+        <Route
+          path="/Search"
+          element={<Search setInput={setInput} input={input} />}
+        />
         <Route path="/FAQs" element={<Faqs />} />
         <Route path="/Laws" element={<Laws />} />
         <Route path="/userProfile" element={<Demo />} />
