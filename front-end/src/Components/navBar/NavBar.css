@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #fcfcfc;
+  height: 75px;
+  padding: 0 30px;
+}
+.navbar__items {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar__logo img {
+  width: 60px;
+  height: 60px;
+  padding: 7.5px 0;
+  cursor: pointer;
+}
+.navbar__itemLinks {
+  list-style: none;
+  line-height: 43px;
+  cursor: pointer;
+}

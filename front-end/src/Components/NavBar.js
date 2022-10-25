@@ -130,10 +130,6 @@ const NavBar = ({ login, cartLength, setInput, input }) => {
               </a>
             </div>
           </div>
-
-          <div class="navbar-item px-4">
-            <Search setInput={setInput} input={input} />
-          </div>
         </div>
 
         <div class="navbar-end">
