@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
 import Home from "./Components/Home";
-import NavBar from "./Components/NavBar";
+import NavBar from "./Components/navBar/NavBar";
 import Product from "./Components/ProductDetails";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
@@ -103,6 +103,7 @@ const App = () => {
               products={products}
               filterProducts={filterProducts}
               input={input}
+              setInput={setInput}
             />
           }
         />
