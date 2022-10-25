@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-//import LandingPage from "./seller/landingPage";
+import { useNavigate } from "react-router-dom";
+
+import LoopIcon from "@mui/icons-material/Loop";
+
+import "./productCard/ProductCard.css";
 
 const Product = ({ addItem }) => {
   const [product, setProduct] = useState([]);
@@ -9,6 +13,11 @@ const Product = ({ addItem }) => {
   const URL = process.env.REACT_APP_API_URL;
   const [sellerProduct, setSellerProduct] = useState([]);
   const randomNumbers = [];
+
+  const [loading, setLoading] = useState(false);
+  const [itemInCart, setItemInCart] = useState(false);
+  const navigate = useNavigate();
+
   let i = 0;
   while (i < 3) {
     randomNumbers.push(Math.floor(Math.random() * 40));
@@ -45,40 +54,54 @@ const Product = ({ addItem }) => {
   }, []);
 
   const sellerFeaturedProducts = sellerProduct.map((product) => {
+    product.inCart = false;
+    const { id, name, price, inCart, image, description, type } = product;
+    const formattedPrice = `$${price}.00`;
+    const handleAddToCart = (e) => {
+      if (inCart) {
+        return;
+      } else {
+        setLoading(true);
+        setTimeout(function () {
+          setItemInCart(true);
+          setLoading(false);
+        }, 500);
+      }
+    };
     return (
-      <div class="column is-4">
-        <div class="card-image pr-3 pl-4 has-background-primary ">
-          <figure class="image is-128x128 ">
-            <img src={product.image} alt={product.description} />
-          </figure>
+      <div className={`productCard_${type}`}>
+        <div
+          className="productCard__image"
+          onClick={() => navigate(`/products/${id}`)}
+        >
+          <img src={image} alt={name} className={"image"} />
         </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4">{product.name}</p>
-                <p class="subtitle is-6">${product.price}</p>
-              </div>
+        <div
+          className="productCard__info"
+          onClick={() => navigate(`/products/${id}`)}
+        >
+          <div className="productCard__title">{name}</div>
+          <div>
+            <div className="productCard__price">
+              <div>{formattedPrice}</div>
+              <div>{type}</div>
             </div>
-
-            <div class="media-content">
-              <Link className="item-link" to={`/products/${product.id}`}>
-                {" "}
-                More details
-              </Link>
-              <br></br>
-              <footer class="card-footer">
-                <div class="buttons">
-                  <button
-                    class="button is-primary"
-                    onClick={() => addItem(product)}
-                  >
-                    <strong>Add To Cart</strong>
-                  </button>
-                </div>
-              </footer>
-            </div>
+            <div className="productCard__type"> </div>
           </div>
+        </div>
+        <div
+          className="productCard__addToCart"
+          onClick={() => {
+            addItem(product);
+            handleAddToCart();
+          }}
+          id={id}
+        >
+          {!itemInCart && !loading && "Add To Cart"}
+          {!itemInCart && loading && (
+            <LoopIcon className="loader" fontSize="small" />
+          )}
+          {itemInCart && "View Cart"}
         </div>
       </div>
     );
