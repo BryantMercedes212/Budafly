@@ -4,7 +4,7 @@ import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import NavBar from "./Components/navBar/NavBar";
-import Product from "./Components/ProductDetails";
+import Product from "./Components/productDetails/ProductDetails";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
