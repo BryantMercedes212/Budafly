@@ -1,0 +1,36 @@
+.footerItems {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  list-style: none;
+  flex-direction: column;
+}
+
+.footerTitle {
+  margin-bottom: 30px;
+}
+
+.footerItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footerItemsContainer div {
+  margin-top: 10px;
+}
+
+.footerItem {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.footerItem:hover {
+  background-color: #222b2f;
+  color: white;
+}

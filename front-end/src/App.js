@@ -13,6 +13,7 @@ import Search from "./Components/Search";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
 import Demo from "./Components/seller/demoProfile";
+import Footer from "./Components/footer/Footer";
 import axios from "axios";
 
 //import Search from "./Components/Search";
@@ -69,9 +70,21 @@ const App = () => {
   let filterProducts = [];
 
   if (input) {
-    filterProducts = products.filter((product) =>
-      product.name.toLowerCase().includes(input.toLocaleLowerCase())
-    );
+    if (
+      input.toLocaleLowerCase() === "sativa" ||
+      input === "indica" ||
+      input === "hybrid"
+    ) {
+      filterProducts = products.filter(
+        (product) =>
+          product.type.toLocaleLowerCase() === input.toLocaleLowerCase()
+      );
+    } else {
+      filterProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(input.toLocaleLowerCase())
+      );
+    }
+
     console.log(filterProducts);
   }
 
@@ -143,6 +156,7 @@ const App = () => {
         <Route path="/userProfile" element={<Demo />} />
         <Route path="*" element={<FourOFour />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

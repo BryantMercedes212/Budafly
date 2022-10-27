@@ -1,4 +1,4 @@
-* {
+.productDetailsContainer {
   padding: 0;
   box-sizing: border-box;
   margin: 0;
@@ -165,6 +165,7 @@ h3 {
 }
 
 .title {
+  font-family: DejaVu Sans Mono, monospace;
   margin: 30px;
 }
 
