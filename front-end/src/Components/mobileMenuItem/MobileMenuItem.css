@@ -1,0 +1,9 @@
+.mobileMenuItem .downArrowIcon {
+  position: relative;
+  top: 6px;
+}
+
+.mobileMenuItem .submenuItem {
+  font-weight: 300;
+  padding: 10px;
+}

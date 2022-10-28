@@ -1,4 +1,4 @@
-//import "./App.css";
+import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
@@ -18,7 +18,7 @@ import axios from "axios";
 
 //import Search from "./Components/Search";
 
-import Cart from "./Components/Cart";
+import Cart from "./Components/cart/Cart";
 import LandingPage from "./Components/seller/landingPage";
 import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
@@ -35,6 +35,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   const addItem = (item) => {
+    console.log(item);
     item.quantity = 1;
 
     setCart([...cart, item]);
@@ -106,56 +107,58 @@ const App = () => {
         setInput={setInput}
         input={input}
       />
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <ProductCards
-              addItem={addItem}
-              products={products}
-              filterProducts={filterProducts}
-              input={input}
-              setInput={setInput}
-            />
-          }
-        />
-        <Route path="/About" element={<About />} />
-        <Route path="/products/:id" element={<Product addItem={addItem} />} />
-        <Route
-          path="/seller/:id/products"
-          element={<LandingPage login={login} />}
-        />
-        <Route path="/seller/:id/products/new" element={<AddProductForm />} />
-        <Route
-          path="/seller/:id/products/:pid"
-          element={<SingleView login={login} />}
-        />
-        <Route
-          path="/seller/:id/products/:pid/edit"
-          element={<EditProductForm />}
-        />
-        <Route
-          path="/Login"
-          element={<Login setLogin={setLogin} login={login} />}
-        />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route
-          path="/Cart"
-          element={
-            <Cart cart={cart} deleteItem={deleteItem} setCart={setCart} />
-          }
-        />{" "}
-        <Route
-          path="/Search"
-          element={<Search setInput={setInput} input={input} />}
-        />
-        <Route path="/FAQs" element={<Faqs />} />
-        <Route path="/Laws" element={<Laws />} />
-        <Route path="/userProfile" element={<Demo />} />
-        <Route path="*" element={<FourOFour />} />
-      </Routes>
+      <div className="pageContainer">
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <ProductCards
+                addItem={addItem}
+                products={products}
+                filterProducts={filterProducts}
+                input={input}
+                setInput={setInput}
+              />
+            }
+          />
+          <Route path="/About" element={<About />} />
+          <Route path="/products/:id" element={<Product addItem={addItem} />} />
+          <Route
+            path="/seller/:id/products"
+            element={<LandingPage login={login} />}
+          />
+          <Route path="/seller/:id/products/new" element={<AddProductForm />} />
+          <Route
+            path="/seller/:id/products/:pid"
+            element={<SingleView login={login} />}
+          />
+          <Route
+            path="/seller/:id/products/:pid/edit"
+            element={<EditProductForm />}
+          />
+          <Route
+            path="/Login"
+            element={<Login setLogin={setLogin} login={login} />}
+          />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route
+            path="/Cart"
+            element={
+              <Cart cart={cart} deleteItem={deleteItem} setCart={setCart} />
+            }
+          />{" "}
+          <Route
+            path="/Search"
+            element={<Search setInput={setInput} input={input} />}
+          />
+          <Route path="/FAQs" element={<Faqs />} />
+          <Route path="/Laws" element={<Laws />} />
+          <Route path="/userProfile" element={<Demo />} />
+          <Route path="*" element={<FourOFour />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
