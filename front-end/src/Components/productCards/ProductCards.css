@@ -1,0 +1,27 @@
+.productCards {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+.productCards__title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.productCards__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 15px;
+}
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+@media (max-width: 440px) {
+  .productCards__container {
+    display: block;
+  }
+}

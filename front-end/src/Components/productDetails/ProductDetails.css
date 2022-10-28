@@ -1,0 +1,184 @@
+.productDetailsContainer {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.productDetails {
+  margin-top: 50px;
+  display: flex;
+  max-width: 1230px;
+  width: 100%;
+  border-radius: 12px;
+
+  box-shadow: 0 2px 6px #555;
+  padding: 0 15px;
+}
+
+.productDetails .big-img {
+  max-width: 500px;
+  min-width: 290px;
+  overflow: hidden;
+  margin: 25px;
+}
+
+.big-img img {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  display: block;
+}
+
+.details .box {
+  max-width: 500px;
+  min-width: 290px;
+  margin: 25px;
+}
+
+.box .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.box .row h1 {
+  text-transform: uppercase;
+  text-decoration: underline;
+
+  letter-spacing: 2px;
+}
+.box .row span {
+  margin-top: 10px;
+  color: crimson;
+}
+h3 {
+  margin-left: ;
+  margin-bottom: 14px;
+}
+
+.effects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.09);
+  border-radius: 5%;
+  width: 50%;
+  height: 80px;
+}
+.effects p {
+  display: inline;
+  width: 30px;
+  height: 30px;
+  text-decoration: underline;
+  outline: none;
+  margin-right: 12px;
+}
+
+.box .productDescription {
+  margin-top: 30px;
+  line-height: 1.5;
+  font-size: 21px;
+  margin-bottom: 14px;
+}
+.thumb {
+  width: 100px;
+  height: 80px;
+  display: flex;
+  margin-top: 10px 0;
+}
+
+/* .cannabinoid {
+  width: 400px;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  opacity: 0.7;
+  border-radius: 5px;
+} */
+
+.cannabinoid {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.09);
+  border-radius: 5%;
+}
+
+.box .cart {
+  background: #333;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 25px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.productDetailsContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.featuredProductsContainer {
+  width: 60%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.percentage {
+  margin: 11px;
+}
+
+.progressContainer {
+  margin-top: 14px;
+}
+
+.lowHigh {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.lowHigh div {
+  font-family: DejaVu Sans Mono, monospace;
+  font-weight: 550;
+  font-size: 17px;
+}
+
+.title {
+  font-family: DejaVu Sans Mono, monospace;
+  margin: 30px;
+}
+
+@media (max-width: 700px) {
+  .productDetails {
+    margin-left: auto;
+    margin-top: auto;
+    flex-direction: column;
+  }
+  .thumb {
+    height: 50px;
+  }
+  .thumb .cannabinoid {
+    height: 50px;
+  }
+}

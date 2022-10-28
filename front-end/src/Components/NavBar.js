@@ -1,38 +1,75 @@
 import { Link } from "react-router-dom";
 import Search from "./Search";
-import Product from "./singleProduct";
+import Product from "./ProductDetails";
 
-const NavBar = ({ login }) => {
+const NavBar = ({ login, cartLength, setInput, input }) => {
+  //   <nav class="navbar" role="navigation" aria-label="main navigation">
+  //   <div class="navbar-brand">
+  //     <a class="navbar-item" href="https://budafly.netlify.app/">
+  //     <img
+  //             src="https://i.ibb.co/GWbsnBR/Screen-Shot-2022-05-19-at-12-02-14-PM.png"
+  //             alt=""
+  //             style={{ "max-height": "110px" }}
+  //             class="py-4 px-4"
+  //           />
+  //     </a>
+
+  //     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+  //       <span aria-hidden="true"></span>
+  //       <span aria-hidden="true"></span>
+  //       <span aria-hidden="true"></span>
+  //     </a>
+  //   </div>
+
+  //   <div id="navbarBasicExample" class="navbar-menu">
+  //     <div class="navbar-start">
+  //       <a class="navbar-item">
+  //       <Link to="/">Home</Link>
+  //       </a>
+
+  //       <a class="navbar-item">
+  //         Documentation
+  //       </a>
+
+  //       <div class="navbar-item has-dropdown is-hoverable">
+  //         <a class="navbar-link">
+  //           More
+  //         </a>
+
+  //         <div class="navbar-dropdown">
+  //           <a class="navbar-item ">
+  //             About
+  //           </a>
+  //           <a class="navbar-item">
+  //             Jobs
+  //           </a>
+  //           <a class="navbar-item">
+  //             Contact
+  //           </a>
+  //           <hr class="navbar-divider">
+  //           <a class="navbar-item">
+  //             Report an issue
+  //           </a>
+  //         </div>
+  //       </div>
+  //     </div>
+
+  //     <div class="navbar-end">
+  //       <div class="navbar-item">
+  //         <div class="buttons">
+  //           <a class="button is-primary">
+  //             <strong>Sign up</strong>
+  //           </a>
+  //           <a class="button is-light">
+  //             Log in
+  //           </a>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </nav>
+
   return (
-    /*<div>
-      <nav className="nav">
-        <ul className="nav-links">
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="/About">ABOUT</Link>
-          </li>
-          <li>
-            <Link to="/Login">User Login</Link>
-          </li>
-          <li>
-            <Link to="/Signup">Create an Account</Link>
-          </li>
-          <li>
-            <Link to="/Search">search</Link>
-          </li>
-          <li>
-            <Link to="/userProfile">👤</Link>
-          </li>
-          <li>
-            <Link to="/Cart">🛒</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
-};*/
     <nav
       class="navbar has-shadow is-white"
       role="navigation"
@@ -67,10 +104,12 @@ const NavBar = ({ login }) => {
           <a class="navbar-item is-size-5 is-bold is-italic">
             <Link to="/">Home</Link>
           </a>
-
-          <a class="navbar-item is-size-5">
-            <Link to="/Cart">🛒</Link>
-          </a>
+          <div className="cart">
+            <p>{cartLength}</p>
+            <a class="navbar-item is-size-5">
+              <Link to="/Cart">🛒</Link>
+            </a>
+          </div>
 
           <div class="navbar-item has-dropdown is-hoverable is-bold is-italic is-size-5">
             <a class="navbar-link">More</a>
@@ -90,10 +129,6 @@ const NavBar = ({ login }) => {
                 <Link to="/Laws">Laws</Link>
               </a>
             </div>
-          </div>
-
-          <div class="navbar-item px-4">
-            <Search />
           </div>
         </div>
 
@@ -116,49 +151,6 @@ const NavBar = ({ login }) => {
           )}
         </div>
       </div>
-
-      {/*<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
-        <ul class="container">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/Cart">Shopping Cart</a>
-          </li>
-          <li>
-            <a href="/About">About</a>
-          </li>
-          <li>
-            <a href="/Login">Login</a>
-          </li>
-          <li>
-            <a href="/Signup">Create an Account</a>
-          </li>
-          <li>
-            <a href="/ForgotPassword">Forgot Password</a>
-          </li>
-          <li>
-            <a href="/products/:id">Product</a>
-          </li>
-          <li>
-            <a href="/seller/:id/products/new">Sell New Product</a>
-          </li>
-          <li>
-            <a href="/seller/:id/products/:pid/edit">Edit Your Product</a>
-          </li>
-          <li>
-            <a href="/seller/:id/products/:pid">Products</a>
-          </li>
-          <li>
-            <a href="/seller/:id/products">All Your Products</a>
-          </li>
-          <li class="is-active">
-            <a href="#" aria-current="page">
-              Current Page
-            </a>
-          </li>
-        </ul>
-</nav>*/}
     </nav>
   );
 };

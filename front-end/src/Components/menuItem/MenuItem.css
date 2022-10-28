@@ -1,0 +1,9 @@
+.menuItem {
+  display: inline-block;
+  position: relative;
+  line-height: 33px;
+}
+
+.menuItem:not(:last-child) {
+  margin-right: 20px;
+}
