@@ -37,35 +37,35 @@ const Cart = ({ cart, deleteItem, setCart }) => {
           </div>
           <div className="cartItemInformation">
             <div className="cartItemName">{item.name}</div>
-            <div className="cartItemButtons">
-              <button
-                className="plus-btn"
-                name={i}
-                id="plus"
-                onClick={handleQuantity}
-              >
-                +
-              </button>
-              <p>{item.quantity}</p>
-              <button
-                className="minus-btn"
-                name={i}
-                id="minus"
-                onClick={handleQuantity}
-              >
-                -
-              </button>
+            <div className="quantityContainer">
+              <div className="quantityLabel">Quantity</div>
+              <div className="cartItemButtons">
+                <button
+                  className="plus-btn"
+                  name={i}
+                  id="plus"
+                  onClick={handleQuantity}
+                >
+                  +
+                </button>
+                <div className="quantity">
+                  <p>{item.quantity}</p>
+                </div>
+                <button
+                  className="minus-btn"
+                  name={i}
+                  id="minus"
+                  onClick={handleQuantity}
+                >
+                  -
+                </button>
+              </div>
             </div>
-            <div class="column is-1 mt-6">
-              <button
-                class="button is-danger is-rounded ml-6"
-                onClick={() => deleteItem(i)}
-              >
-                REMOVE
-              </button>{" "}
+            <div className="removeButton">
+              <button onClick={() => deleteItem(i)}>REMOVE</button>{" "}
             </div>
           </div>
-          <div className="cartItemPrice">{item.price}</div>
+          <div className="cartItemPrice">${item.price}.00</div>
         </div>
       </div>
     );
@@ -76,7 +76,7 @@ const Cart = ({ cart, deleteItem, setCart }) => {
       <h1 className="shoppingCart">Shopping Cart</h1>
       <div className="cartContainer">
         <div className="cartItems">{products}</div>
-        Total: ${total}
+        <div className="total">Total: ${total}</div>
       </div>
     </div>
   );

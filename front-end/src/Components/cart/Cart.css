@@ -1,30 +1,97 @@
 .shoppingCartContainer {
-  width: 100%;
+  margin: 0px;
 }
 
 .lines {
   border-top: 1px solid black;
-  width: 100%;
+  width: 110%;
 }
+
+.lines:last-child {
+  border-bottom: 1px solid black;
+}
+
 .cartContainer {
   margin-top: 20px;
   display: flex;
   width: 100%;
   height: 100%;
+  flex-shrink: 0;
+  justify-content: space-between;
 }
 .cartImage img {
   height: 200px;
   width: 200px;
 }
 
+.cartItems {
+  width: 80%;
+}
+
 .itemContainer {
   display: flex;
   margin: 20px;
+  width: 100%;
 }
 .cartItemInformation {
-  margin-left: 10px;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 70%;
+}
+
+.cartItemButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.cartItemButtons button {
+  background: #333;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 20%;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.quantity p {
+  font-size: 20px;
+}
+.cartItemName {
+  font-size: 25px;
+}
+.removeButton button {
+  background: crimson;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  width: 17%;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.quantityContainer {
+  display: block;
+
+  flex-direction: column;
+}
+.quantityLabel {
+  font-size: 1.2em;
+  padding-left: 34px;
+}
+
+.total {
+  border: 1px solid green;
+  width: ;
+}
+
+.cartItemPrice {
+  font-size: 18px;
 }
