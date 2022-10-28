@@ -18,7 +18,7 @@ import axios from "axios";
 
 //import Search from "./Components/Search";
 
-import Cart from "./Components/Cart";
+import Cart from "./Components/cart/Cart";
 import LandingPage from "./Components/seller/landingPage";
 import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
@@ -35,6 +35,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   const addItem = (item) => {
+    console.log(item);
     item.quantity = 1;
 
     setCart([...cart, item]);

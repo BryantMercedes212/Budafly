@@ -6,7 +6,7 @@ const FooterItems = ({ title, items }) => {
       return <div className="footerItem">{item}</div>;
     });
   }
-  console.log(items);
+
   return (
     <div className="footerItems">
       <div className="footerTitle"> {title} </div>

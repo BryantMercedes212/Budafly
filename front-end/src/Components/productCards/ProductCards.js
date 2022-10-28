@@ -17,18 +17,18 @@ const ProductCards = ({
   useEffect(() => {
     setInput("");
   }, []);
-  console.log(filterProducts);
+
   return input === "" ? (
     <div className="productCards">
-      <div className="searchBar">
-        <div></div>
-        <div>
+      {/* <div className="searchBar"> */}
+
+      {/* <div>
           <p>color 1</p> <p>color 2</p>
           <p>color 3</p>
-        </div>
+        </div> */}
 
-        <Search setInput={setInput} input={input} />
-      </div>
+      {/* <Search setInput={setInput} input={input} /> */}
+      {/* </div> */}
       <div className="productCards__container">
         {products.map((product, index) => {
           return (

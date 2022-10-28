@@ -1,0 +1,30 @@
+.shoppingCartContainer {
+  width: 100%;
+}
+
+.lines {
+  border-top: 1px solid black;
+  width: 100%;
+}
+.cartContainer {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.cartImage img {
+  height: 200px;
+  width: 200px;
+}
+
+.itemContainer {
+  display: flex;
+  margin: 20px;
+}
+.cartItemInformation {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+}
