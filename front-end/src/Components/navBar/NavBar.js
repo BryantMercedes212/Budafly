@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import Button from "@mui/material/Button";
 
 import MenuItem from "../menuItem/MenuItem";
 import MobileMenuItem from "../mobileMenuItem/MobileMenuItem";
@@ -18,8 +19,8 @@ const Navbar = () => {
       <div className="navbar__items">
         <div className="navbar__logo">
           <img
-            src="https://i.ibb.co/GWbsnBR/Screen-Shot-2022-05-19-at-12-02-14-PM.png"
-            alt=""
+            src="/eduk_logo.png"
+            alt="eduk logo of building and statue of liberty"
           />
         </div>
 
@@ -50,12 +51,10 @@ const Navbar = () => {
             style={{ right: toggleMenu ? "0px" : "-181px" }}
           >
             <MobileMenuItem text="Resources">
-              <div className="">
-                <div className="submenuItem">High School</div>
-                <div className="submenuItem">College</div>
-                <div className="submenuItem">Continued Learning</div>
-                <div className="submenuItem">Add Resource</div>
-              </div>
+              <div className="submenuItem">High School</div>
+              <div className="submenuItem">College</div>
+              <div className="submenuItem">Continued Learning</div>
+              <div className="submenuItem">Add Resource</div>
             </MobileMenuItem>
             <MenuItem text="About" />
             <MenuItem text="Mentors" />
@@ -67,7 +66,7 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem text="About" />
             <MenuItem text="Mentors" />
-            <MenuItem text="Log In" />
+            <Button variant="contained">Log In</Button>
           </ul>
         </div>
       </div>
