@@ -18,6 +18,7 @@ const ProductCards = ({
     setInput("");
   }, []);
 
+  // const shuffledArray = allProducts.sort((a, b) => 0.5 - Math.random());
   return input === "" ? (
     <div className="productCards">
       {/* <div className="searchBar"> */}
