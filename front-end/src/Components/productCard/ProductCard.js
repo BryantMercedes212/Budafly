@@ -42,9 +42,8 @@ const ProductCard = ({ product, addItem }) => {
         <div>
           <div className="productCard__price">
             <div>{formattedPrice}</div>
-            <div>{type}</div>
+            <div className="type">{type}</div>
           </div>
-          <div className="productCard__type"> </div>
         </div>
       </div>
       <div

@@ -2,13 +2,13 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
-import Home from "./Components/Home";
+import Home from "./Components/home/Home";
 import NavBar from "./Components/navBar/NavBar";
 import Product from "./Components/productDetails/ProductDetails";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
-// import Modal from "./Components/Modal";
+import Modal from "./Components/modal/Modal";
 import Search from "./Components/Search";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
@@ -33,6 +33,12 @@ const App = () => {
   const [login, setLogin] = useState(false);
   const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalChange = () => {
+    setModalOpen(true);
+    localStorage.setItem("modal", JSON.stringify(true));
+  };
 
   const addItem = (item) => {
     console.log(item);
@@ -97,10 +103,20 @@ const App = () => {
     if (localStorage.getItem("cart")) {
       setCart(JSON.parse(localStorage.getItem("cart")));
     }
+
+    if (localStorage.getItem("modal")) {
+      setModalOpen(true);
+    }
   }, []);
 
   return (
     <div className="App">
+      {!modalOpen && (
+        <Modal
+          setOpenModal={setModalOpen}
+          handleModalChange={handleModalChange}
+        />
+      )}
       <NavBar
         login={login}
         cartLength={cart.length}
@@ -109,9 +125,10 @@ const App = () => {
       />
       <div className="pageContainer">
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route
             exact
-            path="/"
+            path="/products"
             element={
               <ProductCards
                 addItem={addItem}
@@ -156,6 +173,7 @@ const App = () => {
           <Route path="/FAQs" element={<Faqs />} />
           <Route path="/Laws" element={<Laws />} />
           <Route path="/userProfile" element={<Demo />} />
+          <Route path="/checkOut" element={<Demo />} />
           <Route path="*" element={<FourOFour />} />
         </Routes>
       </div>

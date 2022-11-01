@@ -1,6 +1,7 @@
 .productCard_Sativa,
 .productCard_Indica,
 .productCard_Hybrid {
+  background-color: white;
   padding: 10px;
   border-radius: 10px;
   width: 240px;
@@ -18,8 +19,20 @@
 
 .productCard_Indica:hover {
   box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: rgb(87, 4, 150);
+  background-color: rgb(148, 82, 165);
   border-style: none;
+}
+
+.productCard_Sativa .type {
+  color: rgb(138, 153, 42);
+}
+
+.productCard_Indica .type {
+  color: rgb(148, 82, 165);
+}
+
+.productCard_Hybrid .type {
+  color: rgb(37, 155, 88);
 }
 
 .productCard_Hybrid:hover {

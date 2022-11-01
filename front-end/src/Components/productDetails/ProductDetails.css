@@ -10,6 +10,7 @@
 }
 
 .productDetails {
+  background-color: aliceblue;
   margin-top: 50px;
   display: flex;
   max-width: 1230px;
@@ -132,10 +133,10 @@ h3 {
 }
 
 .featuredProductsContainer {
-  width: 60%;
+  width: 80%;
   display: flex;
   margin-bottom: 20px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
