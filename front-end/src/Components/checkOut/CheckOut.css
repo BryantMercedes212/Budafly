@@ -48,6 +48,16 @@
   border: 3px solid green;
   border-radius: 10px;
 }
+.checkOutRemoveButton button {
+  background: crimson;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  border-radius: 5px;
+  font-size: 15px;
+}
 
 .deliveryDate {
   margin-left: 20px;

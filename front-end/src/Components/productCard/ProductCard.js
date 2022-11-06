@@ -26,6 +26,12 @@ const ProductCard = ({ product, addItem }) => {
     }
   };
 
+  if (itemInCart) {
+    setTimeout(function () {
+      setItemInCart(false);
+    }, 3000);
+  }
+
   return (
     <div className={`productCard_${type}`}>
       <div
@@ -46,20 +52,31 @@ const ProductCard = ({ product, addItem }) => {
           </div>
         </div>
       </div>
-      <div
-        className="productCard__addToCart"
-        onClick={() => {
-          addItem(product);
-          handleAddToCart();
-        }}
-        id={id}
-      >
-        {!itemInCart && !loading && "Add To Cart"}
-        {!itemInCart && loading && (
-          <LoopIcon className="loader" fontSize="small" />
-        )}
-        {itemInCart && "View Cart"}
-      </div>
+      {itemInCart ? (
+        <div
+          className="viewCart"
+          onClick={() => {
+            navigate(`/cart`);
+          }}
+          id={id}
+        >
+          View Cart
+        </div>
+      ) : (
+        <div
+          className="productCard__addToCart"
+          onClick={() => {
+            addItem(product);
+            handleAddToCart();
+          }}
+          id={id}
+        >
+          {!itemInCart && !loading && "Add To Cart"}
+          {!itemInCart && loading && (
+            <LoopIcon className="loader" fontSize="small" />
+          )}
+        </div>
+      )}
     </div>
   );
 };

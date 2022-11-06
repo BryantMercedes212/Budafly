@@ -133,7 +133,7 @@ h3 {
 }
 
 .featuredProductsContainer {
-  width: 80%;
+  width: 60%;
   display: flex;
   margin-bottom: 20px;
   justify-content: space-between;

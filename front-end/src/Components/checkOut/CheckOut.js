@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 const Checkout = ({ cart, setCart, deleteItem }) => {
   let i = 1;
   let total = 0;
+  let quantity = 0;
   let year = 2022;
   const years = [];
   const months = [];
@@ -124,6 +125,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
   };
 
   const products = cart.map((item, i) => {
+    quantity += item.quantity;
     total += item.price * item.quantity;
 
     return (
@@ -158,7 +160,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
               </button>
             </div>
           </div>
-          <div className="removeButton">
+          <div className="checkOutRemoveButton">
             <button onClick={() => deleteItem(i)}>REMOVE</button>{" "}
           </div>
         </div>
@@ -386,24 +388,42 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
                 <div className="deliveryDatesTitle">
                   Choose a delivery option:
                 </div>
-                <div className="optionContainer">
-                  <div className="option">
-                    <input
-                      type="checkbox"
-                      class="checkbox-round"
-                      name="deliveryDate"
-                      onClick={handleChange}
-                      value={daysAhead[2]}
-                      id="0"
-                    />
-                    {daysAhead[2][1]}. {daysAhead[2][2]}, {daysAhead[2][0]}
+                {total >= 50 ? (
+                  <div className="optionContainer">
+                    <div className="option">
+                      <input
+                        type="radio"
+                        class="checkbox-round"
+                        name="deliveryDate"
+                        onClick={handleChange}
+                        value={daysAhead[2]}
+                        id="0"
+                      />
+                      {daysAhead[2][1]}. {daysAhead[2][2]}, {daysAhead[2][0]}
+                    </div>
+                    <div className="price">Free Shipping</div>
                   </div>
-                  <div className="price">Free Shipping</div>
-                </div>
+                ) : (
+                  <div className="optionContainer">
+                    <div className="option">
+                      <input
+                        type="radio"
+                        class="checkbox-round"
+                        name="deliveryDate"
+                        onClick={handleChange}
+                        value={daysAhead[2]}
+                        id="3.99"
+                      />
+                      {daysAhead[2][1]}. {daysAhead[2][2]}, {daysAhead[2][0]}
+                    </div>
+                    <div className="price">3.99 - Shipping</div>
+                  </div>
+                )}
+
                 <div className="optionContainer">
                   <div className="option">
                     <input
-                      type="checkbox"
+                      type="radio"
                       class="checkbox-round"
                       name="deliveryDate"
                       onClick={handleChange}
@@ -417,7 +437,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
                 <div className="optionContainer">
                   <div className="option">
                     <input
-                      type="checkbox"
+                      type="radio"
                       class="checkbox-round"
                       name="deliveryDate"
                       onClick={handleChange}
@@ -456,7 +476,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
           </div>
           <div className="orderSummary">Order Summary</div>
           <div className="priceSummaryItem">
-            <div>items({cart.length}):</div>
+            <div>items({quantity}):</div>
             <div>${total}</div>
           </div>
           <div className="priceSummaryItem">
@@ -467,11 +487,11 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
           </div>
           <div className="priceSummaryItem">
             <div>Total before tax:</div>
-            <div>${total + Number(shippingFee)}</div>
+            <div>${(total + Number(shippingFee)).toFixed(2)}</div>
           </div>
           <div className="priceSummaryItem" id="longLine">
             <div>Estimated tax to be collected:</div>
-            <div className="taxes">${total * (4 / 100)}</div>
+            <div className="taxes">${(total * (4 / 100)).toFixed(2)}</div>
           </div>
           <div className="priceSummaryTotal">
             <div> Order total: </div>

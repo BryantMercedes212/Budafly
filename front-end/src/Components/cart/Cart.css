@@ -1,5 +1,5 @@
 .shoppingCartContainer {
-  margin: 0px;
+  margin-left: 80px;
 }
 
 .lines {
@@ -14,7 +14,7 @@
 .cartContainer {
   margin-top: 20px;
   display: flex;
-  width: 100%;
+  width: 80%;
   height: 100%;
   flex-shrink: 0;
   justify-content: space-between;
@@ -37,7 +37,6 @@
   margin-left: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 70%;
 }
 
@@ -59,36 +58,100 @@
   border-radius: 5px;
   font-size: 20px;
 }
+
+.cartItemButtons button:hover {
+  box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
 .quantity p {
   font-size: 20px;
 }
 .cartItemName {
   font-size: 25px;
+  padding-left: 38px;
+}
+.removeButton {
+  width: 100%;
 }
 .removeButton button {
+  width: 80%;
   background: crimson;
   color: white;
   outline: none;
   border: none;
   cursor: pointer;
   height: 20px;
-  width: 17%;
   border-radius: 5px;
   font-size: 15px;
 }
 
+.removeButton button:hover {
+  box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
 .quantityContainer {
+  margin-top: 50px;
   display: block;
 }
 .quantityLabel {
   font-size: 1.2em;
-  padding-left: 34px;
+  padding-left: 38px;
 }
 
-.total {
-  border: 1px solid green;
-}
-
-.cartItemPrice {
+.totalContainer {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid green;
+  border-radius: 30px;
+  top: 152px;
+  right: 80px;
+  position: fixed;
   font-size: 18px;
+}
+.total {
+  margin: 10px;
+  padding: 10px;
+}
+
+.total span {
+  font-size: 19px;
+  color: green;
+
+  font-weight: 600;
+}
+.subTotal {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.subTotal div:first-child {
+  font-weight: 500;
+}
+.subTotal div:last-child {
+  font-weight: 600;
+}
+.cartItemPrice {
+  margin-left: 70px;
+  font-size: 18px;
+}
+
+.cartPriceAndRemove {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.toCheckOutButton button {
+  font-size: 20px;
+  background-color: rgb(247, 202, 0);
+  width: 100%;
+
+  border-radius: 30px;
+  border-color: rgb(247, 202, 0);
+  box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
 }
