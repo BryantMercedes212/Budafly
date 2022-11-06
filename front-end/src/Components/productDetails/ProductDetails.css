@@ -169,6 +169,12 @@ h3 {
   font-family: DejaVu Sans Mono, monospace;
   margin: 30px;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 @media (max-width: 700px) {
   .productDetails {

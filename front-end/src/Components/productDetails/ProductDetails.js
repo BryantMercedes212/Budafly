@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Progress from "../progressBar/ProgressBar";
 import ProductCard from "../productCard/ProductCard";
+import BarLoader from "react-spinners/BarLoader";
 
 import "../productCard/ProductCard.css";
 
@@ -19,6 +20,7 @@ const Product = ({ addItem }) => {
   const [loading, setLoading] = useState(false);
   const [itemInCart, setItemInCart] = useState(false);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   let i = 0;
   while (i < 3) {
@@ -64,8 +66,22 @@ const Product = ({ addItem }) => {
     splitedCannabinoid = product.cannabinoid.split(" ");
   }
 
+  setTimeout(function () {
+    setIsLoading(false);
+  }, 1000);
+
   console.log(splitedCannabinoid);
-  return (
+  return isLoading ? (
+    <div className="loading">
+      <BarLoader
+        height={30}
+        width={500}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        color="green"
+      />
+    </div>
+  ) : (
     <div className="productDetailsContainer">
       <div className="productDetails">
         <div className="big-img">
