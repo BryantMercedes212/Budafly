@@ -38,7 +38,10 @@ const Cart = ({ cart, deleteItem, setCart }) => {
     return (
       <div className="lines">
         <div className="itemContainer">
-          <div className="cartImage">
+          <div
+            className="cartImage"
+            onClick={() => navigate(`/products/${item.id}`)}
+          >
             <img src={item.image} alt="" />
           </div>
           <div className="cartItemInformation">

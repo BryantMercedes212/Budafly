@@ -3,13 +3,29 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/Movie.mp4";
+import BarLoader from "react-spinners/BarLoader";
 const Home = ({ addItem }) => {
   const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
 
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  setTimeout(function () {
+    setIsLoading(false);
+  }, 1000);
+
+  return isLoading ? (
+    <div className="loading">
+      <BarLoader
+        height={30}
+        width={500}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        color="green"
+      />
+    </div>
+  ) : (
     <div className="homeContainer">
       <div className="landingContainer">
         <video src={video} className="landingImg" autoPlay loop muted />
