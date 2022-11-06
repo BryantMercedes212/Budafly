@@ -1,11 +1,13 @@
-import { useRef, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BarLoader from "react-spinners/BarLoader";
 import "./Cart.css";
 
 const Cart = ({ cart, deleteItem, setCart }) => {
   let total = 0;
   let quantity = 0;
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleQuantity = (e) => {
     setCart(
@@ -78,7 +80,21 @@ const Cart = ({ cart, deleteItem, setCart }) => {
     );
   });
 
-  return (
+  setTimeout(function () {
+    setIsLoading(false);
+  }, 1000);
+
+  return isLoading ? (
+    <div className="loading">
+      <BarLoader
+        height={30}
+        width={500}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        color="green"
+      />
+    </div>
+  ) : (
     <div className="shoppingCartContainer">
       <h1 className="shoppingCart">Shopping Cart</h1>
       <div className="cartContainer">

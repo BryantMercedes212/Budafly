@@ -2,6 +2,7 @@ import "./CheckOut.css";
 import listOfStates from "../../assets/state.json";
 import monthsList from "../../assets/months.json";
 import { useState, useEffect } from "react";
+import BarLoader from "react-spinners/BarLoader";
 
 const Checkout = ({ cart, setCart, deleteItem }) => {
   let i = 1;
@@ -14,6 +15,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
   const hourAndMinute = [new Date().getHours(), new Date().getMinutes()];
   const timeUntilNextDay = hourAndMinute;
   const daysAhead = [];
+  const [isLoading, setIsLoading] = useState(true);
   const [shipping, setShipping] = useState({
     firstName: "",
     lastName: "",
@@ -168,7 +170,21 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
     );
   });
 
-  return (
+  setTimeout(function () {
+    setIsLoading(false);
+  }, 1000);
+
+  return isLoading ? (
+    <div className="loading">
+      <BarLoader
+        height={30}
+        width={500}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        color="green"
+      />
+    </div>
+  ) : (
     <div className="checkoutContainer">
       <div className="checkOut">
         <h1>Checkout</h1>
