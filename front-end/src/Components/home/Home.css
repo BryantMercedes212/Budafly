@@ -1,5 +1,5 @@
 .landingImg {
-  width: 142.4%;
+  width: 100%;
 }
 .homeContainer {
   display: flex;
@@ -30,6 +30,7 @@
   left: 100px;
   background-color: rgb(20, 86, 44);
   height: 92%;
+  border-radius: 0px 0px 15px 15px;
   width: 90%;
   display: flex;
   justify-content: space-evenly;
@@ -72,6 +73,7 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 100px;
+  margin-top: 200px;
 }
 .focusTitle {
   text-align: center;
