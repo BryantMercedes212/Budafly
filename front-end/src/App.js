@@ -9,16 +9,12 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ForgotPassword from "./Components/ForgotPassword";
 import Modal from "./Components/modal/Modal";
-import Search from "./Components/Search";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
 import Demo from "./Components/seller/demoProfile";
 import Footer from "./Components/footer/Footer";
 import CheckOut from "./Components/checkOut/CheckOut";
 import axios from "axios";
-
-//import Search from "./Components/Search";
-
 import Cart from "./Components/cart/Cart";
 import LandingPage from "./Components/seller/landingPage";
 import SingleView from "./Components/seller/singleView";
@@ -167,10 +163,6 @@ const App = () => {
             <Cart cart={cart} deleteItem={deleteItem} setCart={setCart} />
           }
         />{" "}
-        <Route
-          path="/Search"
-          element={<Search setInput={setInput} input={input} />}
-        />
         <Route path="/FAQs" element={<Faqs />} />
         <Route path="/Laws" element={<Laws />} />
         <Route path="/userProfile" element={<Demo />} />

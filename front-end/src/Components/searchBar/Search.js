@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Search.css";
 
 const Search = ({ setInput, input }) => {
   const handleSubmit = (e) => {
@@ -17,7 +18,6 @@ const Search = ({ setInput, input }) => {
           placeholder="search for a strain"
           value={input}
         ></input>{" "}
-        <button type="submit">Search</button>
       </form>
     </div>
   );
