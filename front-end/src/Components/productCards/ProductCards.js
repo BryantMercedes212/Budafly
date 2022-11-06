@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Search from "../Search";
+import Search from "../searchBar/Search";
 
 import ProductCard from "../productCard/ProductCard";
 
@@ -36,15 +36,9 @@ const ProductCards = ({
     </div>
   ) : input === "" ? (
     <div className="productCards">
-      {/* <div className="searchBar"> */}
-
-      {/* <div>
-          <p>color 1</p> <p>color 2</p>
-          <p>color 3</p>
-        </div> */}
-
-      {/* <Search setInput={setInput} input={input} /> */}
-      {/* </div> */}
+      <div className="searchBar">
+        <Search setInput={setInput} input={input} />
+      </div>
       <div className="productCards__container">
         {products.map((product, index) => {
           return (
@@ -56,11 +50,6 @@ const ProductCards = ({
   ) : (
     <div className="productCards">
       <div className="searchBar">
-        <div></div>
-        <div>
-          <p>color 1</p> <p>color 2</p>
-          <p>color 3</p>
-        </div>
         <Search setInput={setInput} input={input} />
       </div>
       <div className="productCards__container">
