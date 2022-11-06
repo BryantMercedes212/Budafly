@@ -1,6 +1,7 @@
 .productCard_Sativa,
 .productCard_Indica,
 .productCard_Hybrid {
+  background-color: white;
   padding: 10px;
   border-radius: 10px;
   width: 240px;
@@ -12,20 +13,29 @@
 }
 .productCard_Sativa:hover {
   box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: rgb(231, 244, 145);
+
   border-style: none;
 }
 
 .productCard_Indica:hover {
   box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: rgb(87, 4, 150);
+
   border-style: none;
 }
-
 .productCard_Hybrid:hover {
   box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: rgb(180, 238, 205);
   border-style: none;
+}
+.productCard_Sativa .type {
+  color: rgb(138, 153, 42);
+}
+
+.productCard_Indica .type {
+  color: rgb(148, 82, 165);
+}
+
+.productCard_Hybrid .type {
+  color: rgb(37, 155, 88);
 }
 
 .productCard__image {
@@ -49,6 +59,19 @@
   margin: 10px 0;
 }
 
+.viewCart {
+  background-color: #3e56dc;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  height: 40px;
+  transition: 1s;
+  border-radius: 5px;
+}
 .productCard__addToCart {
   background-color: #00d1b2;
   color: white;
@@ -59,6 +82,8 @@
   justify-content: center;
   font-size: 0.8em;
   height: 40px;
+  border-radius: 5px;
+  transition: 1s;
 }
 
 .loader {

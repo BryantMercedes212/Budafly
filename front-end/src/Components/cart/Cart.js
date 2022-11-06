@@ -1,8 +1,13 @@
-import { useRef, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import BarLoader from "react-spinners/BarLoader";
 import "./Cart.css";
 
 const Cart = ({ cart, deleteItem, setCart }) => {
   let total = 0;
+  let quantity = 0;
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleQuantity = (e) => {
     setCart(
@@ -27,12 +32,16 @@ const Cart = ({ cart, deleteItem, setCart }) => {
     );
   };
   const products = cart.map((item, i) => {
+    quantity += item.quantity;
     total += item.price * item.quantity;
 
     return (
       <div className="lines">
         <div className="itemContainer">
-          <div className="cartImage">
+          <div
+            className="cartImage"
+            onClick={() => navigate(`/products/${item.id}`)}
+          >
             <img src={item.image} alt="" />
           </div>
           <div className="cartItemInformation">
@@ -61,22 +70,67 @@ const Cart = ({ cart, deleteItem, setCart }) => {
                 </button>
               </div>
             </div>
+          </div>
+          <div className="cartPriceAndRemove">
+            {" "}
+            <div className="cartItemPrice">${item.price}.00</div>{" "}
             <div className="removeButton">
               <button onClick={() => deleteItem(i)}>REMOVE</button>{" "}
             </div>
           </div>
-          <div className="cartItemPrice">${item.price}.00</div>
         </div>
       </div>
     );
   });
 
-  return (
+  setTimeout(function () {
+    setIsLoading(false);
+  }, 1000);
+
+  return isLoading ? (
+    <div className="loading">
+      <BarLoader
+        height={30}
+        width={500}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        color="green"
+      />
+    </div>
+  ) : (
     <div className="shoppingCartContainer">
       <h1 className="shoppingCart">Shopping Cart</h1>
       <div className="cartContainer">
         <div className="cartItems">{products}</div>
-        <div className="total">Total: ${total}</div>
+        <div className="totalContainer">
+          <div className="total">
+            <div>
+              {" "}
+              {total >= 50 ? (
+                <div>
+                  {" "}
+                  <span>Your order qualifies for FREE Shipping.</span> Choose
+                  this option at checkout.
+                </div>
+              ) : (
+                <div>
+                  You Are ${50 - total} away from{" "}
+                  {<span className="away">Free Shipping.</span>}
+                </div>
+              )}{" "}
+            </div>
+            <div className="subTotal">
+              <div>SubTotal ({quantity}): </div>
+              <div>${total}</div>
+            </div>
+            <div className="toCheckOutButton">
+              {" "}
+              <button onClick={() => navigate(`/checkOut`)}>
+                Proceed to Checkout{" "}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

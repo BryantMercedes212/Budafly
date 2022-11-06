@@ -3,11 +3,23 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: rgb(236, 235, 232);
 }
 
 .pageContainer {
   max-width: 1200px;
   margin: 0 auto;
+}
+.brokenBottom {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  padding-bottom: 20px;
+  z-index: -1;
+}
+.brokenBottom img {
+  height: 100%;
+  width: 100%;
 }
 
 /* .App {

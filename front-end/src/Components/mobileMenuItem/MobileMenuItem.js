@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
@@ -16,7 +16,15 @@ const MobileMenuItem = ({ text, ...props }) => {
       {props.children && (
         <ArrowDropDownIcon className="downArrowIcon" size="small" />
       )}
-      {displaySubMenu && props.children}
+      <div
+        className={
+          displaySubMenu
+            ? "mobileSubmenu mobileSubmenu--active"
+            : "mobileSubmenu"
+        }
+      >
+        {props.children}
+      </div>
     </li>
   );
 };

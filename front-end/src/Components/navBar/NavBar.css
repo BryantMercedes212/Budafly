@@ -1,9 +1,10 @@
 .navbar {
-  background-color: rgb(47, 174, 30);
+  background-color: forestgreen;
   color: white;
 
   height: 75px;
   padding: 0 30px;
+  z-index: 4;
 }
 
 .navbar__items {
@@ -49,8 +50,8 @@
     display: block;
     padding: 10px 15px;
     width: 150px;
-    position: absolute;
-    top: 74px;
+    position: fixed;
+    top: 68px;
     transition: right 0.65s ease;
     background-color: rgb(47, 174, 30);
     border-bottom-left-radius: 10px;
