@@ -79,8 +79,6 @@
 
 .quantityContainer {
   display: block;
-
-  flex-direction: column;
 }
 .quantityLabel {
   font-size: 1.2em;
@@ -89,7 +87,6 @@
 
 .total {
   border: 1px solid green;
-  width: ;
 }
 
 .cartItemPrice {

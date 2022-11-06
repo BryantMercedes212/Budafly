@@ -1,0 +1,261 @@
+.checkoutContainer {
+  display: flex;
+}
+
+.checkOut {
+  margin-left: 65px;
+  width: 80%;
+  display: flex;
+  justify-items: center;
+
+  flex-direction: column;
+}
+.checkoutInformation {
+  width: 80%;
+  border: 3px solid green;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.checkout form {
+  margin-bottom: 17px;
+}
+.checkoutInformation form {
+  margin-left: 15px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 7px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+#zipCode {
+  margin-bottom: 20px;
+}
+
+.checkoutInformation input {
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.checkoutProductsContainer {
+  margin-top: 39px;
+  width: 80%;
+  border: 3px solid green;
+  border-radius: 10px;
+}
+
+.deliveryDate {
+  margin-left: 20px;
+  font-size: 19px;
+  border-bottom: 1px solid gainsboro;
+  width: 95%;
+}
+
+.deliveryDate span {
+  font-size: 26px;
+  color: green;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.checkOutItemContainer {
+  align-items: center;
+
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+.checkOutQuantityContainer {
+  width: 80%;
+}
+
+.checkOutItemButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+}
+.checkOutItemButtons button {
+  background: #333;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  width: 30%;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.checkOutQuantity p {
+  font-size: 15px;
+}
+
+.checkoutItemImage img {
+  height: 150px;
+  width: 150px;
+}
+
+.checkOutItemPrice {
+  margin-top: 3px;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+.deliveryItems {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkoutProducts {
+  width: 70%;
+}
+
+.checkbox-round {
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px green #ddd;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.deliveryDatesOption {
+  display: flex;
+  flex-direction: column;
+
+  width: 30%;
+  margin-right: 180px;
+}
+
+.deliveryDatesTitle {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.option {
+  font-size: 20px;
+  color: green;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 18px;
+  text-align: center;
+  margin-left: 25px;
+  margin-bottom: 30px;
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
+}
+
+.submitButton {
+  position: absolute;
+  top: 750px;
+  right: 640px;
+}
+
+.sameBilling {
+  margin-top: 18px;
+}
+.finalPriceContainer {
+  margin-top: 15px;
+  width: 80%;
+  border: 3px solid green;
+
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.finalPrice {
+  display: flex;
+  margin-left: 15px;
+}
+
+.finalPriceNumber {
+  margin-left: 25px;
+  font-size: 25px;
+  color: rgb(145, 15, 41);
+}
+
+.priceSummary {
+  border: 3px solid green;
+  border-radius: 30px;
+  top: 152px;
+  right: 100px;
+  position: fixed;
+  font-size: 18px;
+}
+
+.priceSummaryInformation {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.priceSummaryItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.priceSummaryTotal {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 25px;
+  color: rgb(145, 15, 41);
+}
+.orderSummary {
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.placeOrderSummary {
+  text-align: center;
+  border-bottom: 1px solid rgb(203, 201, 201);
+}
+
+.lilLine {
+  text-align: end;
+  border-bottom: 1px solid rgb(178, 177, 177);
+  width: 25%;
+}
+
+.lilLine div {
+  margin-bottom: 5px;
+}
+.placeOrderSummary button {
+  font-size: 20px;
+  background-color: rgb(247, 202, 0);
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  border-color: rgb(247, 202, 0);
+  box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.taxes {
+  margin-left: 22px;
+}
+
+.priceSummaryItem:last-child {
+  border-bottom: 5px solid rgb(178, 177, 177);
+}
+
+#longLine {
+  border-bottom: 2px solid rgb(178, 177, 177);
+}
+#longLine div:last-child {
+  margin-bottom: 4px;
+}

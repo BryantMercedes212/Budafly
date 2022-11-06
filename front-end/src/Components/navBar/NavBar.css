@@ -49,7 +49,7 @@
     display: block;
     padding: 10px 15px;
     width: 150px;
-    position: absolute;
+    position: fixed;
     top: 68px;
     transition: right 0.65s ease;
     background-color: rgb(47, 174, 30);
