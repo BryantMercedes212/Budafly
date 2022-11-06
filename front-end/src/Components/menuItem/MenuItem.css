@@ -2,10 +2,15 @@
   display: inline-block;
   position: relative;
   line-height: 33px;
+  color: white;
 }
 
-.menuItem:not(:last-child) {
+.menuItem {
   margin-right: 20px;
+}
+
+.menuItem:last-child {
+  font-size: 18px;
 }
 
 .downArrowIcon {

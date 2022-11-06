@@ -77,6 +77,7 @@ const NavBar = ({ login, cartLength, setInput, input }) => {
     >
       <div class="navbar-brand">
         <a class="navbar-item" href="https://budafly.netlify.app/">
+          //{" "}
           <img
             src="https://i.ibb.co/GWbsnBR/Screen-Shot-2022-05-19-at-12-02-14-PM.png"
             alt=""

@@ -20,6 +20,7 @@
   justify-content: space-between;
 }
 .cartImage img {
+  cursor: pointer;
   height: 200px;
   width: 200px;
 }

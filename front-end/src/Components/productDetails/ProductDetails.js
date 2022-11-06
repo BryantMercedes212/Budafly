@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Progress from "../progressBar/ProgressBar";
 import ProductCard from "../productCard/ProductCard";
+import LoopIcon from "@mui/icons-material/Loop";
 import BarLoader from "react-spinners/BarLoader";
 
 import "../productCard/ProductCard.css";
@@ -12,6 +13,7 @@ import "./ProductDetails.css";
 
 const Product = ({ addItem }) => {
   const [product, setProduct] = useState([]);
+  product.inCart = false;
   const { id } = useParams();
   const URL = process.env.REACT_APP_API_URL;
   const [sellerProduct, setSellerProduct] = useState([]);
@@ -66,9 +68,27 @@ const Product = ({ addItem }) => {
     splitedCannabinoid = product.cannabinoid.split(" ");
   }
 
+  const handleAddToCart = (e) => {
+    if (product.inCart) {
+      return;
+    } else {
+      setLoading(true);
+      setTimeout(function () {
+        setItemInCart(true);
+        setLoading(false);
+      }, 500);
+    }
+  };
+
   setTimeout(function () {
     setIsLoading(false);
   }, 1000);
+
+  if (itemInCart) {
+    setTimeout(function () {
+      setItemInCart(false);
+    }, 3000);
+  }
 
   console.log(splitedCannabinoid);
   return isLoading ? (
@@ -123,15 +143,31 @@ const Product = ({ addItem }) => {
               </div>
               <Progress done={splitedCannabinoid[1]} />
             </div>
-            <button
-              className="cart"
-              onClick={() => {
-                addItem(product);
-              }}
-              id={id}
-            >
-              add to cart
-            </button>
+            {itemInCart ? (
+              <div
+                className="goToCart"
+                onClick={() => {
+                  navigate(`/cart`);
+                }}
+                id={id}
+              >
+                View Cart
+              </div>
+            ) : (
+              <div
+                className="cart"
+                onClick={() => {
+                  addItem(product);
+                  handleAddToCart();
+                }}
+                id={id}
+              >
+                {!itemInCart && !loading && "Add To Cart"}
+                {!itemInCart && loading && (
+                  <LoopIcon className="loader" fontSize="small" />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
