@@ -120,10 +120,6 @@ const App = () => {
         setInput={setInput}
         input={input}
       />
-      <div className="brokenBottom">
-        {" "}
-        <img src="/broken.png" />
-      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
