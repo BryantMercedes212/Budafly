@@ -4,7 +4,8 @@
 
   height: 75px;
   padding: 0 30px;
-  z-index: 4;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar__items {
@@ -30,6 +31,19 @@
   list-style: none;
   line-height: 43px;
   cursor: pointer;
+}
+
+.brokenBottom {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  left: 0px;
+
+  z-index: -1;
+}
+.brokenBottom img {
+  height: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 440px) {

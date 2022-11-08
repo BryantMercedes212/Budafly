@@ -17,67 +17,74 @@ const Navbar = ({ cartLength }) => {
 
   return (
     <div className="navbar">
-      <div className="navbar__items">
-        <div className="navbar__logo">
-          <Link to="/">
-            {" "}
-            <img
-              src="https://i.ibb.co/GWbsnBR/Screen-Shot-2022-05-19-at-12-02-14-PM.png"
-              alt=""
-            />{" "}
-          </Link>
-        </div>
-
-        <div className="navbar__left">
-          <div
-            className="navbar__hamburger"
-            onClick={() => setToggleMenu(!toggleMenu)}
-          >
-            {!toggleMenu && (
-              <MenuIcon
-                sx={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            )}
-            {toggleMenu && (
-              <CloseIcon
-                sx={{
-                  width: 50,
-                  height: 50,
-                }}
-              />
-            )}
-          </div>
-          <div
-            className="navbar__mobileMenu"
-            style={{ right: toggleMenu ? "0px" : "-181px" }}
-          >
-            <MobileMenuItem text="Resources">
-              <div className="submenuItem">High School</div>
-              <div className="submenuItem">College</div>
-              <div className="submenuItem">Continued Learning</div>
-              <div className="submenuItem">Add Resource</div>
-            </MobileMenuItem>
-            <MenuItem text="About" />
-            <MenuItem text="Mentors" />
-            <MenuItem text="Log In" />
-          </div>
-          <ul className="navbar__itemLinks">
-            <MenuItem text="Resources">
-              <SubMenu />
-            </MenuItem>
-            <Link to="/products">
-              <MenuItem text="Products" />
+      <div>
+        <div className="navbar__items">
+          <div className="navbar__logo">
+            <Link to="/">
+              {" "}
+              <img
+                src="https://i.ibb.co/GWbsnBR/Screen-Shot-2022-05-19-at-12-02-14-PM.png"
+                alt=""
+              />{" "}
             </Link>
+          </div>
 
-            <Link to="/Cart">
-              <MenuItem text={`🛒 (${cartLength})`} />
-            </Link>
-            <Button variant="contained">Log In</Button>
-          </ul>
+          <div className="navbar__left">
+            <div
+              className="navbar__hamburger"
+              onClick={() => setToggleMenu(!toggleMenu)}
+            >
+              {!toggleMenu && (
+                <MenuIcon
+                  sx={{
+                    width: 50,
+                    height: 50,
+                  }}
+                />
+              )}
+              {toggleMenu && (
+                <CloseIcon
+                  sx={{
+                    width: 50,
+                    height: 50,
+                  }}
+                />
+              )}
+            </div>
+            <div
+              className="navbar__mobileMenu"
+              style={{ right: toggleMenu ? "0px" : "-181px" }}
+            >
+              <MobileMenuItem text="Resources">
+                <div className="submenuItem">High School</div>
+                <div className="submenuItem">College</div>
+                <div className="submenuItem">Continued Learning</div>
+                <div className="submenuItem">Add Resource</div>
+              </MobileMenuItem>
+              <MenuItem text="About" />
+              <MenuItem text="Mentors" />
+              <MenuItem text="Log In" />
+            </div>
+            <ul className="navbar__itemLinks">
+              <MenuItem text="Resources">
+                <SubMenu />
+              </MenuItem>
+              <Link to="/products">
+                <MenuItem text="Products" />
+              </Link>
+
+              <Link to="/Cart">
+                <MenuItem text={`🛒 (${cartLength})`} />
+              </Link>
+              <Button variant="contained">Log In</Button>
+            </ul>
+          </div>
         </div>
+      </div>
+
+      <div className="brokenBottom">
+        {" "}
+        <img src="/broken.png" />
       </div>
     </div>
   );

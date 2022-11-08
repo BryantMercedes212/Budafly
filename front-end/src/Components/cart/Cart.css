@@ -108,10 +108,12 @@
   right: 80px;
   position: fixed;
   font-size: 18px;
+  margin-bottom: 20px;
 }
 .total {
   margin: 10px;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .total span {

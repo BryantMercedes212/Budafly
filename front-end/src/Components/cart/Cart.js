@@ -97,7 +97,7 @@ const Cart = ({ cart, deleteItem, setCart }) => {
         color="green"
       />
     </div>
-  ) : (
+  ) : cart.length ? (
     <div className="shoppingCartContainer">
       <h1 className="shoppingCart">Shopping Cart</h1>
       <div className="cartContainer">
@@ -133,6 +133,8 @@ const Cart = ({ cart, deleteItem, setCart }) => {
         </div>
       </div>
     </div>
+  ) : (
+    ""
   );
 };
 
