@@ -16,7 +16,7 @@ import Footer from "./Components/footer/Footer";
 import CheckOut from "./Components/checkOut/CheckOut";
 import axios from "axios";
 import Cart from "./Components/cart/Cart";
-import LandingPage from "./Components/seller/landingPage";
+import LandingPage from "./Components/seller/landigPage/LandingPage";
 import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
@@ -139,7 +139,7 @@ const App = () => {
         <Route path="/products/:id" element={<Product addItem={addItem} />} />
         <Route
           path="/seller/:id/products"
-          element={<LandingPage login={login} />}
+          element={<LandingPage login={login} addItem={addItem} />}
         />
         <Route path="/seller/:id/products/new" element={<AddProductForm />} />
         <Route
