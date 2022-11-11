@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/Movie.mp4";
 import BarLoader from "react-spinners/BarLoader";
+import Loader from "../loader/Loader";
 const Home = ({ addItem }) => {
   const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
@@ -16,15 +17,7 @@ const Home = ({ addItem }) => {
   }, 1000);
 
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : (
     <div className="homeContainer">
       <div className="landingContainer">

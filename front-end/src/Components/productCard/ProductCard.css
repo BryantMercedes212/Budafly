@@ -60,7 +60,7 @@
 }
 
 .viewCart {
-  background-color: #3e56dc;
+  background-color: #43c59e;
   color: white;
   text-transform: uppercase;
   text-align: center;
@@ -73,7 +73,7 @@
   border-radius: 5px;
 }
 .productCard__addToCart {
-  background-color: #00d1b2;
+  background-color: rgb(64, 121, 86);
   color: white;
   text-transform: uppercase;
   text-align: center;
