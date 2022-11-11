@@ -2,7 +2,8 @@
   color: green;
   text-align: center;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 20px;
   border: 2px solid green;
   margin-bottom: 20px;
+  padding: 10px;
 }

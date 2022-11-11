@@ -4,7 +4,8 @@
 
 .lines {
   border-top: 1px solid black;
-  width: 110%;
+  width: 100%;
+  background-color: aliceblue;
 }
 
 .lines:last-child {
@@ -26,6 +27,7 @@
 }
 
 .cartItems {
+  background-color: aliceblue;
   width: 80%;
 }
 
@@ -38,6 +40,7 @@
   margin-left: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 70%;
 }
 
@@ -45,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 20%;
+  width: 30%;
 }
 
 .cartItemButtons button {
@@ -54,21 +57,23 @@
   outline: none;
   border: none;
   cursor: pointer;
-  height: 30px;
-  width: 20%;
+  height: 40px;
+  width: 30%;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 30px;
+  margin-top: 3px;
 }
 
 .cartItemButtons button:hover {
   box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 .quantity p {
-  font-size: 20px;
+  font-size: 30px;
+  margin-top: 30px;
 }
 .cartItemName {
   font-size: 25px;
-  padding-left: 38px;
+  padding-left: 29px;
 }
 .removeButton {
   width: 100%;
@@ -80,9 +85,10 @@
   outline: none;
   border: none;
   cursor: pointer;
-  height: 20px;
+  height: 30px;
   border-radius: 5px;
   font-size: 15px;
+  margin-bottom: 14px;
 }
 
 .removeButton button:hover {
@@ -90,15 +96,16 @@
 }
 
 .quantityContainer {
-  margin-top: 50px;
+  margin-top: 60px;
   display: block;
 }
 .quantityLabel {
-  font-size: 1.2em;
-  padding-left: 38px;
+  font-size: 1.5em;
+  padding-left: 49px;
 }
 
 .totalContainer {
+  background-color: aliceblue;
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -138,23 +145,26 @@
 }
 .cartItemPrice {
   margin-left: 70px;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .cartPriceAndRemove {
-  width: 15%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .toCheckOutButton button {
+  margin-top: 15px;
+  padding: 7px;
+
   font-size: 20px;
-  background-color: rgb(247, 202, 0);
+  background-color: rgb(248, 173, 2);
   width: 100%;
 
   border-radius: 30px;
-  border-color: rgb(247, 202, 0);
+  border-color: rgb(85, 148, 74);
   box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }

@@ -4,7 +4,7 @@ import Search from "../searchBar/Search";
 import ProductCard from "../productCard/ProductCard";
 
 import "./ProductCards.css";
-import BarLoader from "react-spinners/BarLoader";
+import Loader from "../loader/Loader";
 
 const ProductCards = ({
   addItem,
@@ -21,19 +21,11 @@ const ProductCards = ({
 
   setTimeout(function () {
     setIsLoading(false);
-  }, 1000);
+  }, 1500);
 
   // const shuffledArray = allProducts.sort((a, b) => 0.5 - Math.random());
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : input === "" ? (
     <div className="productCards">
       <div className="searchBar">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
 import "./Cart.css";
+import Loader from "../loader/Loader";
 
 const Cart = ({ cart, deleteItem, setCart }) => {
   let total = 0;
@@ -88,15 +89,7 @@ const Cart = ({ cart, deleteItem, setCart }) => {
   }, 1000);
 
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : cart.length ? (
     <div className="shoppingCartContainer">
       <h1 className="shoppingCart">Shopping Cart</h1>

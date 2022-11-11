@@ -82,10 +82,10 @@ const Navbar = ({ cartLength }) => {
         </div>
       </div>
 
-      <div className="brokenBottom">
+      {/* <div className="brokenBottom">
         {" "}
         <img src="/broken.png" />
-      </div>
+      </div> */}
     </div>
   );
 };

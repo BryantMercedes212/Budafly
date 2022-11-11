@@ -1,4 +1,5 @@
 import "./App.css";
+import AllSellerView from "./Components/allSellersView/AllSellersView";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
@@ -172,6 +173,7 @@ const App = () => {
           }
         />
         <Route path="*" element={<FourOFour />} />
+        <Route path="/sellers" element={<AllSellerView />} />
       </Routes>
 
       <Footer />
