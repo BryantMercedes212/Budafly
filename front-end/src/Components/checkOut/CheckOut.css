@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-evenly;
   border-radius: 10px;
+  background-color: white;
 }
 .checkout form {
   margin-bottom: 17px;
@@ -43,6 +44,7 @@
 }
 
 .checkoutProductsContainer {
+  background-color: white;
   margin-top: 39px;
   width: 80%;
   border: 3px solid green;
@@ -168,16 +170,21 @@
   align-self: start;
 }
 
-.submitButton {
-  position: absolute;
-  top: 750px;
-  right: 640px;
-}
-
 .sameBilling {
-  margin-top: 18px;
+  display: flex;
+
+  align-items: center;
+  margin-top: 20px;
+  /* margin-bottom: 7px; */
+}
+.sameBillingText {
+  width: 40%;
 }
 .finalPriceContainer {
+  background-color: white;
+  display: flex;
+  align-items: end;
+  justify-content: end;
   margin-top: 15px;
   width: 80%;
   border: 3px solid green;
@@ -192,12 +199,14 @@
 }
 
 .finalPriceNumber {
+  text-align: center;
   margin-left: 25px;
   font-size: 25px;
   color: rgb(145, 15, 41);
 }
 
 .priceSummary {
+  background-color: white;
   border: 3px solid green;
   border-radius: 30px;
   top: 152px;
@@ -244,6 +253,21 @@
 .lilLine div {
   margin-bottom: 5px;
 }
+
+.placeOrder {
+  margin-right: 30px;
+}
+.placeOrder button {
+  font-size: 20px;
+  background-color: rgb(247, 202, 0);
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  border-color: rgb(247, 202, 0);
+  box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.08);
+  margin-right: 20px;
+}
+
 .placeOrderSummary button {
   font-size: 20px;
   background-color: rgb(247, 202, 0);
@@ -268,4 +292,30 @@
 }
 #longLine div:last-child {
   margin-bottom: 4px;
+}
+
+.state {
+  font-size: 20px;
+}
+.expiration {
+  font-size: 17px;
+}
+
+.shippingInformationContainer {
+}
+
+.couponContainer {
+  width: 20%;
+}
+
+.finalPriceInformation {
+  border-right: 3px solid black;
+  margin-right: 20px;
+}
+
+.finalPriceNumber {
+  font-size: 28px;
+
+  padding: 5px;
+  margin-right: 20px;
 }
