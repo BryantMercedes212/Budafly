@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "../searchBar/Search";
-
+import { Pagination } from "@mui/material";
 import ProductCard from "../productCard/ProductCard";
 
 import "./ProductCards.css";
@@ -14,6 +14,23 @@ const ProductCards = ({
   setInput,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const pages = 0;
+  const productCards = products.map((product, index) => {
+    return <ProductCard key={index + 1} product={product} addItem={addItem} />;
+  });
+  const [startOfDisplayProducts, setStartOfDisplayProducts] = useState(0);
+  const [finishOfDisplayProducts, setFinishOfDisplayProducts] = useState(15);
+
+  const handleChange = (event, value) => {
+    if (value === 1) {
+      setStartOfDisplayProducts(0);
+      setFinishOfDisplayProducts(15);
+    } else {
+      setStartOfDisplayProducts(value * 15 - 15);
+      setFinishOfDisplayProducts(value * 15);
+      "html, body".animate({ scrollTop: 0 }, "fast");
+    }
+  };
 
   useEffect(() => {
     setInput("");
@@ -22,6 +39,10 @@ const ProductCards = ({
   setTimeout(function () {
     setIsLoading(false);
   }, 1500);
+  useEffect(() => {
+    // 👇️ scroll to top on page load
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [startOfDisplayProducts]);
 
   // const shuffledArray = allProducts.sort((a, b) => 0.5 - Math.random());
   return isLoading ? (
@@ -32,11 +53,14 @@ const ProductCards = ({
         <Search setInput={setInput} input={input} />
       </div>
       <div className="productCards__container">
-        {products.map((product, index) => {
-          return (
-            <ProductCard key={index + 1} product={product} addItem={addItem} />
-          );
-        })}
+        {productCards.slice(startOfDisplayProducts, finishOfDisplayProducts)}
+      </div>
+      <div className="pages">
+        <Pagination
+          count={Math.ceil(productCards.length / 15)}
+          size="large"
+          onChange={handleChange}
+        />
       </div>
     </div>
   ) : (
@@ -45,11 +69,24 @@ const ProductCards = ({
         <Search setInput={setInput} input={input} />
       </div>
       <div className="productCards__container">
-        {filterProducts.map((product, index) => {
-          return (
-            <ProductCard key={index + 1} product={product} addItem={addItem} />
-          );
-        })}
+        {filterProducts
+          .map((product, index) => {
+            return (
+              <ProductCard
+                key={index + 1}
+                product={product}
+                addItem={addItem}
+              />
+            );
+          })
+          .slice(startOfDisplayProducts, finishOfDisplayProducts)}
+      </div>
+      <div className="pages">
+        <Pagination
+          count={Math.ceil(filterProducts.length / 15)}
+          size="large"
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
