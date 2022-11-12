@@ -23,6 +23,7 @@ import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
 import FourOFour from "./Components/FourOFour";
 import ProductCards from "./Components/productCards/ProductCards";
+import CouponGenerator from "./Components/couponGenerator/CouponGenerator";
 
 const App = () => {
   // const [modalOpen, setModalOpen] = useState(false);
@@ -174,6 +175,7 @@ const App = () => {
         />
         <Route path="*" element={<FourOFour />} />
         <Route path="/sellers" element={<AllSellerView />} />
+        <Route path="/coupons" element={<CouponGenerator />} />
       </Routes>
 
       <Footer />

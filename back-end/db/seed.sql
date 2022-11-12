@@ -1,5 +1,16 @@
 \c bud_dev;
 
+
+INSERT INTO users (firstname, lastname, email, phone_number)
+VALUES 
+('Seller', 'One', 'ymail1@ymail.com', '212-111-1111'),
+('Seller', 'Two', 'ymail2@ymail.com', '212-111-1112'),
+('Seller', 'Three', 'ymail3@ymail.com', '212-111-1113'),
+('Seller', 'Four', 'hmail4@ymail.com', '212-111-1114'),
+('Seller', 'Five', 'imail5@ymail.com', '212-111-1115'),
+('Seller', 'Six', 'jmail6@ymail.com', '212-111-1116');
+
+
 INSERT INTO products (name, cannabinoid, type, description, feelings, negatives, price, image, user_id) 
 VALUES
 ('Thai G', 'THC 29.2% CBG 0.4%', 'Sativa', 'This heavy-hitting Sativa-dominant hybrid is perfect "pre-workout" or "pre-anything" strain. Thai G guarantees users are ready for action, fully activated physically and mentally.', 'Talkative, Happy, Giggly', 'Dry Mouth, Anxious, Paranoid', 44, 'https://product-assets.iheartjane.com/cdn-cgi/image/width=400,fit=scale-down,format=auto,metadata=none/photos/93/ac/93aceaaa-792e-42f3-8c98-60dbad5c2708.jpeg', 2),
@@ -43,11 +54,7 @@ VALUES
 ('Ice Cream Cake','THC 23% CBG 1%', 'Indica', 'Ice Cream Cake is an indica marijuana strain made by crossing Wedding Cake with Gelato #33. This strain offers sedating effects that leave your mind and body completely relaxed. Ice Cream Cake features a creamy flavor profile with sweet hints of vanilla and sugary dough. This strain is reported by medical marijuana patients and consumers to have calming effects that help with pain, sleep, and anxiety. Ice Cream Cake weed is ideal for night time use when you have nothing important to do except watch TV and fall asleep. Growers say this strain has light green and purple buds that are completely flushed with icy trichomes.', 'Sleepy, Relaxed, Hungry', 'Headache, Dizzy, Anxious', 62, 'https://www.ie420supply.com/wp-content/uploads/2019/05/SPACE-COOKIES-STRAIN-IE-420-SUPPLY-RIVERSIDE-DISPENSARY-NEARBY-WEED-CLINIC-CORONA-CALIFORNIA.jpg', 5);
 
 
-INSERT INTO users (firstname, lastname, email, phone_number)
+INSERT INTO coupons (used, coupon, percentage) 
 VALUES 
-('Seller', 'One', 'ymail1@ymail.com', '212-111-1111'),
-('Seller', 'Two', 'ymail2@ymail.com', '212-111-1112'),
-('Seller', 'Three', 'ymail3@ymail.com', '212-111-1113'),
-('Seller', 'Four', 'hmail4@ymail.com', '212-111-1114'),
-('Seller', 'Five', 'imail5@ymail.com', '212-111-1115'),
-('Seller', 'Six', 'jmail6@ymail.com', '212-111-1116');
+(FALSE, 'A', 10),
+(FALSE, 'B', 15);

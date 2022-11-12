@@ -18,20 +18,21 @@ app.get("/", (request, response) => {
 const productsController = require("./controllers/productsController");
 app.use("/products", productsController);
 
-
 // Users ROUTES
 const userController = require("./controllers/userController");
 app.use("/users", userController);
+
+// Users ROUTES
+const coupons = require("./controllers/coupons");
+app.use("/coupons", coupons);
 
 //  Login ROUTES
 const login = require("./controllers/login.js");
 app.use("/login", login);
 
-
 //  signUp ROUTES
 const signUp = require("./controllers/signUp.js");
 app.use("/signUp", signUp);
-
 
 // 404 Page
 app.get("*", (request, response) => {
