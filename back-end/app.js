@@ -22,9 +22,12 @@ app.use("/products", productsController);
 const userController = require("./controllers/userController");
 app.use("/users", userController);
 
-// Users ROUTES
+// Coupons ROUTES
 const coupons = require("./controllers/coupons");
 app.use("/coupons", coupons);
+
+const scores = require("./controllers/scores");
+app.use("/scores", scores);
 
 //  Login ROUTES
 const login = require("./controllers/login.js");
