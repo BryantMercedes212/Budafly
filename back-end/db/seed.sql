@@ -58,3 +58,9 @@ INSERT INTO coupons (used, coupon, percentage)
 VALUES 
 (FALSE, 'A', 10),
 (FALSE, 'B', 15);
+
+INSERT INTO scores (score) 
+VALUES 
+(20),
+(10),
+(3);
