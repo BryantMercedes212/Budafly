@@ -1,0 +1,1 @@
+web: sh -c 'cd ./back-end/ && node server.js'
