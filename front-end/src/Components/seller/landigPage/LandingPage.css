@@ -1,0 +1,15 @@
+.sellerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.sellerProduct {
+  margin-top: 40px;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 55px;
+}

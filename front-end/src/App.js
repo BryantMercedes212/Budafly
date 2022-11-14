@@ -1,4 +1,5 @@
 import "./App.css";
+import AllSellerView from "./Components/allSellersView/AllSellersView";
 import { useState, useEffect } from "react";
 import { Routes, Route, createPath } from "react-router-dom";
 import About from "./Components/About";
@@ -16,19 +17,21 @@ import Footer from "./Components/footer/Footer";
 import CheckOut from "./Components/checkOut/CheckOut";
 import axios from "axios";
 import Cart from "./Components/cart/Cart";
-import LandingPage from "./Components/seller/landingPage";
+import LandingPage from "./Components/seller/landigPage/LandingPage";
 import SingleView from "./Components/seller/singleView";
 import EditProductForm from "./Components/seller/editProduct";
 import AddProductForm from "./Components/seller/addProductForm";
 import FourOFour from "./Components/FourOFour";
 import ProductCards from "./Components/productCards/ProductCards";
+import CouponGenerator from "./Components/couponGenerator/CouponGenerator";
+import Game from "./Components/game/Game";
+import NewsLetter from "./Components/newsLetter/NewsLetter";
 
 const App = () => {
-  // const [modalOpen, setModalOpen] = useState(false);
+  const URL = process.env.REACT_APP_API_URL;
   const [input, setInput] = useState("");
   const [cart, setCart] = useState([]);
   const [login, setLogin] = useState(false);
-  const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -139,7 +142,7 @@ const App = () => {
         <Route path="/products/:id" element={<Product addItem={addItem} />} />
         <Route
           path="/seller/:id/products"
-          element={<LandingPage login={login} />}
+          element={<LandingPage login={login} addItem={addItem} />}
         />
         <Route path="/seller/:id/products/new" element={<AddProductForm />} />
         <Route
@@ -172,6 +175,10 @@ const App = () => {
           }
         />
         <Route path="*" element={<FourOFour />} />
+        <Route path="/sellers" element={<AllSellerView />} />
+        <Route path="/coupons" element={<CouponGenerator />} />
+        <Route path="/game" element={<Game />} />
+        <Route path="/news" element={<NewsLetter />} />
       </Routes>
 
       <Footer />

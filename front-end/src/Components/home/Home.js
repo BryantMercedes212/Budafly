@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
 import video from "../../assets/Movie.mp4";
 import BarLoader from "react-spinners/BarLoader";
+import Loader from "../loader/Loader";
 const Home = ({ addItem }) => {
   const URL = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
@@ -16,15 +17,7 @@ const Home = ({ addItem }) => {
   }, 1000);
 
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : (
     <div className="homeContainer">
       <div className="landingContainer">
@@ -96,6 +89,57 @@ const Home = ({ addItem }) => {
               creating and capturing opportunities with future-minded branding
               and retail experiences.
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="directionsContainer">
+        <div className="direction">
+          <div className="homeImage" onClick={() => navigate(`/products`)}>
+            <img src="https://www.citizensbank.com/assets/CB_resources/images/global/featureGrid_citizenspay-business_BuildLoyaltyBag_488x275_NonRetina.jpg" />
+          </div>
+          <div className="storeName"> View Products</div>
+
+          <div
+            className="goTo"
+            onClick={() => {
+              navigate(`/products`);
+            }}
+          >
+            Go To Shop
+          </div>
+        </div>
+        <div className="direction">
+          <div className="homeImage" onClick={() => navigate(`/sellers`)}>
+            <img src="./shop.png" />{" "}
+          </div>
+          <div className="storeName"> View Sellers</div>
+
+          <div
+            className="goTo"
+            onClick={() => {
+              navigate(`/sellers`);
+            }}
+          >
+            Go To Seller
+          </div>
+        </div>
+        <div className="direction">
+          <div className="homeImage" onClick={() => navigate(`/game`)}>
+            <img
+              src="https://www.kindpng.com/picc/m/560-5607641_nes-controller-cartoon-png-bmo-controller-buttons-transparent.png"
+              alt="Nes Controller Cartoon Png - Bmo Controller Buttons, "
+            />
+          </div>
+          <div className="storeName"> Play a Game and Earn Coupons</div>
+
+          <div
+            className="goTo"
+            onClick={() => {
+              navigate(`/game`);
+            }}
+          >
+            Go To Game
           </div>
         </div>
       </div>

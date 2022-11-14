@@ -28,4 +28,17 @@ CREATE TABLE products (
     user_id INT REFERENCES users (user_id) 
 );
 
+DROP TABLE IF EXISTS coupons;
 
+CREATE TABLE coupons(
+    used BOOLEAN DEFAULT FALSE,
+    coupon TEXT,
+    percentage SERIAL
+); 
+
+DROP TABLE IF EXISTS scores;
+
+CREATE TABLE scores(
+    id SERIAL primary key,
+    score INT
+);

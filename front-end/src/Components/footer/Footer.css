@@ -1,18 +1,29 @@
 .footer {
-  border-top: 1px dashed rgb(168, 163, 163);
+  border-top: 2.5px dashed rgb(19, 86, 37);
 
   display: flex;
   justify-items: center;
   justify-content: center;
   margin-top: 120px;
+  margin-bottom: 50px;
 }
 
 .footerContainer {
+  /* margin-top: 0px; */
   width: 80%;
   display: flex;
   justify-content: space-around;
   justify-items: center;
   /* background-color: aqua; */
+}
+.footerElements {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  margin-right: 80px;
+}
+.news {
+  margin-top: 50px;
 }
 
 @media (max-width: 700px) {

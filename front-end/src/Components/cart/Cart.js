@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
 import "./Cart.css";
+import Loader from "../loader/Loader";
 
 const Cart = ({ cart, deleteItem, setCart }) => {
   let total = 0;
@@ -50,23 +51,23 @@ const Cart = ({ cart, deleteItem, setCart }) => {
               <div className="quantityLabel">Quantity</div>
               <div className="cartItemButtons">
                 <button
-                  className="plus-btn"
-                  name={i}
-                  id="plus"
-                  onClick={handleQuantity}
-                >
-                  +
-                </button>
-                <div className="quantity">
-                  <p>{item.quantity}</p>
-                </div>
-                <button
                   className="minus-btn"
                   name={i}
                   id="minus"
                   onClick={handleQuantity}
                 >
                   -
+                </button>
+                <div className="quantity">
+                  <p>{item.quantity}</p>
+                </div>{" "}
+                <button
+                  className="plus-btn"
+                  name={i}
+                  id="plus"
+                  onClick={handleQuantity}
+                >
+                  +
                 </button>
               </div>
             </div>
@@ -88,16 +89,8 @@ const Cart = ({ cart, deleteItem, setCart }) => {
   }, 1000);
 
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
-  ) : (
+    <Loader />
+  ) : cart.length ? (
     <div className="shoppingCartContainer">
       <h1 className="shoppingCart">Shopping Cart</h1>
       <div className="cartContainer">
@@ -133,6 +126,8 @@ const Cart = ({ cart, deleteItem, setCart }) => {
         </div>
       </div>
     </div>
+  ) : (
+    ""
   );
 };
 

@@ -1,9 +1,18 @@
-import "./CheckOut.css";
 import listOfStates from "../../assets/state.json";
 import monthsList from "../../assets/months.json";
 import { useState, useEffect } from "react";
 import BarLoader from "react-spinners/BarLoader";
-
+import Loader from "../loader/Loader";
+import {
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Checkbox,
+  Button,
+} from "@mui/material";
+import "./CheckOut.css";
 const Checkout = ({ cart, setCart, deleteItem }) => {
   let i = 1;
   let total = 0;
@@ -34,6 +43,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
     billingAddress1: "",
     billingAddress2: "",
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [shippingFee, setShippingFee] = useState(0);
 
@@ -67,21 +77,21 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
     }
   }
   const [deliveryDate, setDeliveryDate] = useState(daysAhead[0]);
-  console.log(shippingFee);
+
   //populating the months
   while (i <= 12) {
-    months.push(<option value={i}>{i}</option>);
+    months.push(<MenuItem value={i}>{i}</MenuItem>);
     i++;
   }
   //populating the years
   while (year <= 2042) {
-    years.push(<option value={year}>{year}</option>);
+    years.push(<MenuItem value={year}>{year}</MenuItem>);
     year++;
   }
 
   //populating the states
   for (const [key, value] of Object.entries(listOfStates)) {
-    states.push(<option value={value}>{key}</option>);
+    states.push(<MenuItem value={value}>{key}</MenuItem>);
   }
 
   const handleQuantity = (e) => {
@@ -172,218 +182,300 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
 
   setTimeout(function () {
     setIsLoading(false);
-  }, 1000);
+  }, 1500);
+
+  const handleClick = () => {};
 
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : (
     <div className="checkoutContainer">
       <div className="checkOut">
         <h1>Checkout</h1>
         <div className="checkoutInformation">
-          <div>
+          <div className="shippingInformationContainer">
             <h2> Shipping Information</h2>
             <form id="checkout">
               <label>
-                <div className="label">First Name</div>
-                <br></br>
-                <input
-                  type="text"
+                {" "}
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="First Name"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="firstName"
                   value={shipping.firstName}
                   onChange={handleChange}
-                ></input>
+                />
                 <br></br>
               </label>
               <label>
-                <div className="label"> Last Name</div>
-
-                <br></br>
-                <input
-                  type="text"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="Last Name"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="lastName"
                   value={shipping.lastName}
                   onChange={handleChange}
-                ></input>
+                />
                 <br></br>
               </label>
               <label>
-                <div className="label">Email</div>
-
-                <br></br>
-                <input
-                  type="email"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="Email"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="email"
                   value={shipping.email}
                   onChange={handleChange}
-                ></input>
+                />
+
                 <br></br>
               </label>
               <label>
-                <div className="label"> Address 1</div>
-                <br></br>
-                <input
-                  type="text"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="Address 1"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="address1"
                   value={shipping.address1}
                   onChange={handleChange}
-                ></input>
+                />
+
                 <br></br>
               </label>
               <label>
-                <div className="label"> Address 2</div>
-                <br></br>
-                <input
-                  type="text"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="Address 2"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="address2"
                   value={shipping.address2}
                   onChange={handleChange}
-                ></input>
+                />
+
                 <br></br>
               </label>
               <label>
-                <div className="label">City</div>
-                <br></br>
-                <input
-                  type="text"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="City"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="city"
                   value={shipping.city}
                   onChange={handleChange}
-                ></input>
+                />
+
                 <br></br>
               </label>
               <label>
-                <div className="label">State</div>
                 <br></br>
-                <select
-                  name="state"
-                  value={shipping.state}
-                  onChange={handleChange}
-                >
-                  {states}
-                </select>
+
+                <FormControl sx={{ minWidth: 120 }}>
+                  <InputLabel id="demo-simple-select-required-label">
+                    <div className="state">State</div>
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-required-label"
+                    id="demo-simple-select-required"
+                    label="State j"
+                    name="state"
+                    value={shipping.state}
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {states}
+                  </Select>
+                </FormControl>
+
                 <br></br>
               </label>
-
-              <label>
-                <div className="label"> Zip Code</div>
-
-                <br></br>
-                <input
-                  id="zipCode"
-                  type="text"
-                  name="zipCode"
-                  value={shipping.zipCode}
-                  onChange={handleChange}
-                ></input>
-              </label>
+              <div>
+                <label>
+                  <TextField
+                    variant="standard"
+                    margin="normal"
+                    label="Zip Code"
+                    inputProps={{ style: { fontSize: 20 } }}
+                    InputLabelProps={{
+                      style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                    }}
+                    name="zipCode"
+                    value={shipping.zipCode}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
               <br></br>
             </form>
           </div>
-          <div>
+          <div className="cardInformationContainer">
             <form id="cardInformation">
               <label>
                 <h2>Card Information</h2>
-                <div className="label"> Card Number</div>
 
-                <br></br>
-                <input
-                  type="text"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="Card Number"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="cardNumber"
                   value={shipping.cardNumber}
                   onChange={handleChange}
-                ></input>
+                />
               </label>
               <br></br>
               <label>
-                <div className="label">Name on Card</div>
-
-                <br></br>
-                <input
-                  type="text"
+                <TextField
+                  variant="standard"
+                  margin="normal"
+                  label="Name on Card"
+                  inputProps={{ style: { fontSize: 20 } }}
+                  InputLabelProps={{
+                    style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                  }}
                   name="nameOnCard"
                   value={shipping.nameOnCard}
                   onChange={handleChange}
-                ></input>
+                />
               </label>
               <label>
                 <div className="label">Expiration Date</div>
 
                 <br></br>
-
-                <select
-                  id="months"
-                  name="expirationMonth"
-                  value={shipping.expirationMonth}
-                  onChange={handleChange}
-                >
-                  {months}
-                </select>
-                <select
-                  id="years"
-                  name="expirationYears"
-                  value={shipping.expirationYear}
-                  onChange={handleChange}
-                >
-                  {years}
-                </select>
+                <FormControl sx={{ minWidth: 89 }} size="small">
+                  <InputLabel id="demo-simple-select-required-label">
+                    <div className="expiration">Month</div>
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-required-label"
+                    label="Month j"
+                    id="months"
+                    name="expirationMonth"
+                    value={shipping.expirationMonth}
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {months}
+                  </Select>
+                </FormControl>
+                <FormControl sx={{ minWidth: 80 }} size="small">
+                  <InputLabel id="demo-simple-select-required-label">
+                    <div className="expiration">Year</div>
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-required-label"
+                    label="Year j"
+                    id="years"
+                    name="expirationYears"
+                    value={shipping.expirationYear}
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {years}
+                  </Select>
+                </FormControl>
               </label>
               <div className="sameBilling">
-                <input
-                  type="checkbox"
-                  class="sameBillingCheckBox"
+                <Checkbox
+                  color="success"
                   onClick={handleChange}
                   name="sameBillingAddress"
                   value={shipping.sameBillingAddress}
+                  checked={!shipping.sameBillingAddress}
                 />
-                <span>Billing Address: </span> Same as shipping Address
+                <div className="sameBillingText">
+                  Billing Address: Same as shipping Address
+                </div>
               </div>
               {shipping.sameBillingAddress && (
                 <div>
-                  {" "}
                   <label>
-                    <div className="label">Billing Address 1</div>
-
-                    <br></br>
-                    <input
-                      type="text"
+                    <TextField
+                      variant="standard"
+                      margin="normal"
+                      label="Billing Address 1"
+                      inputProps={{ style: { fontSize: 20 } }}
+                      InputLabelProps={{
+                        style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                      }}
                       name="billingAddress1"
                       value={shipping.billingAddress1}
                       onChange={handleChange}
-                    ></input>
+                    />
                   </label>
+                  <br></br>
                   <label>
-                    <div className="label">Billing Address 2</div>
-                    <br></br>
-                    <input
-                      type="text"
+                    <TextField
+                      variant="standard"
+                      margin="normal"
+                      label="Billing Address 2"
+                      inputProps={{ style: { fontSize: 20 } }}
+                      InputLabelProps={{
+                        style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+                      }}
                       name="billingAddress2"
                       value={shipping.billingAddress2}
                       onChange={handleChange}
-                    ></input>
+                    />
                     <br></br>
                   </label>
                 </div>
               )}
             </form>
           </div>
-          <div>
-            <h2>Add a gift card, promotion code, or voucher</h2>
+          <div className="couponContainer">
+            <h2 className="coupon">
+              Add a gift card, promotion code, or voucher
+            </h2>
 
-            <input type="text"></input>
-            <button>Apply</button>
-          </div>
-          <div className="submitButton">
-            {" "}
-            <button> Submit</button>
+            <TextField
+              variant="standard"
+              margin="normal"
+              label="Coupon"
+              inputProps={{ style: { fontSize: 20 } }}
+              InputLabelProps={{
+                style: { fontSize: 22, color: "rgb(64, 121, 86)" },
+              }}
+              name="coupon"
+              value={shipping.coupon}
+              onChange={handleChange}
+            />
+            <Button variant="contained" size="small" color="success">
+              Apply Coupon
+            </Button>
           </div>
         </div>
         <div className="checkoutProductsContainer">
@@ -472,15 +564,15 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
 
         <div className="finalPriceContainer">
           <div className="finalPrice">
-            <div className="placeOrder">
-              <button>Place your order</button>
-            </div>
             <div className="finalPriceInformation">
               {" "}
               <div className="finalPriceNumber">
                 Order total:{" "}
                 {(total + total * (4 / 100) + Number(shippingFee)).toFixed(2)}
               </div>
+            </div>
+            <div className="placeOrder">
+              <button>Place your order</button>
             </div>
           </div>
         </div>

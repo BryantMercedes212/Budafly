@@ -1,6 +1,7 @@
 .productCards {
   max-width: 1000px;
   margin: 30px auto;
+  margin-top: 50px;
 }
 
 .productCards__title {
@@ -17,6 +18,17 @@
 
 .searchBar {
   text-align: end;
+  margin-bottom: 10px;
+}
+
+.pages {
+  margin-top: 40px;
+  display: flex;
+
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 20px;
 }
 
 @media (max-width: 440px) {

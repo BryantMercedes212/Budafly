@@ -26,12 +26,6 @@ const ProductCard = ({ product, addItem }) => {
     }
   };
 
-  if (itemInCart) {
-    setTimeout(function () {
-      setItemInCart(false);
-    }, 3000);
-  }
-
   return (
     <div className={`productCard_${type}`}>
       <div

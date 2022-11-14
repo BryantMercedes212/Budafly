@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Progress from "../progressBar/ProgressBar";
 import ProductCard from "../productCard/ProductCard";
 import LoopIcon from "@mui/icons-material/Loop";
 import BarLoader from "react-spinners/BarLoader";
+import Loader from "../loader/Loader";
 
 import "../productCard/ProductCard.css";
 
@@ -23,6 +23,7 @@ const Product = ({ addItem }) => {
   const [itemInCart, setItemInCart] = useState(false);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  console.log(product);
 
   let i = 0;
   while (i < 3) {
@@ -84,23 +85,9 @@ const Product = ({ addItem }) => {
     setIsLoading(false);
   }, 1000);
 
-  if (itemInCart) {
-    setTimeout(function () {
-      setItemInCart(false);
-    }, 3000);
-  }
-
   console.log(splitedCannabinoid);
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : (
     <div className="productDetailsContainer">
       <div className="productDetails">
@@ -144,28 +131,51 @@ const Product = ({ addItem }) => {
               <Progress done={splitedCannabinoid[1]} />
             </div>
             {itemInCart ? (
-              <div
-                className="goToCart"
-                onClick={() => {
-                  navigate(`/cart`);
-                }}
-                id={id}
-              >
-                View Cart
+              <div className="bottomDetails">
+                <div
+                  className="goToCart"
+                  onClick={() => {
+                    navigate(`/cart`);
+                  }}
+                  id={id}
+                >
+                  View Cart
+                </div>
+                <div
+                  className="sellerStore"
+                  onClick={() =>
+                    navigate(`/seller/${product.user_id}/products`)
+                  }
+                >
+                  {" "}
+                  Check Out this Seller Products
+                </div>
               </div>
             ) : (
-              <div
-                className="cart"
-                onClick={() => {
-                  addItem(product);
-                  handleAddToCart();
-                }}
-                id={id}
-              >
-                {!itemInCart && !loading && "Add To Cart"}
-                {!itemInCart && loading && (
-                  <LoopIcon className="loader" fontSize="small" />
-                )}
+              <div className="bottomDetails">
+                <div
+                  className="cart"
+                  onClick={() => {
+                    addItem(product);
+                    handleAddToCart();
+                  }}
+                  id={id}
+                >
+                  {!itemInCart && !loading && "Add To Cart"}
+                  {!itemInCart && loading && (
+                    <LoopIcon className="loader" fontSize="small" />
+                  )}
+                </div>
+                <div
+                  className="sellerStore"
+                  className="sellerStore"
+                  onClick={() =>
+                    navigate(`/seller/${product.user_id}/products`)
+                  }
+                >
+                  {" "}
+                  Check Out this Seller Products
+                </div>
               </div>
             )}
           </div>
@@ -174,9 +184,9 @@ const Product = ({ addItem }) => {
 
       <h1 className="title">Featured Products</h1>
       <div className="featuredProductsContainer">
-        <div>{sellerFeaturedProducts[0]}</div>
-        <div>{sellerFeaturedProducts[0]}</div>
-        <div>{sellerFeaturedProducts[0]}</div>
+        <div>{sellerFeaturedProducts[randomNumbers[0]]}</div>
+        <div>{sellerFeaturedProducts[randomNumbers[1]]}</div>
+        <div>{sellerFeaturedProducts[randomNumbers[2]]}</div>
       </div>
     </div>
   );
