@@ -1,1 +1,1 @@
-web: sh -c 'cd ./back-end/ && node server.js'
+web: sh -c 'cd ./back-end/ && npm install && node server.js'
