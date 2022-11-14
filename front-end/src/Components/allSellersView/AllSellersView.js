@@ -43,7 +43,7 @@ const AllSellerView = () => {
         <div
           className="goToStore"
           onClick={() => {
-            navigate(`/cart`);
+            navigate(`/seller/${seller.user_id}/products`);
           }}
         >
           Go To Shop

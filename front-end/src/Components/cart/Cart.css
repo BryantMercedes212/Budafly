@@ -160,11 +160,23 @@
   padding: 7px;
 
   font-size: 20px;
-  background-color: rgb(248, 173, 2);
+  background-color: rgb(247, 202, 0);
   width: 100%;
 
   border-radius: 30px;
   border-color: rgb(85, 148, 74);
   box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.05);
   margin-bottom: 10px;
+}
+
+.experiment {
+  width: 90%;
+  height: 50;
+
+  border-color: #ccc;
+  border-width: 1;
+  border-style: solid;
+  background-color: white;
+  padding: 10;
+  border-radius: 4;
 }
