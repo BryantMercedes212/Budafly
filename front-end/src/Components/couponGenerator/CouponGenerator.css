@@ -1,5 +1,22 @@
-.couponGenerator {
-  background-color: beige;
+.animate__animated.animate__rollIn {
+  text-align: center;
+  position: absolute;
   width: 200px;
-  height: 40px;
+  height: 90px;
+  left: 490px;
+  background-color: white;
+  width: 20%;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.couponGeneratorTitle {
+  font-size: 20px;
+}
+
+.coupon {
+  font-size: 25px;
 }

@@ -10,7 +10,9 @@ const SubMenu = () => {
       <div className="submenu__item" onClick={() => navigate("/sellers")}>
         View all Sellers
       </div>
-      <div className="submenu__item">College</div>
+      <div className="submenu__item" onClick={() => navigate("/game")}>
+        Earn Coupons
+      </div>
       <div className="submenu__item">Continued Learning</div>
       <div className="submenu__item">Add Resource</div>
     </div>
