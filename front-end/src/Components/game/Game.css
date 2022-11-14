@@ -6,5 +6,57 @@
 }
 
 .topScoresContainer {
-  width: 30%;
+  width: 20%;
+  background-color: rgb(19, 86, 37);
+  margin-right: 60px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+}
+
+.scores {
+  margin-bottom: 15px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.topScoresTitle {
+  text-align: center;
+  width: 80%;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: solid black 2px;
+}
+
+.gameRulesContainer {
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameRules {
+  border-radius: 15px;
+  background-color: rgb(19, 86, 37);
+  color: white;
+  width: 70%;
+  text-align: center;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.gameRulesTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.rules {
+  line-height: 28px;
+  font-size: 18px;
 }

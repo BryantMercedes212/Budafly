@@ -1,4 +1,5 @@
 import axios from "axios";
+import "animate.css";
 import "./CouponGenerator.css";
 
 import { useEffect, useState } from "react";
@@ -42,9 +43,11 @@ function CouponGenerator({ discount }) {
   console.log(code, "code");
   console.log(coupon, "coupon");
   return (
-    <div className="couponGenerator">
-      {" "}
-      {coupon ? <div> {coupon} </div> : ""}
+    <div class="animate__animated animate__rollIn">
+      <div className="couponGeneratorTitle">
+        Congratulations You have Earn a {discount}% discount 🎉🥳🍾
+      </div>
+      <div className="coupon"> {coupon} </div>
     </div>
   );
 }
