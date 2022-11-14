@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== "production") {
 const app = require("./app.js");
 
 // Configuration!
-dotenv.config();
+
 const PORT = process.env.PORT;
 
 // Listen
