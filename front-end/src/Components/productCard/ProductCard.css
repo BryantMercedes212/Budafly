@@ -27,14 +27,17 @@
   border-style: none;
 }
 .productCard_Sativa .type {
+  font-weight: 600;
   color: rgb(138, 153, 42);
 }
 
 .productCard_Indica .type {
+  font-weight: 600;
   color: rgb(148, 82, 165);
 }
 
 .productCard_Hybrid .type {
+  font-weight: 600;
   color: rgb(37, 155, 88);
 }
 
@@ -52,6 +55,7 @@
 }
 
 .productCard__price {
+  font-weight: 500;
   width: 100%;
   display: flex;
   justify-content: space-between;

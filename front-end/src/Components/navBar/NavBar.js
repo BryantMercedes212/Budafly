@@ -23,9 +23,10 @@ const Navbar = ({ cartLength }) => {
             <Link to="/">
               {" "}
               <img
-                src="https://i.ibb.co/GWbsnBR/Screen-Shot-2022-05-19-at-12-02-14-PM.png"
+                src="https://static.thenounproject.com/png/4021632-84.png"
                 alt=""
               />{" "}
+              <img src="./logo.png" alt="" />{" "}
             </Link>
           </div>
 
@@ -76,16 +77,15 @@ const Navbar = ({ cartLength }) => {
               <Link to="/Cart">
                 <MenuItem text={`🛒 (${cartLength})`} />
               </Link>
-              <Button variant="contained">Log In</Button>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* <div className="brokenBottom">
+      <div className="brokenBottom">
         {" "}
         <img src="/broken.png" />
-      </div> */}
+      </div>
     </div>
   );
 };

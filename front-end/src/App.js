@@ -25,6 +25,7 @@ import FourOFour from "./Components/FourOFour";
 import ProductCards from "./Components/productCards/ProductCards";
 import CouponGenerator from "./Components/couponGenerator/CouponGenerator";
 import Game from "./Components/game/Game";
+import NewsLetter from "./Components/newsLetter/NewsLetter";
 
 const App = () => {
   const URL = process.env.REACT_APP_API_URL;
@@ -177,6 +178,7 @@ const App = () => {
         <Route path="/sellers" element={<AllSellerView />} />
         <Route path="/coupons" element={<CouponGenerator />} />
         <Route path="/game" element={<Game />} />
+        <Route path="/news" element={<NewsLetter />} />
       </Routes>
 
       <Footer />

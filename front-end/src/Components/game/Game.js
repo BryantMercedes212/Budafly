@@ -1,3 +1,4 @@
+import Loader from "../loader/Loader";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CouponGenerator from "../couponGenerator/CouponGenerator";
@@ -23,6 +24,7 @@ function Game() {
   const [level, setLevel] = useState(-2);
   const [gameOver, setGameOver] = useState(false);
   const [scoreBreaker, setScoreBreaker] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   discount = 0;
   const fetchScores = async () => {
     try {
@@ -52,7 +54,7 @@ function Game() {
     let obstacleId;
     if (gameHasStarted && obstacleLeft >= -OBSTACLE_WIDTH) {
       obstacleId = setInterval(() => {
-        setObstacleLeft((obstacleLeft) => obstacleLeft - 75);
+        setObstacleLeft((obstacleLeft) => obstacleLeft - 15);
       }, 24);
       return () => {
         clearInterval(obstacleId);
@@ -117,7 +119,13 @@ function Game() {
     }
   }, [gameOver]);
 
-  return (
+  setTimeout(function () {
+    setIsLoading(false);
+  }, 1000);
+
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className="gameContainer">
       <Div onClick={handleClick}>
         <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
@@ -153,7 +161,6 @@ function Game() {
     </div>
   );
 }
-console.log(discount);
 
 export default Game;
 

@@ -2,6 +2,7 @@ import listOfStates from "../../assets/state.json";
 import monthsList from "../../assets/months.json";
 import { useState, useEffect } from "react";
 import BarLoader from "react-spinners/BarLoader";
+import Loader from "../loader/Loader";
 import {
   TextField,
   FormControl,
@@ -181,18 +182,12 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
 
   setTimeout(function () {
     setIsLoading(false);
-  }, 1000);
+  }, 1500);
+
+  const handleClick = () => {};
 
   return isLoading ? (
-    <div className="loading">
-      <BarLoader
-        height={30}
-        width={500}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-        color="green"
-      />
-    </div>
+    <Loader />
   ) : (
     <div className="checkoutContainer">
       <div className="checkOut">
@@ -479,12 +474,6 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
               onChange={handleChange}
             />
             <Button variant="contained" size="small" color="success">
-              Apply Coupon
-            </Button>
-            <div>
-              <br></br>
-            </div>
-            <Button variant="outlined" size="small" color="success">
               Apply Coupon
             </Button>
           </div>
