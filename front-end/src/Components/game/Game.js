@@ -22,7 +22,7 @@ function Game() {
   const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHight;
   const [topScores, setTopScores] = useState([]);
   const [level, setLevel] = useState(-2);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(true);
   const [scoreBreaker, setScoreBreaker] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   discount = 0;
@@ -126,31 +126,37 @@ function Game() {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="gameContainer">
-      <Div onClick={handleClick}>
-        <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
-          <Obstacle
-            top={0}
-            width={OBSTACLE_WIDTH}
-            height={obstacleHight}
-            left={obstacleLeft}
-          />
-          <Obstacle
-            top={GAME_HEIGHT - (obstacleHight + bottomObstacleHeight)}
-            width={OBSTACLE_WIDTH}
-            height={bottomObstacleHeight}
-            left={obstacleLeft}
-          />
-          <Bird size={BIRD_SIZE} top={birdPosition} />
-        </GameBox>
-        <span>{level}</span>
-      </Div>
-      <div className="topScoresContainer">
-        <div className="topScoresTitle">Top Scores</div>
-        <div className="scores">
-          {topScores.map((score) => {
-            return <div className="scores">{score.score}</div>;
-          })}{" "}
+    <div>
+      <div className="gameContainer">
+        <Div onClick={handleClick}>
+          <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
+            <Obstacle
+              top={0}
+              width={OBSTACLE_WIDTH}
+              height={obstacleHight}
+              left={obstacleLeft}
+            />
+            <Obstacle
+              top={GAME_HEIGHT - (obstacleHight + bottomObstacleHeight)}
+              width={OBSTACLE_WIDTH}
+              height={bottomObstacleHeight}
+              left={obstacleLeft}
+            />
+            <Bird size={BIRD_SIZE} top={birdPosition} />
+          </GameBox>
+          <span>{level}</span>
+        </Div>
+        <div className="topScoresContainer">
+          <div className="topScoresTitle">Top Scores</div>
+          <div className="scores">
+            {topScores.map((score, i) => {
+              return (
+                <div className="scores">
+                  {i + 1}. {score.score}
+                </div>
+              );
+            })}{" "}
+          </div>{" "}
         </div>{" "}
         {discount > 5 && gameOver ? (
           <CouponGenerator discount={discount} />
@@ -158,6 +164,29 @@ function Game() {
           ""
         )}
       </div>
+      {gameOver && (
+        <div className="gameRulesContainer">
+          <div className="gameRules">
+            <div className="gameRulesTitle">Rules Of the Game</div>
+            <div className="rules">
+              <div className="rule">
+                1. Click on the blue square to start the game
+              </div>
+              <div className="rules">
+                2. Keep clicking to make the dot keep jumping
+              </div>
+              <div className="rules">
+                3. Beat one of the bottom 2 scores to earn a 10% discount or
+                beat number 1 score to earn a 15% discount the{" "}
+              </div>
+              <div className="rules">
+                {" "}
+                After loosing simple press the blue square again to start over
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
