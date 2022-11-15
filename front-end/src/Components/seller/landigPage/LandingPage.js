@@ -6,6 +6,7 @@ import "./LandingPage.css";
 const LandingPage = ({ login, addItem }) => {
   const URL = process.env.REACT_APP_API_URL;
   const { id } = useParams();
+  console.log(typeof id);
 
   const [products, setProducts] = useState([]);
 
@@ -18,6 +19,15 @@ const LandingPage = ({ login, addItem }) => {
   const viewAllProducts = products.map((product, index) => {
     return <ProductCard key={index + 1} product={product} addItem={addItem} />;
   });
+
+  const names = {
+    1: "One",
+    2: "Two",
+    3: "Three",
+    4: "Four",
+    5: "Five",
+    6: "Six",
+  };
 
   return (
     <>
@@ -47,7 +57,7 @@ const LandingPage = ({ login, addItem }) => {
         </div>
       ) : (
         <div className="sellerContainer">
-          <h1>Welcome, Customer</h1>
+          <h1>Welcome, to Seller's {names[id]} Store</h1>
 
           <div class="sellerProduct">{viewAllProducts}</div>
         </div>

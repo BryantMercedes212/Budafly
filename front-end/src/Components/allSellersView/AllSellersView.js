@@ -52,8 +52,6 @@ const AllSellerView = () => {
     );
   });
 
-  console.log(designedSeller);
-
   return (
     <div className="productCards">
       <div className="productCards__container">{designedSeller}</div>

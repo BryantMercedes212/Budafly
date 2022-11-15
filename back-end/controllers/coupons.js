@@ -6,7 +6,6 @@ const { getOne, createOne, updateOne } = require("../queries/coupons");
 const coupons = express.Router({ mergeParams: true });
 
 coupons.post("/", async (request, response) => {
-  console.log("GET request to /couponsssss", request.body);
   if (request.body.coupon !== "") {
     const coupon = await getOne(request.body.coupon);
     if (coupon) {
@@ -15,9 +14,20 @@ coupons.post("/", async (request, response) => {
         .json({ message: "coupon already exist", code: coupon });
     } else {
       const newCoupon = await createOne(request.body);
-      console.log(newCoupon);
       response.status(200).json(newCoupon);
     }
+  }
+});
+
+coupons.post("/use", async (request, response) => {
+  const coupon = await getOne(request.body.coupon);
+  if (coupon.used === true) {
+    response.status(200).json({ message: "coupon has been used" });
+  } else if (coupon) {
+    const updateCoupon = await updateOne(request.body.coupon);
+    response.status(200).json(updateCoupon);
+  } else {
+    response.status(202).json({ message: "coupon doesn't exist" });
   }
 });
 

@@ -23,7 +23,6 @@ const Product = ({ addItem }) => {
   const [itemInCart, setItemInCart] = useState(false);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  console.log(product);
 
   let i = 0;
   while (i < 3) {
@@ -45,7 +44,6 @@ const Product = ({ addItem }) => {
     try {
       const res = await axios.get(`${URL}/products/`);
       setSellerProduct(res.data);
-      console.log(res.data);
     } catch (error) {
       console.log(error);
       setSellerProduct([]);
@@ -85,7 +83,6 @@ const Product = ({ addItem }) => {
     setIsLoading(false);
   }, 1000);
 
-  console.log(splitedCannabinoid);
   return isLoading ? (
     <Loader />
   ) : (

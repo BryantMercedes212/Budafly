@@ -20,7 +20,6 @@ const getOne = async (id) => {
 };
 
 const getOneByName = async (name) => {
-  console.log(name);
   try {
     const one = await db.one("SELECT * FROM products WHERE name=$1 ", name);
     return one;

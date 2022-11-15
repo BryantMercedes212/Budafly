@@ -32,8 +32,7 @@ const NewsLetter = (props) => {
     <div className="emailSubscriptionForm">
       <div className="emailSubscriptionForm__title">Join the newsletter!</div>
       <p className="emailSubscriptionForm__description">
-        Subscribe to get the latest content by email and to become a fellow
-        pineapple 🍍
+        Subscribe to get the latest content and earn coupons
       </p>
       <form>
         <div className="emailSubscriptionForm__formInput">
