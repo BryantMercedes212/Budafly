@@ -69,17 +69,26 @@ const ProductCards = ({
         <Search setInput={setInput} input={input} />
       </div>
       <div className="productCards__container">
-        {filterProducts
-          .map((product, index) => {
-            return (
-              <ProductCard
-                key={index + 1}
-                product={product}
-                addItem={addItem}
-              />
-            );
-          })
-          .slice(startOfDisplayProducts, finishOfDisplayProducts)}
+        {filterProducts.length ? (
+          filterProducts
+            .map((product, index) => {
+              return (
+                <ProductCard
+                  key={index + 1}
+                  product={product}
+                  addItem={addItem}
+                />
+              );
+            })
+            .slice(startOfDisplayProducts, finishOfDisplayProducts)
+        ) : (
+          <div class="animate__animated  animate__bounceInLeft">
+            <div className="noSearch">
+              {" "}
+              No products were found with this search
+            </div>
+          </div>
+        )}
       </div>
       <div className="pages">
         <Pagination

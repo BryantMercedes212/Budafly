@@ -8,7 +8,7 @@
 
 .sellerProduct {
   margin-top: 40px;
-  width: 70%;
+  width: 65%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 55px;

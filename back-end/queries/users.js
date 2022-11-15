@@ -18,23 +18,6 @@ const getOneSeller = async (id) => {
   }
 };
 
-// const addNewSeller = async (newSeller) => {
-//   try {
-//     const sellers = await database.any(
-//       "INSERT INTO users (firstname, lastname, email, phone_number) VALUES ($1, $2, $3, $4) RETURNING *",
-//       [
-//         newSeller.firstname,
-//         newSeller.lastname,
-//         newSeller.email,
-//         newSeller.phone_number,
-//       ]
-//     );
-//     return sellers;
-//   } catch (error) {
-//     return error;
-//   }
-// };
-
 const getListedProducts = async (id) => {
   try {
     const allProducts = await db.any(

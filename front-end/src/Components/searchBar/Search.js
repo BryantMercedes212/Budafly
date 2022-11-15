@@ -7,7 +7,6 @@ const Search = ({ setInput, input }) => {
     setInput("");
   };
 
-  console.log(input);
   // return
   return (
     <div className="search">

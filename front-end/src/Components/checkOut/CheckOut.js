@@ -1,8 +1,9 @@
 import listOfStates from "../../assets/state.json";
 import monthsList from "../../assets/months.json";
-import { useState, useEffect } from "react";
-import BarLoader from "react-spinners/BarLoader";
+import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   TextField,
   FormControl,
@@ -13,7 +14,9 @@ import {
   Button,
 } from "@mui/material";
 import "./CheckOut.css";
-const Checkout = ({ cart, setCart, deleteItem }) => {
+const Checkout = ({ cart, setCart, deleteItem, discountCode }) => {
+  const URL = process.env.REACT_APP_API_URL;
+  const navigate = useNavigate();
   let i = 1;
   let total = 0;
   let quantity = 0;
@@ -38,7 +41,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
     nameOnCard: "",
     expirationMonth: "",
     expirationYear: "",
-    coupon: "",
+    coupon: discountCode,
     sameBillingAddress: true,
     billingAddress1: "",
     billingAddress2: "",
@@ -46,6 +49,8 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [shippingFee, setShippingFee] = useState(0);
+  const [discount, setDiscount] = useState(0);
+  const [placeOrder, setPlaceOrder] = useState(false);
 
   //Getting Hours Until next Day
   if (hourAndMinute[1] !== 0) {
@@ -78,7 +83,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
   }
   const [deliveryDate, setDeliveryDate] = useState(daysAhead[0]);
 
-  //populating the months
+  //populating the monthsc
   while (i <= 12) {
     months.push(<MenuItem value={i}>{i}</MenuItem>);
     i++;
@@ -93,6 +98,21 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
   for (const [key, value] of Object.entries(listOfStates)) {
     states.push(<MenuItem value={value}>{key}</MenuItem>);
   }
+  const handleCoupon = () => {
+    axios
+      .post(`${URL}/coupons/use`, { coupon: shipping.coupon })
+      .then((res) => {
+        if (res.data.message) {
+          alert(res.data.message);
+        } else {
+          setDiscount(res.data.percentage);
+          setShipping({
+            ...shipping,
+            coupon: "",
+          });
+        }
+      });
+  };
 
   const handleQuantity = (e) => {
     setCart(
@@ -119,7 +139,7 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
 
   const handleChange = (evt) => {
     const value = evt.target.value;
-    console.log(evt.target.name, value);
+
     if (evt.target.name === "sameBillingAddress") {
       setShipping({
         ...shipping,
@@ -133,6 +153,32 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
         ...shipping,
         [evt.target.name]: value,
       });
+    }
+  };
+
+  const handleCompleteOrder = () => {
+    if (placeOrder) {
+      localStorage.removeItem("cart");
+      setCart([]);
+      setShipping({
+        firstName: "",
+        lastName: "",
+        email: "",
+        address1: "",
+        address2: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        cardNumber: "",
+        nameOnCard: "",
+        expirationMonth: "",
+        expirationYear: "",
+        coupon: "",
+        sameBillingAddress: true,
+        billingAddress1: "",
+        billingAddress2: "",
+      });
+      navigate("/");
     }
   };
 
@@ -184,12 +230,16 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
     setIsLoading(false);
   }, 1500);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    setPlaceOrder(true);
+  };
+
+  const handleClearAll = () => {};
 
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="checkoutContainer">
+    <div className="checkoutContainer" onClick={() => handleCompleteOrder()}>
       <div className="checkOut">
         <h1>Checkout</h1>
         <div className="checkoutInformation">
@@ -473,7 +523,12 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
               value={shipping.coupon}
               onChange={handleChange}
             />
-            <Button variant="contained" size="small" color="success">
+            <Button
+              variant="contained"
+              size="small"
+              color="success"
+              onClick={() => handleCoupon()}
+            >
               Apply Coupon
             </Button>
           </div>
@@ -566,49 +621,120 @@ const Checkout = ({ cart, setCart, deleteItem }) => {
           <div className="finalPrice">
             <div className="finalPriceInformation">
               {" "}
-              <div className="finalPriceNumber">
-                Order total:{" "}
-                {(total + total * (4 / 100) + Number(shippingFee)).toFixed(2)}
-              </div>
+              {discount > 0 ? (
+                <div className="finalPriceNumber">
+                  Order total:{" "}
+                  {(
+                    total -
+                    total * (discount / 100) +
+                    Number(shippingFee) +
+                    (total - total * (discount / 100) + Number(shippingFee)) *
+                      (4 / 100)
+                  ).toFixed(2)}
+                </div>
+              ) : (
+                <div className="finalPriceNumber">
+                  Order total:{" "}
+                  {(total + total * (4 / 100) + Number(shippingFee)).toFixed(2)}
+                </div>
+              )}
             </div>
             <div className="placeOrder">
-              <button>Place your order</button>
+              <button onClick={() => handleClick()}>Place your order</button>
             </div>
           </div>
         </div>
       </div>
-      <div className="priceSummary">
-        <div className="priceSummaryInformation">
-          <div className="placeOrderSummary">
-            <button>Place your order</button>
-          </div>
-          <div className="orderSummary">Order Summary</div>
-          <div className="priceSummaryItem">
-            <div>items({quantity}):</div>
-            <div>${total}</div>
-          </div>
-          <div className="priceSummaryItem">
-            <div>Shipping & handling:</div>
-            <div className="lilLine">
-              <div>${shippingFee}</div>
+      {discount > 0 ? (
+        <div className="priceSummary">
+          <div className="priceSummaryInformation">
+            <div className="placeOrderSummary">
+              <button onClick={() => handleClick()}>Place your order</button>
+            </div>
+            <div className="orderSummary">Order Summary</div>
+            <div className="priceSummaryItem">
+              <div>items({quantity}):</div>
+              <div>${total}</div>
+            </div>
+            <div className="priceSummaryItem">
+              <div>Discount</div>
+              <div>{(total * (discount / 100)).toFixed(2)}</div>
+            </div>
+            <div className="priceSummaryItem">
+              <div>Shipping & handling:</div>
+              <div className="lilLine">
+                <div>${shippingFee}</div>
+              </div>
+            </div>
+            <div className="priceSummaryItem">
+              <div>Total before tax:</div>
+              <div>
+                {(total =
+                  total -
+                  total * (discount / 100) +
+                  Number(shippingFee)).toFixed(2)}
+              </div>
+            </div>
+            <div className="priceSummaryItem" id="longLine">
+              <div>Estimated tax to be collected:</div>
+              <div className="taxes">${(total * (4 / 100)).toFixed(2)}</div>
+            </div>
+            <div className="priceSummaryTotal">
+              <div> Order total: </div>
+              <div>${(total + total * (4 / 100)).toFixed(2)}</div>
             </div>
           </div>
-          <div className="priceSummaryItem">
-            <div>Total before tax:</div>
-            <div>${(total + Number(shippingFee)).toFixed(2)}</div>
+        </div>
+      ) : (
+        <div className="priceSummary">
+          <div className="priceSummaryInformation">
+            <div className="placeOrderSummary">
+              <button onClick={() => handleClick()}>Place your order</button>
+            </div>
+            <div className="orderSummary">Order Summary</div>
+            <div className="priceSummaryItem">
+              <div>items({quantity}):</div>
+              <div>${total}</div>
+            </div>
+            <div className="priceSummaryItem">
+              <div>Shipping & handling:</div>
+              <div className="lilLine">
+                <div>${shippingFee}</div>
+              </div>
+            </div>
+            <div className="priceSummaryItem">
+              <div>Total before tax:</div>
+              <div>${(total + Number(shippingFee)).toFixed(2)}</div>
+            </div>
+            <div className="priceSummaryItem" id="longLine">
+              <div>Estimated tax to be collected:</div>
+              <div className="taxes">${(total * (4 / 100)).toFixed(2)}</div>
+            </div>
+            <div className="priceSummaryTotal">
+              <div> Order total: </div>
+              <div>
+                ${(total + total * (4 / 100) + Number(shippingFee)).toFixed(2)}
+              </div>
+            </div>
           </div>
-          <div className="priceSummaryItem" id="longLine">
-            <div>Estimated tax to be collected:</div>
-            <div className="taxes">${(total * (4 / 100)).toFixed(2)}</div>
-          </div>
-          <div className="priceSummaryTotal">
-            <div> Order total: </div>
+        </div>
+      )}
+
+      {placeOrder && (
+        <div className="yourOrderContainer">
+          <div className="yourOrder">
+            <div className="yourTile">
+              Thank You for ordering with us {shipping.firstName}
+            </div>
             <div>
-              ${(total + total * (4 / 100) + Number(shippingFee)).toFixed(2)}
+              {" "}
+              Your Order will be at your doorstep by {deliveryDate[1]}.{" "}
+              {deliveryDate[2]}, {deliveryDate[0]}{" "}
             </div>
+            <div> (Click Anywhere to go back home) </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
