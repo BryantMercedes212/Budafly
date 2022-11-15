@@ -47,14 +47,14 @@
   text-align: center;
 }
 
-.modalContainer .footer {
+.modalContainer .modalFooter {
   flex: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.modalContainer .footer button {
+.modalFooter button {
   width: 150px;
   height: 45px;
   margin: 10px;
@@ -68,4 +68,8 @@
 
 #cancelBtn {
   background-color: crimson;
+}
+
+#successBtn {
+  background-color: rgb(19, 86, 37);
 }

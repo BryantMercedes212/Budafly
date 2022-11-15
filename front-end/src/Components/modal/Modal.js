@@ -20,7 +20,7 @@ function Modal({ setOpenModal, handleModalChange }) {
         <div className="body">
           <p>The next page looks amazing. Hope you want to go there!</p>
         </div>
-        <div className="footer">
+        <div className="modalFooter">
           <button
             onClick={() => {
               setOpenModal(false);
@@ -33,7 +33,7 @@ function Modal({ setOpenModal, handleModalChange }) {
             onClick={() => {
               handleModalChange();
             }}
-            id="cancelBtn"
+            id="successBtn"
           >
             Of Course
           </button>

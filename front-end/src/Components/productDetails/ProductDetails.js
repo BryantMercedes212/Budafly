@@ -17,7 +17,7 @@ const Product = ({ addItem }) => {
   const { id } = useParams();
   const URL = process.env.REACT_APP_API_URL;
   const [sellerProduct, setSellerProduct] = useState([]);
-  const randomNumbers = [];
+  const [randomNumbers, setRandomNumbers] = useState([]);
 
   const [loading, setLoading] = useState(false);
   const [itemInCart, setItemInCart] = useState(false);
@@ -25,10 +25,6 @@ const Product = ({ addItem }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   let i = 0;
-  while (i < 3) {
-    randomNumbers.push(Math.floor(Math.random() * 40));
-    i++;
-  }
 
   const fetchProduct = async () => {
     try {
@@ -58,6 +54,17 @@ const Product = ({ addItem }) => {
     fetchSellersProducts();
   }, []);
 
+  useEffect(() => {
+    console.log("in useEffect");
+    while (i < 3) {
+      console.log("in loop");
+      randomNumbers.push(Math.floor(Math.random() * 40));
+      console.log("loop", randomNumbers);
+      i++;
+    }
+  }, []);
+
+  console.log(randomNumbers);
   const sellerFeaturedProducts = sellerProduct.map((product, index) => {
     return <ProductCard key={index + 1} product={product} addItem={addItem} />;
   });
@@ -164,7 +171,6 @@ const Product = ({ addItem }) => {
                   )}
                 </div>
                 <div
-                  className="sellerStore"
                   className="sellerStore"
                   onClick={() =>
                     navigate(`/seller/${product.user_id}/products`)
