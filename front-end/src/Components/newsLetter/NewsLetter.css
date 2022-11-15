@@ -1,9 +1,9 @@
 .emailSubscriptionForm {
-  border: 1px solid black;
+  border: 1px dashed black;
   padding: 20px 10px;
   border-radius: 7px;
   max-width: 420px;
-  background-color: rgba(125, 132, 178, 0.15);
+  background-color: rgb(64, 121, 86);
   text-align: center;
   font-family: arial;
 }
@@ -34,19 +34,17 @@
   padding: 5px;
   border: black 1px solid;
   border-radius: 3px;
+  text-align: center;
 }
 
 .emailSubscriptionForm__submitButton {
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   color: white;
   border: none;
   border-radius: 3px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   text-decoration: uppercase;
   background: blueviolet;
-  background: linear-gradient(
-    rgba(143, 166, 203, 1) 0%,
-    rgba(125, 132, 178, 1) 100%
-  );
+  background: rgb(20, 86, 44);
 }

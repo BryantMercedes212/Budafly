@@ -10,7 +10,6 @@ const getOne = async (coupon) => {
 };
 
 const createOne = async (couponBody) => {
-  console.log("/request to create");
   try {
     let { coupon, percentage } = couponBody;
     const newOne = await db.one(
@@ -29,6 +28,7 @@ const updateOne = async (coupon) => {
       "UPDATE coupons SET used=$2 WHERE coupon=$1 RETURNING *",
       [coupon, true]
     );
+
     return updatedOne;
   } catch (error) {
     return error;

@@ -31,6 +31,21 @@
   font-size: 20px;
 }
 
+.animate__animated.animate__bounceInLeft {
+  width: 60vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noSearch {
+  color: rgb(19, 86, 37);
+  text-align: center;
+  width: 100%;
+  font-weight: 600;
+  font-size: 48px;
+}
+
 @media (max-width: 440px) {
   .productCards__container {
     display: block;

@@ -14,7 +14,6 @@ const SingleView = ({ login }) => {
     try {
       const res = await axios.get(`${URL}/users/${id}/products/${pid}`);
       setProduct(res.data);
-      console.log(res.data);
     } catch (error) {
       console.log(error);
       setProduct([]);
@@ -22,12 +21,10 @@ const SingleView = ({ login }) => {
   };
 
   useEffect(() => {
-    console.log("Hi");
     fetchProduct();
   }, [id, pid]);
 
   const handleDelete = () => {
-    console.log("I am something");
     axios
       .delete(`${URL}users/${id}/products/${pid}`)
       .then(() => navigate(`/seller/${id}/products`))
@@ -86,17 +83,13 @@ const SingleView = ({ login }) => {
                         <Link
                           to={"/seller/" + id + "/products/" + pid + "/edit"}
                         >
-
                           <button class="button is-primary has-text-centered">
                             <strong>Edit Product</strong>
-
                           </button>
                           <br></br>
                         </Link>
                         <button
-
                           class="button is-primary has-text-centered"
-
                           onClick={handleDelete}
                         >
                           <strong>Delete a Product</strong>

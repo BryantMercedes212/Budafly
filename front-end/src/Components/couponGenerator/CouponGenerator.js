@@ -4,7 +4,7 @@ import "./CouponGenerator.css";
 
 import { useEffect, useState } from "react";
 
-function CouponGenerator({ discount }) {
+function CouponGenerator({ discount = 10, setDiscountCode }) {
   const [coupon, setCoupon] = useState("");
   let i = 0;
   let code = "";
@@ -22,6 +22,7 @@ function CouponGenerator({ discount }) {
         code += alphabet[Math.floor(Math.random() * 26)];
       }
     }
+    setDiscountCode(code);
     setCoupon(code);
   }, [message]);
 
@@ -40,8 +41,6 @@ function CouponGenerator({ discount }) {
     fetchCoupon();
   }, [coupon, message]);
 
-  console.log(code, "code");
-  console.log(coupon, "coupon");
   return (
     <div class="animate__animated animate__rollIn">
       <div className="couponGeneratorTitle">

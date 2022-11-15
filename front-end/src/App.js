@@ -12,7 +12,7 @@ import ForgotPassword from "./Components/ForgotPassword";
 import Modal from "./Components/modal/Modal";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
-import Demo from "./Components/seller/demoProfile";
+
 import Footer from "./Components/footer/Footer";
 import CheckOut from "./Components/checkOut/CheckOut";
 import axios from "axios";
@@ -34,6 +34,7 @@ const App = () => {
   const [login, setLogin] = useState(false);
   const [products, setProducts] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [discountCode, setDiscountCode] = useState("");
 
   const handleModalChange = () => {
     setModalOpen(true);
@@ -41,7 +42,6 @@ const App = () => {
   };
 
   const addItem = (item) => {
-    console.log(item);
     item.quantity = 1;
 
     setCart([...cart, item]);
@@ -91,8 +91,6 @@ const App = () => {
         product.name.toLowerCase().includes(input.toLocaleLowerCase())
       );
     }
-
-    console.log(filterProducts);
   }
 
   useEffect(() => {
@@ -167,17 +165,27 @@ const App = () => {
         />{" "}
         <Route path="/FAQs" element={<Faqs />} />
         <Route path="/Laws" element={<Laws />} />
-        <Route path="/userProfile" element={<Demo />} />
         <Route
           path="/checkOut"
           element={
-            <CheckOut cart={cart} setCart={setCart} deleteItem={deleteItem} />
+            <CheckOut
+              cart={cart}
+              setCart={setCart}
+              deleteItem={deleteItem}
+              discountCode={discountCode}
+            />
           }
         />
         <Route path="*" element={<FourOFour />} />
         <Route path="/sellers" element={<AllSellerView />} />
-        <Route path="/coupons" element={<CouponGenerator />} />
-        <Route path="/game" element={<Game />} />
+        <Route
+          path="/coupons"
+          element={<CouponGenerator setDiscountCode={setDiscountCode} />}
+        />
+        <Route
+          path="/game"
+          element={<Game setDiscountCode={setDiscountCode} />}
+        />
         <Route path="/news" element={<NewsLetter />} />
       </Routes>
 

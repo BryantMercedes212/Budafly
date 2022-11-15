@@ -301,9 +301,6 @@
   font-size: 17px;
 }
 
-.shippingInformationContainer {
-}
-
 .couponContainer {
   width: 20%;
 }
@@ -318,4 +315,30 @@
 
   padding: 5px;
   margin-right: 20px;
+}
+
+.yourOrderContainer {
+  background-color: rgb(19, 86, 37);
+  position: absolute;
+  top: 600px;
+  left: 300px;
+  height: 80vh;
+  width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  transition: 5s;
+}
+.yourOrder {
+  color: white;
+  line-height: 80px;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+}
+
+.yourTile {
+  font-size: 42px;
+  font-weight: 600;
 }

@@ -13,7 +13,7 @@ const OBSTACLE_WIDTH = 40;
 const OBSTACLE_GAP = 170;
 let discount = 0;
 
-function Game() {
+function Game({ setDiscountCode }) {
   const URL = process.env.REACT_APP_API_URL;
   const [birdPosition, setBirdPosition] = useState(250);
   const [gameHasStarted, setGameHasStarted] = useState(false);
@@ -23,7 +23,6 @@ function Game() {
   const [topScores, setTopScores] = useState([]);
   const [level, setLevel] = useState(-2);
   const [gameOver, setGameOver] = useState(true);
-  const [scoreBreaker, setScoreBreaker] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   discount = 0;
   const fetchScores = async () => {
@@ -106,11 +105,8 @@ function Game() {
     }
   }
 
-  console.log(discount);
   useEffect(() => {
     if (topScores.length > 0) {
-      console.log("in top scores");
-
       if (level + 2 > topScores[2].score) {
         axios
           .post(`${URL}/scores/`, { newScore: level + 2 })
@@ -159,7 +155,10 @@ function Game() {
           </div>{" "}
         </div>{" "}
         {discount > 5 && gameOver ? (
-          <CouponGenerator discount={discount} />
+          <CouponGenerator
+            discount={discount}
+            setDiscountCode={setDiscountCode}
+          />
         ) : (
           ""
         )}
