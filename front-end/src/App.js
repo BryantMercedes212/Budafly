@@ -182,7 +182,10 @@ const App = () => {
           path="/coupons"
           element={<CouponGenerator setDiscountCode={setDiscountCode} />}
         />
-        <Route path="/game" element={<Game />} />
+        <Route
+          path="/game"
+          element={<Game setDiscountCode={setDiscountCode} />}
+        />
         <Route path="/news" element={<NewsLetter />} />
       </Routes>
 

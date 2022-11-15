@@ -13,7 +13,7 @@ const OBSTACLE_WIDTH = 40;
 const OBSTACLE_GAP = 170;
 let discount = 0;
 
-function Game() {
+function Game({ setDiscountCode }) {
   const URL = process.env.REACT_APP_API_URL;
   const [birdPosition, setBirdPosition] = useState(250);
   const [gameHasStarted, setGameHasStarted] = useState(false);
@@ -155,7 +155,10 @@ function Game() {
           </div>{" "}
         </div>{" "}
         {discount > 5 && gameOver ? (
-          <CouponGenerator discount={discount} />
+          <CouponGenerator
+            discount={discount}
+            setDiscountCode={setDiscountCode}
+          />
         ) : (
           ""
         )}
