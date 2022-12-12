@@ -12,7 +12,7 @@ import ForgotPassword from "./Components/ForgotPassword";
 import Modal from "./Components/modal/Modal";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
-
+import LoginModal from "./Components/loginModal/LoginModal";
 import Footer from "./Components/footer/Footer";
 import CheckOut from "./Components/checkOut/CheckOut";
 import axios from "axios";
@@ -32,9 +32,14 @@ const App = () => {
   const [input, setInput] = useState("");
   const [cart, setCart] = useState([]);
   const [login, setLogin] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("accessToken") ? true : false
+  );
   const [products, setProducts] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [discountCode, setDiscountCode] = useState("");
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  let filterProducts = [];
 
   const handleModalChange = () => {
     setModalOpen(true);
@@ -74,7 +79,6 @@ const App = () => {
       setProducts([]);
     }
   };
-  let filterProducts = [];
 
   if (input) {
     if (
@@ -116,11 +120,16 @@ const App = () => {
         />
       )}
       <NavBar
-        login={login}
         cartLength={cart.length}
-        setInput={setInput}
-        input={input}
+        setOpenLoginModal={setOpenLoginModal}
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
       />
+      <LoginModal
+        openLoginModal={openLoginModal}
+        setOpenLoginModal={setOpenLoginModal}
+        setLoggedIn={setLoggedIn}
+      ></LoginModal>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

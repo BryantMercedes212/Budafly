@@ -1,4 +1,5 @@
 import Loader from "../loader/Loader";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CouponGenerator from "../couponGenerator/CouponGenerator";
@@ -24,6 +25,7 @@ function Game({ setDiscountCode }) {
   const [level, setLevel] = useState(-2);
   const [gameOver, setGameOver] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  let navigate = useNavigate();
   discount = 0;
   const fetchScores = async () => {
     try {
@@ -33,6 +35,27 @@ function Game({ setDiscountCode }) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const requestOptions = {
+      headers: {
+        Authorization: `Bear ${localStorage.getItem("accessToken")}`,
+      },
+    };
+    fetch(`${URL}/users/authenticate`, requestOptions)
+      .then((response) => {
+        if (response.data.error) {
+          navigate("/");
+        } else {
+          alert("you're logged in");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("/");
+      });
+  }, []);
+
   useEffect(() => {
     fetchScores();
   }, [gameOver]);

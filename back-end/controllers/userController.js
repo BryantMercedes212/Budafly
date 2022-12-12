@@ -1,5 +1,6 @@
 const express = require("express");
 const users = express.Router();
+const bcrypt = require("bcrypt");
 const {
   getAllSellers,
   getOneSeller,
@@ -8,7 +9,10 @@ const {
   createOneProduct,
   updateOneProduct,
   deleteOneProduct,
+  createNewSeller,
+  getOneSellerByEmail,
 } = require("../queries/users");
+const jwtTokens = require("../utils/jwt-helpers");
 
 const productsController = require("./productsController");
 users.use("/:user_id/productsController", productsController);
@@ -17,6 +21,51 @@ users.get("/", async (req, res) => {
   const users = await getAllSellers();
 
   res.status(200).json(users);
+});
+
+users.post("/newuser", async (request, response) => {
+  console.log("post newuser");
+  const newSeller = await createNewSeller(request.body);
+  console.log(newSeller);
+  if (newSeller.status) {
+    response.status(200).json(newSeller);
+  } else if (newSeller) {
+    let data = jwtTokens(newSeller);
+    response.status(200).json(data);
+  }
+});
+
+users.post("/login", async (request, response) => {
+  let { email, password } = request.body;
+
+  const seller = await getOneSellerByEmail(email);
+
+  if (!seller) {
+    response.status(401).json({ error: "email is not correct" });
+    return;
+  }
+
+  const validPassword = await bcrypt.compare(password, seller.password);
+  if (!validPassword) {
+    response.status(401).send({ error: "Invalid password" });
+    return;
+  }
+
+  if (seller && validPassword) {
+    let data = jwtTokens(seller);
+    response.status(200).json(data);
+  }
+});
+
+router.get("/authenticate", async (req, res) => {
+  try {
+    console.log(req.headers);
+
+    console.log(accessToken);
+    res.send({});
+  } catch (error) {
+    res.send("error");
+  }
 });
 
 users.get("/:user_id", async (request, response) => {
