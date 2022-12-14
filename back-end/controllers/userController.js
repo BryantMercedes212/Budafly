@@ -25,9 +25,8 @@ users.get("/", authenticateToken, async (req, res) => {
 });
 
 users.post("/newuser", async (request, response) => {
-  console.log("post newuser");
   const newSeller = await createNewSeller(request.body);
-  console.log(newSeller);
+
   if (newSeller.status) {
     response.status(200).json(newSeller);
   } else if (newSeller) {
@@ -62,9 +61,6 @@ users.post("/login", async (request, response) => {
 
 users.get("/authenticate", async (req, res) => {
   try {
-    console.log(req.headers);
-
-    console.log(accessToken);
     res.send({});
   } catch (error) {
     res.send("error");

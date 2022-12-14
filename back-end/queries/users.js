@@ -34,9 +34,6 @@ const createNewSeller = async (user) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const lowerCasedEmail = email.toLowerCase();
-    if (firstName.length < 3) {
-      throw { error: "First name must be 4 chars or more" };
-    }
 
     const seller = await db.one(
       "INSERT INTO users (firstname, lastname, email, password) values ($1, $2, $3, $4) RETURNING user_id, firstname, email",
@@ -54,7 +51,6 @@ const getListedProducts = async (id) => {
       "SELECT * FROM products WHERE user_id=$1",
       id
     );
-    console.log(allProducts);
     return allProducts;
   } catch (error) {
     return error;

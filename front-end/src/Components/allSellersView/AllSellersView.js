@@ -16,15 +16,21 @@ const AllSellerView = () => {
     try {
       const res = await axios.get(`${URL}/users/`);
       setAllSeller(res.data);
+      setAccess(true);
     } catch (error) {
       console.log(error);
       setAllSeller([]);
+      setAccess(false);
     }
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [access]);
 
   const designedSeller = allSeller.map((seller) => {
     return (
