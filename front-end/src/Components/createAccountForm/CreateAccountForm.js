@@ -5,7 +5,11 @@ import { TextField, Button } from "@mui/material";
 import "./CreateAccountForm.css";
 import axios from "axios";
 
-const CreateAccountForm = ({ setOpenLoginModal, setLoggedIn }) => {
+const CreateAccountForm = ({
+  setOpenLoginModal,
+  setLoggedIn,
+  setLoginMessage,
+}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,9 +40,13 @@ const CreateAccountForm = ({ setOpenLoginModal, setLoggedIn }) => {
           setLastName("");
           setEmail("");
           setPassword("");
+          document.cookie = "accessToken" + response.data.accessToken;
           localStorage.setItem("accessToken", response.data.accessToken);
           setLoggedIn(true);
           setOpenLoginModal(false);
+          setLoginMessage(
+            "You have successfully created an Account and You are logged In "
+          );
         }
       })
       .catch((error) => console.log(error));

@@ -27,7 +27,12 @@ function a11yProps(index) {
   };
 }
 
-const LoginModal = ({ openLoginModal, setOpenLoginModal, setLoggedIn }) => {
+const LoginModal = ({
+  openLoginModal,
+  setOpenLoginModal,
+  setLoggedIn,
+  setLoginMessage,
+}) => {
   const [value, setValue] = useState(0);
 
   const style = {
@@ -76,14 +81,14 @@ const LoginModal = ({ openLoginModal, setOpenLoginModal, setLoggedIn }) => {
           <LoginAccountForm
             setOpenLoginModal={setOpenLoginModal}
             setLoggedIn={setLoggedIn}
-            // setLoginMessage={setLoginMessage}
+            setLoginMessage={setLoginMessage}
           />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <CreateAccountForm
             setOpenLoginModal={setOpenLoginModal}
             setLoggedIn={setLoggedIn}
-            // setLoginMessage={setLoginMessage}
+            setLoginMessage={setLoginMessage}
           />
         </TabPanel>
       </Stack>

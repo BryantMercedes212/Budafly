@@ -27,6 +27,9 @@ import CouponGenerator from "./Components/couponGenerator/CouponGenerator";
 import Game from "./Components/game/Game";
 import NewsLetter from "./Components/newsLetter/NewsLetter";
 
+import Alert from "@mui/material/Alert";
+import CheckIcon from "@mui/icons-material/Check";
+
 const App = () => {
   const URL = process.env.REACT_APP_API_URL;
   const [input, setInput] = useState("");
@@ -39,6 +42,7 @@ const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [discountCode, setDiscountCode] = useState("");
   const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [loginMessage, setLoginMessage] = useState("");
   let filterProducts = [];
 
   const handleModalChange = () => {
@@ -111,6 +115,12 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setTimeout(function () {
+      setLoginMessage("");
+    }, 3000);
+  }, [loginMessage]);
+
   return (
     <div className="App">
       {!modalOpen && (
@@ -124,12 +134,19 @@ const App = () => {
         setOpenLoginModal={setOpenLoginModal}
         loggedIn={loggedIn}
         setLoggedIn={setLoggedIn}
+        setLoginMessage={setLoginMessage}
       />
       <LoginModal
         openLoginModal={openLoginModal}
         setOpenLoginModal={setOpenLoginModal}
         setLoggedIn={setLoggedIn}
+        setLoginMessage={setLoginMessage}
       ></LoginModal>
+      {loginMessage && (
+        <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+          {loginMessage}
+        </Alert>
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

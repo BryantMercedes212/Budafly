@@ -36,25 +36,25 @@ function Game({ setDiscountCode }) {
     }
   };
 
-  useEffect(() => {
-    const requestOptions = {
-      headers: {
-        Authorization: `Bear ${localStorage.getItem("accessToken")}`,
-      },
-    };
-    fetch(`${URL}/users/authenticate`, requestOptions)
-      .then((response) => {
-        if (response.data.error) {
-          navigate("/");
-        } else {
-          alert("you're logged in");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        navigate("/");
-      });
-  }, []);
+  // useEffect(() => {
+  //   const requestOptions = {
+  //     headers: {
+  //       Authorization: `Bear ${localStorage.getItem("accessToken")}`,
+  //     },
+  //   };
+  //   fetch(`${URL}/users/authenticate`, requestOptions)
+  //     .then((response) => {
+  //       if (response.data.error) {
+  //         navigate("/");
+  //       } else {
+  //         alert("you're logged in");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       navigate("/");
+  //     });
+  // }, []);
 
   useEffect(() => {
     fetchScores();

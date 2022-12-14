@@ -4,11 +4,16 @@ import Typography from "@mui/material/Typography";
 import { TextField, Button } from "@mui/material";
 import axios from "axios";
 
-const LoginAccountForm = ({ setOpenLoginModal, setLoggedIn }) => {
+const LoginAccountForm = ({
+  setOpenLoginModal,
+  setLoggedIn,
+  setLoginMessage,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const URL = process.env.REACT_APP_API_URL;
+  const [formMessage, setFormMessage] = useState("");
 
   const validateEmail = () => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -25,11 +30,18 @@ const LoginAccountForm = ({ setOpenLoginModal, setLoggedIn }) => {
         password: password,
       })
       .then((response) => {
-        setEmail("");
-        setPassword("");
-        setOpenLoginModal(false);
-        localStorage.setItem("accessToken", response.data.accessToken);
-        setLoggedIn(true);
+        console.log(response.data);
+        if (response.data.status === "error") {
+          setFormMessage(response.data.message);
+        } else {
+          setEmail("");
+          setPassword("");
+          setOpenLoginModal(false);
+          document.cookie = "accessToken" + response.data.accessToken;
+          localStorage.setItem("accessToken", response.data.accessToken);
+          setLoggedIn(true);
+          setLoginMessage("You have successfully Logged In ");
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -50,11 +62,11 @@ const LoginAccountForm = ({ setOpenLoginModal, setLoggedIn }) => {
       >
         Please Log In
       </Typography>
-      {/* {formMessage && 
-    <div className="form__errorText" style={{"color" : "red"}}>
-        {formMessage}
-    </div>
-} */}
+      {formMessage && (
+        <div className="form__errorText" style={{ color: "red" }}>
+          {formMessage}
+        </div>
+      )}
 
       <TextField
         id="outlined-basic"

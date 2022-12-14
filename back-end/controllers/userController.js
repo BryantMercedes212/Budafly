@@ -1,6 +1,7 @@
 const express = require("express");
 const users = express.Router();
 const bcrypt = require("bcrypt");
+const authenticateToken = require("../middleware/authorization");
 const {
   getAllSellers,
   getOneSeller,
@@ -17,7 +18,7 @@ const jwtTokens = require("../utils/jwt-helpers");
 const productsController = require("./productsController");
 users.use("/:user_id/productsController", productsController);
 
-users.get("/", async (req, res) => {
+users.get("/", authenticateToken, async (req, res) => {
   const users = await getAllSellers();
 
   res.status(200).json(users);
@@ -40,14 +41,16 @@ users.post("/login", async (request, response) => {
 
   const seller = await getOneSellerByEmail(email);
 
-  if (!seller) {
-    response.status(401).json({ error: "email is not correct" });
+  if (seller.message) {
+    response
+      .status(200)
+      .json({ status: "error", message: "Email is not correct" });
     return;
   }
 
   const validPassword = await bcrypt.compare(password, seller.password);
   if (!validPassword) {
-    response.status(401).send({ error: "Invalid password" });
+    response.status(200).send({ status: "error", message: "Invalid password" });
     return;
   }
 
@@ -57,7 +60,7 @@ users.post("/login", async (request, response) => {
   }
 });
 
-router.get("/authenticate", async (req, res) => {
+users.get("/authenticate", async (req, res) => {
   try {
     console.log(req.headers);
 

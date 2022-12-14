@@ -12,12 +12,19 @@ import SubMenu from "../subMenu/SubMenu";
 
 import "./NavBar.css";
 
-const Navbar = ({ cartLength, setOpenLoginModal, loggedIn, setLoggedIn }) => {
+const Navbar = ({
+  cartLength,
+  setOpenLoginModal,
+  loggedIn,
+  setLoggedIn,
+  setLoginMessage,
+}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const logOut = () => {
     console.log("logged out");
     localStorage.removeItem("accessToken");
+    setLoginMessage("You have successfully logged out");
     setLoggedIn(false);
   };
 
