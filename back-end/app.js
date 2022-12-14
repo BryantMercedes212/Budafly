@@ -8,6 +8,9 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors());
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 // Routes
 app.get("/", (request, response) => {
@@ -28,14 +31,6 @@ app.use("/coupons", coupons);
 
 const scores = require("./controllers/scores");
 app.use("/scores", scores);
-
-//  Login ROUTES
-const login = require("./controllers/login.js");
-app.use("/login", login);
-
-//  signUp ROUTES
-const signUp = require("./controllers/signUp.js");
-app.use("/signUp", signUp);
 
 // 404 Page
 app.get("*", (request, response) => {

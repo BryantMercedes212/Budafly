@@ -12,8 +12,21 @@ import SubMenu from "../subMenu/SubMenu";
 
 import "./NavBar.css";
 
-const Navbar = ({ cartLength }) => {
+const Navbar = ({
+  cartLength,
+  setOpenLoginModal,
+  loggedIn,
+  setLoggedIn,
+  setLoginMessage,
+}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const logOut = () => {
+    console.log("logged out");
+    localStorage.removeItem("accessToken");
+    setLoginMessage("You have successfully logged out");
+    setLoggedIn(false);
+  };
 
   return (
     <div className="navbar">
@@ -73,10 +86,22 @@ const Navbar = ({ cartLength }) => {
               <Link to="/products">
                 <MenuItem text="Products" />
               </Link>
-
               <Link to="/Cart">
                 <MenuItem text={`🛒 (${cartLength})`} />
               </Link>
+              {loggedIn && (
+                <Button variant="contained" onClick={logOut}>
+                  Log Out
+                </Button>
+              )}
+              {!loggedIn && (
+                <Button
+                  variant="contained"
+                  onClick={() => setOpenLoginModal(true)}
+                >
+                  Log In
+                </Button>
+              )}
             </ul>
           </div>
         </div>
