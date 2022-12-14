@@ -40,7 +40,6 @@ const CreateAccountForm = ({
           setLastName("");
           setEmail("");
           setPassword("");
-          document.cookie = "accessToken" + response.data.accessToken;
           localStorage.setItem("accessToken", response.data.accessToken);
           setLoggedIn(true);
           setOpenLoginModal(false);
@@ -61,10 +60,12 @@ const CreateAccountForm = ({
   };
 
   const validatePassword = () => {
+    console.log("");
     if ("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$".test(password)) {
-      setEmailError(false);
+      setPasswordError(false);
     } else {
-      setEmailError(true);
+      console.log("errro");
+      setPasswordError(true);
     }
   };
 
