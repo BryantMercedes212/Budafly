@@ -12,7 +12,7 @@ import ForgotPassword from "./Components/ForgotPassword";
 import Modal from "./Components/modal/Modal";
 import Faqs from "./Components/FAQs";
 import Laws from "./Components/Laws";
-
+import LoginModal from "./Components/loginModal/LoginModal";
 import Footer from "./Components/footer/Footer";
 import CheckOut from "./Components/checkOut/CheckOut";
 import axios from "axios";
@@ -27,14 +27,23 @@ import CouponGenerator from "./Components/couponGenerator/CouponGenerator";
 import Game from "./Components/game/Game";
 import NewsLetter from "./Components/newsLetter/NewsLetter";
 
+import Alert from "@mui/material/Alert";
+import CheckIcon from "@mui/icons-material/Check";
+
 const App = () => {
   const URL = process.env.REACT_APP_API_URL;
   const [input, setInput] = useState("");
   const [cart, setCart] = useState([]);
   const [login, setLogin] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("accessToken") ? true : false
+  );
   const [products, setProducts] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [discountCode, setDiscountCode] = useState("");
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [loginMessage, setLoginMessage] = useState("");
+  let filterProducts = [];
 
   const handleModalChange = () => {
     setModalOpen(true);
@@ -74,7 +83,6 @@ const App = () => {
       setProducts([]);
     }
   };
-  let filterProducts = [];
 
   if (input) {
     if (
@@ -107,6 +115,12 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setTimeout(function () {
+      setLoginMessage("");
+    }, 3000);
+  }, [loginMessage]);
+
   return (
     <div className="App">
       {!modalOpen && (
@@ -116,11 +130,23 @@ const App = () => {
         />
       )}
       <NavBar
-        login={login}
         cartLength={cart.length}
-        setInput={setInput}
-        input={input}
+        setOpenLoginModal={setOpenLoginModal}
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
+        setLoginMessage={setLoginMessage}
       />
+      <LoginModal
+        openLoginModal={openLoginModal}
+        setOpenLoginModal={setOpenLoginModal}
+        setLoggedIn={setLoggedIn}
+        setLoginMessage={setLoginMessage}
+      ></LoginModal>
+      {loginMessage && (
+        <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+          {loginMessage}
+        </Alert>
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

@@ -1,4 +1,5 @@
 const db = require("../db/dbConfig");
+const bcrypt = require("bcrypt");
 
 const getAllSellers = async () => {
   try {
@@ -15,6 +16,35 @@ const getOneSeller = async (id) => {
     return seller;
   } catch (err) {
     return err;
+  }
+};
+
+const getOneSellerByEmail = async (email) => {
+  try {
+    const seller = await db.one("SELECT * FROM users WHERE email=$1 ", [email]);
+    return seller;
+  } catch (err) {
+    return err;
+  }
+};
+
+const createNewSeller = async (user) => {
+  const { firstName, lastName, email, password } = user;
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const lowerCasedEmail = email.toLowerCase();
+    if (firstName.length < 3) {
+      throw { error: "First name must be 4 chars or more" };
+    }
+
+    const seller = await db.one(
+      "INSERT INTO users (firstname, lastname, email, password) values ($1, $2, $3, $4) RETURNING user_id, firstname, email",
+      [firstName, lastName, lowerCasedEmail, hashedPassword]
+    );
+    return seller;
+  } catch (err) {
+    return { status: "error", message: err.message };
   }
 };
 
@@ -125,4 +155,6 @@ module.exports = {
   createOneProduct,
   updateOneProduct,
   deleteOneProduct,
+  createNewSeller,
+  getOneSellerByEmail,
 };

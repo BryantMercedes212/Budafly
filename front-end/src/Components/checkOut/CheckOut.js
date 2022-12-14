@@ -234,8 +234,6 @@ const Checkout = ({ cart, setCart, deleteItem, discountCode }) => {
     setPlaceOrder(true);
   };
 
-  const handleClearAll = () => {};
-
   return isLoading ? (
     <Loader />
   ) : (

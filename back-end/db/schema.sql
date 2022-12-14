@@ -9,8 +9,8 @@ CREATE TABLE users (
     user_id SERIAL primary key,
     firstname TEXT NOT NULL,
     lastname TEXT NOT NULL,
-    email VARCHAR NOT NULL,
-    phone_number VARCHAR NOT NULL
+    email TEXT NOT NULL UNIQUE,
+   password TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS products;

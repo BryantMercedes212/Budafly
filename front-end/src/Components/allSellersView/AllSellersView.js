@@ -7,8 +7,12 @@ const AllSellerView = () => {
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const [allSeller, setAllSeller] = useState([]);
+  const [access, setAccess] = useState(false);
 
   const fetchProducts = async () => {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("accessToken")}`;
     try {
       const res = await axios.get(`${URL}/users/`);
       setAllSeller(res.data);
@@ -52,9 +56,16 @@ const AllSellerView = () => {
     );
   });
 
-  return (
+  return access ? (
     <div className="productCards">
       <div className="productCards__container">{designedSeller}</div>
+    </div>
+  ) : (
+    <div class="animate__animated  animate__bounceInLeft">
+      <div className="noSearch">
+        {" "}
+        You need To be Logged In to Access This Page
+      </div>
     </div>
   );
 };

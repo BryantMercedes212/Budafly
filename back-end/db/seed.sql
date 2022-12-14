@@ -1,14 +1,14 @@
 \c bud_dev;
 
 
-INSERT INTO users (firstname, lastname, email, phone_number)
+INSERT INTO users (firstname, lastname, email, password)
 VALUES 
-('Seller', 'One', 'ymail1@ymail.com', '212-111-1111'),
-('Seller', 'Two', 'ymail2@ymail.com', '212-111-1112'),
-('Seller', 'Three', 'ymail3@ymail.com', '212-111-1113'),
-('Seller', 'Four', 'hmail4@ymail.com', '212-111-1114'),
-('Seller', 'Five', 'imail5@ymail.com', '212-111-1115'),
-('Seller', 'Six', 'jmail6@ymail.com', '212-111-1116');
+('Seller', 'One', 'ymail1@ymail.com', 'bryant212'),
+('Seller', 'Two', 'ymail2@ymail.com', 'bryant212'),
+('Seller', 'Three', 'ymail3@ymail.com','bryant212'),
+('Seller', 'Four', 'hmail4@ymail.com','bryant212'),
+('Seller', 'Five', 'imail5@ymail.com','bryant212'),
+('Seller', 'Six', 'jmail6@ymail.com','bryant212');
 
 
 INSERT INTO products (name, cannabinoid, type, description, feelings, negatives, price, image, user_id) 
